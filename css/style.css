@@ -103,7 +103,7 @@ body {
 
 .scene {
   position: relative;
-  min-height: 100%;
+  height: 100%;          /* l'accueil tient exactement dans l'écran : jamais d'ascenseur */
   padding-top: var(--hauteur-entete);
   display: flex;
   flex-direction: column;
@@ -120,19 +120,36 @@ body {
   filter: blur(28px) brightness(0.55) saturate(1.2);
 }
 
-/* Premier plan : l'image entière, étalée d'un bord à l'autre de l'écran */
+/* Premier plan : l'espace laissé sous le bandeau, jusqu'en bas de l'écran */
 .scene-cadre {
   position: relative;
+  flex: 1 1 0;
+  min-height: 0;
   width: 100%;
-  margin-top: auto;      /* l'image repose en bas quand il reste de la place */
+  container-type: size;  /* mesure l'espace disponible (unités cqw / cqh) */
+  display: flex;
+  align-items: flex-end; /* l'image repose en bas de l'écran */
+}
+
+/* Fenêtre sur l'image : toujours de toute la largeur de l'écran.
+   Si la hauteur manque, on rogne le haut de l'image (ciel étoilé) plutôt que les côtés,
+   et presque rien en bas pour garder les légendes. */
+.scene-fenetre {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  height: min(100cqh, 100cqw * 608 / 1698);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 10%, #000 100%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 10%, #000 100%);
 }
 
 .scene-image {
   display: block;
   width: 100%;
-  height: auto;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 100%);
-          mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 100%);
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 88%;   /* 88 % du rognage pris en haut, 12 % en bas */
 }
 
 /* ---------- Page d'accueil : bandeau « ancien / nouveau paradigme » ---------- */
@@ -146,7 +163,7 @@ body {
   justify-content: space-between;
   gap: clamp(1.5rem, 4vw, 5rem);
   width: 100%;           /* bandeau d'un bord à l'autre */
-  padding: clamp(0.75rem, 1.8vh, 1.25rem) clamp(1rem, 3vw, 3.5rem);
+  padding: clamp(0.4rem, 1.4vh, 1.1rem) clamp(1rem, 3vw, 3.5rem);
   background: rgba(5, 13, 34, 0.55);
   border-bottom: 1px solid rgba(95, 212, 255, 0.18);
   backdrop-filter: blur(6px);
@@ -155,15 +172,15 @@ body {
 
 .schema-qft {
   flex: 0 0 auto;        /* le schéma, collé au bord gauche… */
-  height: clamp(150px, 27vh, 300px);
+  height: clamp(100px, 17vh, 260px);
   width: auto;
   max-width: 62%;
 }
 
 .schema-qft .qft-titre      { font-size: 15px; font-weight: 600; letter-spacing: 0.04em; }
 .schema-qft .qft-sous-titre { font-size: 13px; fill: var(--texte); }
-.schema-qft .qft-legende    { font-size: 12px; fill: var(--texte-doux); }
-.schema-qft .qft-note       { font-size: 11px; fill: var(--texte-doux); }
+.schema-qft .qft-legende    { font-size: 13px; fill: var(--texte-doux); }
+.schema-qft .qft-note       { font-size: 12px; fill: var(--texte-doux); }
 .schema-qft .qft-annee {
   font-size: 46px;
   font-weight: 600;
@@ -217,7 +234,7 @@ body {
   }
   .menu ul::-webkit-scrollbar { display: none; }
 
-  .scene { justify-content: center; }
+  .scene { height: auto; min-height: 100%; justify-content: center; padding-bottom: 1rem; }
 
   .bandeau-qft {
     flex-direction: column;
@@ -231,7 +248,9 @@ body {
     padding-left: 0;
     text-align: center;
   }
-  .scene-cadre { margin-top: 1rem; }
+  .scene-cadre { flex: 0 0 auto; container-type: normal; margin-top: 1rem; }
+  .scene-fenetre { height: auto; }
+  .scene-image { height: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
