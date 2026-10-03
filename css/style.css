@@ -1,0 +1,160 @@
+/* ===== QuantumSite — feuille de style commune ===== */
+
+:root {
+  --nuit:        #050d22;   /* fond profond, repris du haut de l'image */
+  --nuit-voile:  rgba(5, 13, 34, 0.72);
+  --texte:       #e6eefc;
+  --texte-doux:  #9fb3d6;
+  --cyan:        #5fd4ff;   /* lueur du panneau « mathématiques » */
+  --rouge:       #ff5a6e;   /* lueur du panneau « géométrie » */
+  --hauteur-entete: 64px;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { margin: 0; height: 100%; }
+
+body {
+  font-family: "Jost", "Segoe UI", system-ui, sans-serif;
+  color: var(--texte);
+  background: var(--nuit);
+}
+
+/* ---------- En-tête ---------- */
+
+.entete {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  height: var(--hauteur-entete);
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 0 1.75rem;
+  background: var(--nuit-voile);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(95, 212, 255, 0.18);
+}
+
+.nom-site {
+  flex-shrink: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--texte);
+  text-decoration: none;
+}
+
+.menu { min-width: 0; }
+
+.menu ul {
+  display: flex;
+  gap: 1.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  position: relative;
+  display: block;
+  padding: 0.4rem 0;
+  font-size: 0.98rem;
+  font-weight: 400;
+  color: var(--texte-doux);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s;
+}
+
+.menu a:hover { color: var(--texte); }
+.menu a:hover::after { transform: scaleX(1); opacity: 0.5; }
+
+.menu a[aria-current="page"] {
+  color: var(--texte);
+  font-weight: 500;
+}
+.menu a[aria-current="page"]::after { transform: scaleX(1); opacity: 1; }
+
+.nom-site:focus-visible,
+.menu a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ---------- Page d'accueil : image de fond ---------- */
+
+.scene {
+  position: relative;
+  height: 100%;
+  padding-top: var(--hauteur-entete);
+  display: flex;
+  align-items: flex-end;   /* l'image repose en bas de l'écran, le flou fait office de ciel */
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Fond : la même image, agrandie et floutée, pour remplir tout l'écran */
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background: url("../images/fond-accueil.jpeg") center / cover no-repeat;
+  filter: blur(28px) brightness(0.55) saturate(1.2);
+}
+
+/* Premier plan : l'image entière, sans recadrage, pour garder les trois panneaux lisibles */
+.scene-image {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 100%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 100%);
+}
+
+/* ---------- Écrans étroits ---------- */
+
+@media (max-width: 900px) {
+  :root { --hauteur-entete: 104px; }
+
+  .entete {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.6rem 1rem 0;
+  }
+
+  .menu ul {
+    gap: 1.25rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+  }
+  .menu ul::-webkit-scrollbar { display: none; }
+
+  .scene { align-items: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu a, .menu a::after { transition: none; }
+}
