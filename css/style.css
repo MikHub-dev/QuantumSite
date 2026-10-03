@@ -103,7 +103,7 @@ body {
 
 .scene {
   position: relative;
-  height: 100%;
+  min-height: 100%;
   padding-top: var(--hauteur-entete);
   display: flex;
   flex-direction: column;
@@ -120,32 +120,19 @@ body {
   filter: blur(28px) brightness(0.55) saturate(1.2);
 }
 
-/* Premier plan : l'image entière, sans recadrage, dans l'espace laissé sous le bandeau */
+/* Premier plan : l'image entière, étalée d'un bord à l'autre de l'écran */
 .scene-cadre {
   position: relative;
-  flex: 1 1 0;
-  min-height: 0;
   width: 100%;
-  container-type: size;  /* donne à l'image la taille exacte de l'espace disponible */
-  display: flex;
-  align-items: flex-end; /* l'image repose en bas de l'écran */
-  justify-content: center;
+  margin-top: auto;      /* l'image repose en bas quand il reste de la place */
 }
 
 .scene-image {
   display: block;
-  width: min(100cqw, 100cqh * 1698 / 608);   /* la plus grande taille qui tient, proportions gardées */
+  width: 100%;
   height: auto;
-
-  /* fondu en haut, et sur les côtés quand l'image ne prend pas toute la largeur */
-  -webkit-mask-image:
-    linear-gradient(to bottom, transparent 0, #000 14%, #000 100%),
-    linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
-  -webkit-mask-composite: source-in;
-          mask-image:
-    linear-gradient(to bottom, transparent 0, #000 14%, #000 100%),
-    linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
-          mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 100%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 100%);
 }
 
 /* ---------- Page d'accueil : bandeau « ancien / nouveau paradigme » ---------- */
@@ -156,21 +143,19 @@ body {
   flex: 0 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: clamp(1.25rem, 3vw, 3rem);
-  width: min(100% - 2rem, 1180px);
-  margin: clamp(0.75rem, 2.2vh, 1.75rem) auto 0;
-  padding: clamp(0.6rem, 1.4vh, 1rem) clamp(1rem, 2.5vw, 2rem);
+  justify-content: space-between;
+  gap: clamp(1.5rem, 4vw, 5rem);
+  width: 100%;           /* bandeau d'un bord à l'autre */
+  padding: clamp(0.75rem, 1.8vh, 1.25rem) clamp(1rem, 3vw, 3.5rem);
   background: rgba(5, 13, 34, 0.55);
-  border: 1px solid rgba(95, 212, 255, 0.18);
-  border-radius: 14px;
+  border-bottom: 1px solid rgba(95, 212, 255, 0.18);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
 
 .schema-qft {
-  flex: 0 1 auto;
-  height: clamp(150px, 26vh, 250px);
+  flex: 0 0 auto;        /* le schéma, collé au bord gauche… */
+  height: clamp(150px, 27vh, 300px);
   width: auto;
   max-width: 62%;
 }
@@ -194,10 +179,9 @@ body {
 .schema-qft .qft-surface polygon { stroke: rgba(5, 13, 34, 0.55); stroke-width: 0.5; stroke-linejoin: round; }
 
 .phrase-qft {
-  flex: 1 1 18rem;
-  max-width: 26rem;
+  flex: 1 1 0;           /* …la phrase s'étire jusqu'au bord droit */
   margin: 0;
-  font-size: clamp(1.1rem, 1.9vw, 1.65rem);
+  font-size: calc(clamp(1.1rem, 2.6vw, 2.9rem) - 2px);
   font-weight: 500;
   line-height: 1.35;
   color: var(--texte);
@@ -233,13 +217,13 @@ body {
   }
   .menu ul::-webkit-scrollbar { display: none; }
 
-  .scene { height: auto; min-height: 100%; justify-content: center; padding-bottom: 1rem; }
+  .scene { justify-content: center; }
 
   .bandeau-qft {
     flex-direction: column;
     gap: 0.75rem;
   }
-  .schema-qft { height: auto; width: 100%; max-width: 560px; }
+  .schema-qft { width: 100%; height: auto; max-width: none; }
   .phrase-qft {
     flex: 0 0 auto;
     max-width: 34rem;
@@ -247,8 +231,7 @@ body {
     padding-left: 0;
     text-align: center;
   }
-  .scene-cadre { flex: 0 0 auto; container-type: normal; margin-top: 1rem; }
-  .scene-image { width: 100%; }
+  .scene-cadre { margin-top: 1rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
