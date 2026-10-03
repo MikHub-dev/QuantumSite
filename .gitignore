@@ -1,0 +1,3 @@
+_inbox/*
+!_inbox/.gitkeep
+.inbox-stage/

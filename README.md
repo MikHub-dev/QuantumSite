@@ -30,3 +30,14 @@ Site aide-mémoire sur les notions de la quantique.
 
 - `index.html` : la série des 50 notions (HTML, CSS, JavaScript et illustrations SVG dans un seul fichier).
 - `outils-mathematiques.html` : la série « Outils Mathématiques de la quantique », même moteur, marques enregistrées séparément.
+
+## Synchronisation depuis `_inbox/`
+
+Déposez dans `_inbox/` les fichiers à intégrer, ou une archive ZIP, puis lancez :
+
+```sh
+bash scripts/synch_agent.sh plan
+bash scripts/synch_agent.sh run
+```
+
+`plan` affiche les ajouts et modifications sans les appliquer. `run` applique les changements, sauvegarde les versions remplacées dans `_inbox/.sauvegardes/`, crée un commit et le pousse sur la branche courante. Les sources traitées sont conservées dans `_inbox/.traites/`. Pour annuler le dernier commit de synchronisation, lancez `bash scripts/synch_agent.sh annuler`.
