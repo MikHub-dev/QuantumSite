@@ -98,6 +98,9 @@ h1{font-family:var(--serif);font-weight:500;font-size:clamp(28px,5.5vw,38px);lin
 @media (prefers-reduced-motion:reduce){
   .inner,.fringes button{transition:none}
 }
+.crumb{margin:6px 0 0;font-size:14px}
+.crumb a{color:var(--muted);text-underline-offset:3px}
+.crumb a:focus-visible{outline:2px solid var(--acc2);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -113,6 +116,7 @@ h1{font-family:var(--serif);font-weight:500;font-size:clamp(28px,5.5vw,38px);lin
   <header>
     <h1>50 notions quantiques</h1>
     <p class="stats" id="stats"></p>
+    <p class="crumb"><a href="outils-mathematiques.html">Autre série : Outils Mathématiques de la quantique (100 cartes)</a></p>
   </header>
   <nav class="fringes" id="fringes" aria-label="Accès direct aux 50 cartes"></nav>
   <div class="legend">
