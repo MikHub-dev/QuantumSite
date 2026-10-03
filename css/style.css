@@ -106,8 +106,8 @@ body {
   height: 100%;
   padding-top: var(--hauteur-entete);
   display: flex;
-  align-items: flex-end;   /* l'image repose en bas de l'écran, le flou fait office de ciel */
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   overflow: hidden;
 }
 
@@ -120,15 +120,96 @@ body {
   filter: blur(28px) brightness(0.55) saturate(1.2);
 }
 
-/* Premier plan : l'image entière, sans recadrage, pour garder les trois panneaux lisibles */
-.scene-image {
+/* Premier plan : l'image entière, sans recadrage, dans l'espace laissé sous le bandeau */
+.scene-cadre {
   position: relative;
-  display: block;
+  flex: 1 1 0;
+  min-height: 0;
   width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 100%);
-          mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 100%);
+  container-type: size;  /* donne à l'image la taille exacte de l'espace disponible */
+  display: flex;
+  align-items: flex-end; /* l'image repose en bas de l'écran */
+  justify-content: center;
+}
+
+.scene-image {
+  display: block;
+  width: min(100cqw, 100cqh * 1698 / 608);   /* la plus grande taille qui tient, proportions gardées */
+  height: auto;
+
+  /* fondu en haut, et sur les côtés quand l'image ne prend pas toute la largeur */
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0, #000 14%, #000 100%),
+    linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image:
+    linear-gradient(to bottom, transparent 0, #000 14%, #000 100%),
+    linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
+          mask-composite: intersect;
+}
+
+/* ---------- Page d'accueil : bandeau « ancien / nouveau paradigme » ---------- */
+
+.bandeau-qft {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.25rem, 3vw, 3rem);
+  width: min(100% - 2rem, 1180px);
+  margin: clamp(0.75rem, 2.2vh, 1.75rem) auto 0;
+  padding: clamp(0.6rem, 1.4vh, 1rem) clamp(1rem, 2.5vw, 2rem);
+  background: rgba(5, 13, 34, 0.55);
+  border: 1px solid rgba(95, 212, 255, 0.18);
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.schema-qft {
+  flex: 0 1 auto;
+  height: clamp(150px, 26vh, 250px);
+  width: auto;
+  max-width: 62%;
+}
+
+.schema-qft .qft-titre      { font-size: 15px; font-weight: 600; letter-spacing: 0.04em; }
+.schema-qft .qft-sous-titre { font-size: 13px; fill: var(--texte); }
+.schema-qft .qft-legende    { font-size: 12px; fill: var(--texte-doux); }
+.schema-qft .qft-note       { font-size: 11px; fill: var(--texte-doux); }
+.schema-qft .qft-annee {
+  font-size: 46px;
+  font-weight: 600;
+  fill: var(--texte);
+  letter-spacing: 0.03em;
+  paint-order: stroke;
+  stroke: rgba(95, 212, 255, 0.35);
+  stroke-width: 6px;
+}
+.schema-qft .qft-grille     { stroke: rgba(159, 179, 214, 0.22); stroke-width: 0.7; }
+.schema-qft .qft-arete      { stroke: rgba(230, 238, 252, 0.6); stroke-width: 1; fill: none; }
+.schema-qft .qft-arete-fond { stroke: rgba(159, 179, 214, 0.3); stroke-width: 0.8; fill: none; }
+.schema-qft .qft-surface polygon { stroke: rgba(5, 13, 34, 0.55); stroke-width: 0.5; stroke-linejoin: round; }
+
+.phrase-qft {
+  flex: 1 1 18rem;
+  max-width: 26rem;
+  margin: 0;
+  font-size: clamp(1.1rem, 1.9vw, 1.65rem);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--texte);
+  border-left: 3px solid var(--cyan);
+  padding-left: 1.1rem;
+  text-wrap: balance;
+}
+
+.phrase-qft strong {
+  font-weight: 600;
+  color: var(--cyan);
+  text-shadow: 0 0 14px rgba(95, 212, 255, 0.45);
 }
 
 /* ---------- Écrans étroits ---------- */
@@ -152,7 +233,22 @@ body {
   }
   .menu ul::-webkit-scrollbar { display: none; }
 
-  .scene { align-items: center; }
+  .scene { height: auto; min-height: 100%; justify-content: center; padding-bottom: 1rem; }
+
+  .bandeau-qft {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .schema-qft { height: auto; width: 100%; max-width: 560px; }
+  .phrase-qft {
+    flex: 0 0 auto;
+    max-width: 34rem;
+    border-left: none;
+    padding-left: 0;
+    text-align: center;
+  }
+  .scene-cadre { flex: 0 0 auto; container-type: normal; margin-top: 1rem; }
+  .scene-image { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
