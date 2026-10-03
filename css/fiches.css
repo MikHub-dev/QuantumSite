@@ -1,0 +1,425 @@
+/* =====================================================================
+   QuantumSite — pages de fiches (Fiches Quantiques, Fiches Mathématiques)
+   Complète css/style.css (en-tête, couleurs du site).
+   ===================================================================== */
+
+.page-fiches {
+  --accent: var(--cyan);
+  --accent-voile: rgba(95, 212, 255, 0.14);
+  --verre: rgba(8, 20, 48, 0.62);
+  --verre-clair: rgba(14, 30, 66, 0.82);
+  --trait: rgba(159, 179, 214, 0.22);
+  --serif: "Spectral", "Cambria Math", "STIX Two Text", Georgia, serif;
+
+  /* Palette des illustrations (version sombre des anciennes cartes) */
+  --ink: #e8eaf7;
+  --muted: #9ca2ca;
+  --acc: #f2b33d;
+  --acc2: #a39dff;
+  --acc-s: #4a3a1c;
+  --acc2-s: #302e70;
+  --muted-s: #272d5c;
+}
+
+.page-fiches.theme-maths {
+  --accent: #f2c879;                       /* le cœur doré de la galaxie */
+  --accent-voile: rgba(242, 200, 121, 0.14);
+}
+
+/* L'image de l'accueil, floutée et assombrie, fixée derrière le contenu */
+.page-fiches::before {
+  content: "";
+  position: fixed;
+  inset: -40px;
+  z-index: -1;
+  background: url("../images/fond-accueil.jpeg") center / cover no-repeat;
+  filter: blur(30px) brightness(0.4) saturate(1.2);
+}
+
+.page-fiches .menu a::after { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+
+.fiches {
+  min-height: 100%;
+  padding: calc(var(--hauteur-entete) + 2.5rem) 1.75rem 3rem;
+}
+
+/* ================= Vue « thèmes » ================= */
+
+.themes { max-width: 1080px; margin: 0 auto; }
+
+.themes-titre {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.themes-intro {
+  max-width: 60ch;
+  margin: 0.6rem 0 0;
+  color: var(--texte);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.themes-bilan {
+  margin: 0.2rem 0 2.25rem;
+  color: var(--texte-doux);
+  font-size: 0.95rem;
+}
+
+.grille-vignettes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vignette {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  height: 100%;
+  min-height: 180px;
+  padding: 1.25rem 1.35rem 1.3rem;
+  border: 1px solid var(--trait);
+  border-radius: 14px;
+  background: var(--verre);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: var(--texte);
+  text-decoration: none;
+  overflow: hidden;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.vignette:hover { border-color: var(--accent); background: var(--verre-clair); }
+.vignette:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Le symbole du thème est l'élément marquant de chaque vignette */
+.vignette-symbole {
+  align-self: center;
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--accent);
+  text-shadow: 0 0 18px var(--accent-voile), 0 0 4px var(--accent-voile);
+}
+.vignette-symbole sup, .vignette-symbole sub,
+.paquet-symbole sup, .paquet-symbole sub { font-size: 0.55em; line-height: 0; }
+
+.vignette-nom { margin-top: 1rem; font-size: 1.15rem; font-weight: 500; line-height: 1.25; }
+.vignette-compte { margin-top: 0.15rem; font-size: 0.9rem; color: var(--texte-doux); }
+
+/* Part des fiches connues, le long du bord inférieur */
+.vignette-jauge {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 3px;
+  background: rgba(159, 179, 214, 0.12);
+}
+.vignette-jauge span { display: block; height: 100%; background: var(--acc2); }
+
+/* « Toutes » occupe deux colonnes : c'est le point d'entrée principal */
+@media (min-width: 560px) {
+  .grille-vignettes li:has(.vignette-toutes) { grid-column: span 2; }
+}
+.vignette-toutes { background: linear-gradient(135deg, var(--accent-voile), transparent 70%), var(--verre); }
+.vignette-toutes .vignette-symbole { font-size: 3.3rem; }
+
+/* « À revoir » est une liste personnelle : bord en pointillé, couleur des marques */
+.vignette-a-revoir { border-style: dashed; }
+.vignette-a-revoir .vignette-symbole { color: var(--acc); text-shadow: none; }
+
+.themes-pied { margin: 2rem 0 0; }
+
+.lien {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--texte-doux);
+  font: inherit;
+  font-size: 0.92rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.lien:hover { color: var(--texte); }
+.lien:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ================= Vue « paquet » ================= */
+
+.vue-paquet {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-top: calc(var(--hauteur-entete) + 1.25rem);
+  padding-bottom: 1.5rem;
+}
+
+.paquet {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.paquet-barre {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bouton-retour {
+  justify-self: start;
+  padding: 0.35rem 0;
+  color: var(--texte-doux);
+  font-size: 0.98rem;
+  text-decoration: none;
+}
+.bouton-retour:hover { color: var(--texte); text-decoration: underline; text-underline-offset: 4px; }
+.bouton-retour:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.paquet-titre {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 500;
+  text-align: center;
+}
+.paquet-symbole { font-family: var(--serif); color: var(--accent); white-space: nowrap; }
+
+.paquet-compteur {
+  justify-self: end;
+  color: var(--texte-doux);
+  font-variant-numeric: tabular-nums;
+}
+
+.paquet-progression {
+  height: 2px;
+  margin-top: 0.9rem;
+  border-radius: 1px;
+  background: var(--trait);
+  overflow: hidden;
+}
+.paquet-progression span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  transition: width 0.25s;
+}
+
+.paquet-scene {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+/* ---------- La fiche : recto et verso empilés, retournement 3D ---------- */
+
+.carte {
+  width: 100%;
+  max-width: 720px;
+  perspective: 1600px;
+  border-radius: 18px;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.carte-interieur {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+.carte.retournee .carte-interieur { transform: rotateY(180deg); }
+
+.carte-face {
+  grid-area: 1 / 1;
+  min-width: 0;
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.75rem 2rem 2rem;
+  border: 1px solid var(--trait);
+  border-radius: 18px;
+  background: var(--verre-clair);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.carte-verso {
+  transform: rotateY(180deg);
+  border-color: var(--accent);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35), 0 0 40px var(--accent-voile);
+}
+
+.carte:focus-visible .carte-face { outline: 2px solid rgba(230, 238, 252, 0.5); outline-offset: 4px; }
+
+.ill { display: block; width: 100%; max-width: 430px; height: auto; }
+.ill.petite { max-width: 190px; }
+
+.carte-meta { margin: 0.9rem 0 0; font-size: 0.85rem; color: var(--accent); }
+
+.carte-terme {
+  margin: 0.25rem 0 0;
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 4.5vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+.carte-terme.petit { font-size: clamp(1.4rem, 3.6vw, 1.7rem); }
+
+.carte-formule {
+  max-width: 100%;
+  margin: 0.8rem 0 0;
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
+  background: rgba(39, 45, 92, 0.75);
+  font-family: var(--serif);
+  font-size: clamp(1rem, 2.6vw, 1.2rem);
+  line-height: 1.55;
+  overflow-x: auto;
+}
+
+.carte-definition {
+  max-width: 54ch;
+  margin: 0.9rem 0 0;
+  font-family: var(--serif);
+  font-size: clamp(1.08rem, 2.6vw, 1.25rem);
+  line-height: 1.62;
+  text-align: left;
+}
+.carte-formule sub, .carte-formule sup,
+.carte-definition sub, .carte-definition sup { font-size: 0.68em; line-height: 0; }
+
+.carte-aide { margin: 1rem 0 0; font-size: 0.85rem; color: var(--texte-doux); }
+
+/* Classes des illustrations SVG (reprises des anciennes cartes) */
+.tx { font-family: var(--serif); fill: var(--ink); }
+.l { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.l.a { stroke: var(--acc); }
+.l.b { stroke: var(--acc2); }
+.l.m { stroke: var(--muted); }
+.l.d { stroke-dasharray: 4 4; }
+.l.w1 { stroke-width: 1.2; }
+.sa { fill: var(--acc-s); }
+.sb { fill: var(--acc2-s); }
+.sm { fill: var(--muted-s); }
+.fa { fill: var(--acc); }
+.fb { fill: var(--acc2); }
+.fi { fill: var(--ink); }
+.fm { fill: var(--muted); }
+.ta { fill: var(--acc); }
+.tb { fill: var(--acc2); }
+.tm { fill: var(--muted); }
+
+/* ---------- Commandes ---------- */
+
+.paquet-commandes {
+  display: grid;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.rangee { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+
+.bouton {
+  padding: 0.7rem 1.2rem;
+  border: 1px solid var(--trait);
+  border-radius: 999px;
+  background: var(--verre);
+  color: var(--texte);
+  font: inherit;
+  font-size: 0.98rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+.bouton:hover:not(:disabled) { border-color: var(--accent); }
+.bouton:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.bouton:disabled { opacity: 0.4; cursor: default; }
+
+.bouton-principal { border-color: var(--accent); background: var(--accent-voile); }
+
+/* Les deux marques gardent les couleurs des anciennes cartes : doré pour « À revoir », violet pour « Je la connais » */
+.bouton-revoir { border-color: rgba(242, 179, 61, 0.55); }
+.bouton-revoir[aria-pressed="true"] { background: var(--acc-s); border-color: var(--acc); }
+.bouton-connue { border-color: rgba(163, 157, 255, 0.55); }
+.bouton-connue[aria-pressed="true"] { background: var(--acc2-s); border-color: var(--acc2); }
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.6rem;
+  margin-top: 0.4rem;
+  font-size: 0.92rem;
+  color: var(--texte-doux);
+}
+.options label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+.options input { width: 16px; height: 16px; margin: 0; accent-color: var(--accent); }
+.options input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.clavier {
+  margin: 0.2rem 0 0;
+  text-align: center;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--texte-doux);
+}
+
+.paquet-vide {
+  max-width: 46ch;
+  text-align: center;
+  color: var(--texte-doux);
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+.paquet-vide .bouton { display: inline-block; margin-top: 1rem; }
+
+/* ================= Écrans étroits ================= */
+
+@media (max-width: 900px) {
+  .fiches { padding-left: 1rem; padding-right: 1rem; }
+}
+
+@media (max-width: 640px) {
+  .fiches { padding-top: calc(var(--hauteur-entete) + 1.5rem); }
+  .paquet-barre { grid-template-columns: 1fr auto; }
+  .paquet-titre { grid-column: 1 / -1; grid-row: 2; justify-content: center; font-size: 1.15rem; }
+  .carte-face { min-height: 380px; padding: 1.1rem 1rem 1.4rem; }
+  .grille-vignettes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
+  .grille-vignettes li:has(.vignette-toutes) { grid-column: span 2; }
+  .vignette { min-height: 130px; padding: 1rem 1rem 1.1rem; }
+  .vignette-symbole { font-size: 1.9rem; }
+  .vignette-toutes .vignette-symbole { font-size: 2.4rem; }
+  .vignette-nom { margin-top: 0.7rem; font-size: 1rem; }
+  .vignette-compte { font-size: 0.82rem; }
+  .clavier { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carte-interieur, .paquet-progression span, .vignette, .bouton { transition: none; }
+}

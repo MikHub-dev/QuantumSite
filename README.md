@@ -6,30 +6,25 @@ Site aide-mémoire sur les notions de la quantique.
 
 ## Contenu
 
-50 flashcards illustrées, réparties en six thèmes :
-
-- Fondations (quantification, photon, dualité onde-particule…)
-- Formalisme (état quantique, superposition, équation de Schrödinger…)
-- Mesure (réduction du paquet d'ondes, incertitude, décohérence…)
-- Particules (spin, fermions et bosons, effet tunnel…)
-- Intrication (paradoxe EPR, inégalités de Bell, téléportation…)
-- Technologies (qubit, correction d'erreurs, Shor et Grover, cryptographie post-quantique…)
-
-## Série « Outils Mathématiques de la quantique »
-
-100 flashcards (`outils-mathematiques.html`), chacune avec sa formule, sa définition et une illustration SVG calculée à partir de la formule, réparties en seize thèmes : nombres complexes, algèbre linéaire, Dirac et Hilbert, opérateurs, produit tensoriel, mesure et probabilités, dynamique, analyse, qubits et portes, intrication, matrice densité, information, algorithmes, correction d’erreurs, groupes et symétries, constantes.
+- **Fiches Quantiques** (`fiches-quantiques.html`) : 50 flashcards illustrées, réparties en six thèmes (Fondations, Formalisme, Mesure, Particules, Intrication, Technologies).
+- **Fiches Mathématiques** (`fiches-mathematiques.html`) : 100 flashcards « Outils mathématiques de la quantique », chacune avec sa formule, sa définition et une illustration SVG calculée, réparties en seize thèmes.
 
 ## Utilisation
 
+- La page d'une série affiche une vignette par thème, plus « Toutes » et « À revoir ». Choisir une vignette ouvre le paquet de ce thème sur toute la page, à partir de la première carte.
 - Touchez une carte (ou appuyez sur Espace) pour la retourner.
 - Marquez chaque notion « Je la connais » ou « À revoir » ; vos marques restent enregistrées dans votre navigateur.
-- Filtrez par thème, mélangez le paquet, ou activez « Définition d'abord » pour vous entraîner dans l'autre sens.
-- Clavier : flèches pour naviguer, R pour « à revoir », C pour « je la connais ». Sur mobile, balayez la carte.
+- Mélangez le paquet, ou activez « Définition d'abord » pour vous entraîner dans l'autre sens.
+- Clavier : flèches pour naviguer, R pour « à revoir », C pour « je la connais », Échap pour revenir aux thèmes. Sur mobile, balayez la carte.
 
 ## Structure
 
-- `index.html` : la série des 50 notions (HTML, CSS, JavaScript et illustrations SVG dans un seul fichier).
-- `outils-mathematiques.html` : la série « Outils Mathématiques de la quantique », même moteur, marques enregistrées séparément.
+- `index.html` : page d'accueil.
+- `fiches-quantiques.html`, `fiches-mathematiques.html` : pages des deux séries.
+- `donnees/` : le contenu des fiches (textes, formules, illustrations) et le symbole de chaque thème.
+- `js/fiches.js` : le moteur commun (vignettes, paquet, marques).
+- `css/style.css` : styles communs (en-tête, accueil) ; `css/fiches.css` : styles des pages de fiches.
+- `outils-mathematiques.html` : ancienne adresse, redirige vers `fiches-mathematiques.html`.
 
 ## Synchronisation depuis `_inbox/`
 
