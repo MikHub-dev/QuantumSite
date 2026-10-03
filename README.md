@@ -15,6 +15,10 @@ Site aide-mémoire sur les notions de la quantique.
 - Intrication (paradoxe EPR, inégalités de Bell, téléportation…)
 - Technologies (qubit, correction d'erreurs, Shor et Grover, cryptographie post-quantique…)
 
+## Série « Outils Mathématiques de la quantique »
+
+100 flashcards (`outils-mathematiques.html`), chacune avec sa formule, sa définition et une illustration SVG calculée à partir de la formule, réparties en seize thèmes : nombres complexes, algèbre linéaire, Dirac et Hilbert, opérateurs, produit tensoriel, mesure et probabilités, dynamique, analyse, qubits et portes, intrication, matrice densité, information, algorithmes, correction d’erreurs, groupes et symétries, constantes.
+
 ## Utilisation
 
 - Touchez une carte (ou appuyez sur Espace) pour la retourner.
@@ -24,4 +28,5 @@ Site aide-mémoire sur les notions de la quantique.
 
 ## Structure
 
-- `index.html` : la page complète (HTML, CSS, JavaScript et illustrations SVG dans un seul fichier).
+- `index.html` : la série des 50 notions (HTML, CSS, JavaScript et illustrations SVG dans un seul fichier).
+- `outils-mathematiques.html` : la série « Outils Mathématiques de la quantique », même moteur, marques enregistrées séparément.
