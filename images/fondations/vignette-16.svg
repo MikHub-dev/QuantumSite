@@ -1,7 +1,8 @@
-<!-- QuantumSite — Fondations, vignette 16 — version 1.0 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 750" role="img" aria-labelledby="t16 d16" data-version="1.0">
+<!-- QuantumSite — Fondations, vignette 16 — version 1.1 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 750" role="img" aria-labelledby="t16 d16" data-version="1.1">
 <title id="t16">La frontière de la connaissance</title><desc id="d16">Contenu en énergie de l'Univers : énergie noire environ 68 %, matière noire environ 27 %, matière ordinaire environ 5 %. Questions ouvertes : gravitation quantique, matière noire, énergie noire, constante cosmologique, masse des neutrinos, excès de matière sur l'antimatière.</desc>
 <style>
+  text, tspan { font-weight: 700 !important; }
   text { font-family: "Jost", "Segoe UI", Roboto, system-ui, sans-serif; }
   .titre  { font-size: 25px; font-weight: 600; letter-spacing: .14em; text-anchor: middle; }
   .label  { font-size: 22px; font-weight: 600; letter-spacing: .06em; }
@@ -92,7 +93,7 @@
 <circle cx="658.0" cy="583.9" r="0.42" opacity="0.20"/>
 <circle cx="614.3" cy="303.3" r="1.26" opacity="0.35"/>
 </g>
-<text class="titre" x="350.0" y="50" fill="#e6eefc">LA FRONTIÈRE</text>
+<text style="font-size:27px" class="titre" x="350.0" y="50" fill="#e6eefc">LA FRONTIÈRE</text>
 <line x1="290.0" y1="66" x2="342.0" y2="66" stroke="#e6eefc" stroke-width="1.6" opacity=".7"/>
 <line x1="358.0" y1="66" x2="410.0" y2="66" stroke="#e6eefc" stroke-width="1.6" opacity=".7"/>
 <circle cx="350.0" cy="66" r="3" fill="#e6eefc"/>
@@ -103,38 +104,38 @@
 <text x="210" y="246" text-anchor="middle" class="sous" style="font-size:16px">contenu</text>
 <text x="210" y="268" text-anchor="middle" class="sous" style="font-size:16px">de l’Univers</text>
 <rect x="372" y="164" width="18" height="18" rx="3" fill="#b39dff"/>
-<text x="400" y="180" class="label" fill="#b39dff" style="font-size:22px">≈ 68 %</text>
+<text x="400" y="180" class="label" fill="#b39dff" style="font-size:24px">≈ 68 %</text>
 <text x="400" y="204" class="sous" style="font-size:17px">énergie noire</text>
 <rect x="372" y="222" width="18" height="18" rx="3" fill="#5f7fd6"/>
-<text x="400" y="238" class="label" fill="#5f7fd6" style="font-size:22px">≈ 27 %</text>
+<text x="400" y="238" class="label" fill="#5f7fd6" style="font-size:24px">≈ 27 %</text>
 <text x="400" y="262" class="sous" style="font-size:17px">matière noire</text>
 <rect x="372" y="280" width="18" height="18" rx="3" fill="#f0c879"/>
-<text x="400" y="296" class="label" fill="#f0c879" style="font-size:22px">≈ 5 %</text>
+<text x="400" y="296" class="label" fill="#f0c879" style="font-size:24px">≈ 5 %</text>
 <text x="400" y="320" class="sous" style="font-size:17px">matière ordinaire</text>
 <text x="372" y="358" class="sous" style="font-size:15px">≈ 95 % de nature inconnue</text>
 <rect x="25" y="416" width="204" height="100" rx="10" fill="#050d22" fill-opacity=".6" stroke="#b39dff" stroke-opacity=".5"/>
-<text x="127" y="450" text-anchor="middle" font-size="24" font-weight="600" fill="#b39dff">?</text>
-<text x="127" y="478" text-anchor="middle" class="label" fill="#b39dff" style="font-size:17px;letter-spacing:.03em">gravitation</text>
+<text x="127" y="450" text-anchor="middle" font-size="26" font-weight="600" fill="#b39dff">?</text>
+<text x="127" y="478" text-anchor="middle" class="label" fill="#b39dff" style="font-size:19px;letter-spacing:.03em">gravitation</text>
 <text x="127" y="500" text-anchor="middle" class="sous" style="font-size:15px">quantique</text>
 <rect x="248" y="416" width="204" height="100" rx="10" fill="#050d22" fill-opacity=".6" stroke="#7f9cff" stroke-opacity=".5"/>
-<text x="350" y="450" text-anchor="middle" font-size="24" font-weight="600" fill="#7f9cff">?</text>
-<text x="350" y="478" text-anchor="middle" class="label" fill="#7f9cff" style="font-size:17px;letter-spacing:.03em">matière noire</text>
+<text x="350" y="450" text-anchor="middle" font-size="26" font-weight="600" fill="#7f9cff">?</text>
+<text x="350" y="478" text-anchor="middle" class="label" fill="#7f9cff" style="font-size:19px;letter-spacing:.03em">matière noire</text>
 <text x="350" y="500" text-anchor="middle" class="sous" style="font-size:15px">nature inconnue</text>
 <rect x="471" y="416" width="204" height="100" rx="10" fill="#050d22" fill-opacity=".6" stroke="#b39dff" stroke-opacity=".5"/>
-<text x="573" y="450" text-anchor="middle" font-size="24" font-weight="600" fill="#b39dff">?</text>
-<text x="573" y="478" text-anchor="middle" class="label" fill="#b39dff" style="font-size:17px;letter-spacing:.03em">énergie noire</text>
+<text x="573" y="450" text-anchor="middle" font-size="26" font-weight="600" fill="#b39dff">?</text>
+<text x="573" y="478" text-anchor="middle" class="label" fill="#b39dff" style="font-size:19px;letter-spacing:.03em">énergie noire</text>
 <text x="573" y="500" text-anchor="middle" class="sous" style="font-size:15px">expansion accélérée</text>
 <rect x="25" y="538" width="204" height="100" rx="10" fill="#050d22" fill-opacity=".6" stroke="#ff5a6e" stroke-opacity=".5"/>
-<text x="127" y="572" text-anchor="middle" font-size="24" font-weight="600" fill="#ff5a6e">?</text>
-<text x="127" y="600" text-anchor="middle" class="label" fill="#ff5a6e" style="font-size:17px;letter-spacing:.03em">constante cosmo.</text>
+<text x="127" y="572" text-anchor="middle" font-size="26" font-weight="600" fill="#ff5a6e">?</text>
+<text x="127" y="600" text-anchor="middle" class="label" fill="#ff5a6e" style="font-size:19px;letter-spacing:.03em">constante cosmo.</text>
 <text x="127" y="622" text-anchor="middle" class="sous" style="font-size:15px">écart jusqu’à 10¹²⁰</text>
 <rect x="248" y="538" width="204" height="100" rx="10" fill="#050d22" fill-opacity=".6" stroke="#5fd4ff" stroke-opacity=".5"/>
-<text x="350" y="572" text-anchor="middle" font-size="24" font-weight="600" fill="#5fd4ff">?</text>
-<text x="350" y="600" text-anchor="middle" class="label" fill="#5fd4ff" style="font-size:17px;letter-spacing:.03em">neutrinos</text>
+<text x="350" y="572" text-anchor="middle" font-size="26" font-weight="600" fill="#5fd4ff">?</text>
+<text x="350" y="600" text-anchor="middle" class="label" fill="#5fd4ff" style="font-size:19px;letter-spacing:.03em">neutrinos</text>
 <text x="350" y="622" text-anchor="middle" class="sous" style="font-size:15px">origine de leur masse</text>
 <rect x="471" y="538" width="204" height="100" rx="10" fill="#050d22" fill-opacity=".6" stroke="#f0c879" stroke-opacity=".5"/>
-<text x="573" y="572" text-anchor="middle" font-size="24" font-weight="600" fill="#f0c879">?</text>
-<text x="573" y="600" text-anchor="middle" class="label" fill="#f0c879" style="font-size:17px;letter-spacing:.03em">matière</text>
+<text x="573" y="572" text-anchor="middle" font-size="26" font-weight="600" fill="#f0c879">?</text>
+<text x="573" y="600" text-anchor="middle" class="label" fill="#f0c879" style="font-size:19px;letter-spacing:.03em">matière</text>
 <text x="573" y="622" text-anchor="middle" class="sous" style="font-size:15px">vs antimatière</text>
 <text x="350" y="712" text-anchor="middle" class="sous" style="font-size:17px">un espace-temps émergeant du vide : une hypothèse, pas un résultat</text>
 </svg>

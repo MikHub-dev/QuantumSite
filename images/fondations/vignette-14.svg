@@ -1,7 +1,8 @@
-<!-- QuantumSite — Fondations, vignette 14 — version 1.0 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 750" role="img" aria-labelledby="t14 d14" data-version="1.0">
+<!-- QuantumSite — Fondations, vignette 14 — version 1.1 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 750" role="img" aria-labelledby="t14 d14" data-version="1.1">
 <title id="t14">Le champ de Higgs</title><desc id="d14">Potentiel en chapeau mexicain : le sommet symétrique est instable, la bille roule dans le creux et la symétrie est brisée spontanément. Les masses des particules sont proportionnelles à leur couplage au champ de Higgs (échelle logarithmique) ; le photon n'y est pas couplé. Boson de Higgs : 125 GeV/c², CERN 2012.</desc>
 <style>
+  text, tspan { font-weight: 700 !important; }
   text { font-family: "Jost", "Segoe UI", Roboto, system-ui, sans-serif; }
   .titre  { font-size: 25px; font-weight: 600; letter-spacing: .14em; text-anchor: middle; }
   .label  { font-size: 22px; font-weight: 600; letter-spacing: .06em; }
@@ -62,7 +63,7 @@
 <circle cx="190.9" cy="353.0" r="1.24" opacity="0.54"/>
 <circle cx="52.1" cy="506.5" r="1.24" opacity="0.39"/>
 </g>
-<text class="titre" x="350.0" y="50" fill="#f0c879">LE CHAMP DE HIGGS</text>
+<text style="font-size:27px" class="titre" x="350.0" y="50" fill="#f0c879">LE CHAMP DE HIGGS</text>
 <line x1="290.0" y1="66" x2="342.0" y2="66" stroke="#f0c879" stroke-width="1.6" opacity=".7"/>
 <line x1="358.0" y1="66" x2="410.0" y2="66" stroke="#f0c879" stroke-width="1.6" opacity=".7"/>
 <circle cx="350.0" cy="66" r="3" fill="#f0c879"/>
@@ -108,7 +109,7 @@
 <path d="M 366.0 149.8 Q 420 222 360.0 296.4" fill="none" stroke="#e6eefc" stroke-opacity=".7" stroke-width="1.8" stroke-dasharray="6 5"/>
 <text x="350.0" y="115.8" text-anchor="middle" class="sous" style="font-size:17px">symétrie : sommet instable</text>
 <text x="350" y="364.4" text-anchor="middle" class="sous" style="font-size:17px;fill:#ffe0a0">le creux : symétrie brisée, valeur non nulle</text>
-<text x="350" y="440" text-anchor="middle" class="texte" style="font-size:19px">masse ∝ <tspan font-weight="600" fill="#f0c879">couplage</tspan> au champ de Higgs</text>
+<text x="350" y="440" text-anchor="middle" class="texte" style="font-size:19px">masse ∝ <tspan font-size="21" font-weight="600" fill="#f0c879">couplage</tspan> au champ de Higgs</text>
 <text x="168" y="481" text-anchor="end" class="sous" style="font-size:17px">quark t</text>
 <rect x="180" y="468" width="403.1" height="17" rx="3" fill="#f0c879" opacity="0.93"/>
 <text x="591.1" y="482" class="sous" style="font-size:15px">173</text>

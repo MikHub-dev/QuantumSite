@@ -1,7 +1,8 @@
-<!-- QuantumSite — Fondations, vignette 09 — version 1.0 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 750" role="img" aria-labelledby="t9 d9" data-version="1.0">
+<!-- QuantumSite — Fondations, vignette 09 — version 1.1 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 750" role="img" aria-labelledby="t9 d9" data-version="1.1">
 <title id="t9">La renormalisation : l'électron habillé</title><desc id="d9">Un électron nu, inobservable, entouré du nuage de paires virtuelles qu'il polarise : l'électron habillé, seul mesurable. En exprimant les calculs avec la masse et la charge mesurées, les résultats deviennent finis. Premier succès : a = α/2π (Schwinger, 1948).</desc>
 <style>
+  text, tspan { font-weight: 700 !important; }
   text { font-family: "Jost", "Segoe UI", Roboto, system-ui, sans-serif; }
   .titre  { font-size: 25px; font-weight: 600; letter-spacing: .14em; text-anchor: middle; }
   .label  { font-size: 22px; font-weight: 600; letter-spacing: .06em; }
@@ -72,7 +73,7 @@
 <circle cx="605.6" cy="36.3" r="0.94" opacity="0.43"/>
 <circle cx="471.1" cy="306.9" r="0.46" opacity="0.24"/>
 </g>
-<text class="titre" x="350.0" y="50" fill="#5fd4ff">L’ÉLECTRON HABILLÉ</text>
+<text style="font-size:27px" class="titre" x="350.0" y="50" fill="#5fd4ff">L’ÉLECTRON HABILLÉ</text>
 <line x1="290.0" y1="66" x2="342.0" y2="66" stroke="#5fd4ff" stroke-width="1.6" opacity=".7"/>
 <line x1="358.0" y1="66" x2="410.0" y2="66" stroke="#5fd4ff" stroke-width="1.6" opacity=".7"/>
 <circle cx="350.0" cy="66" r="3" fill="#5fd4ff"/>
@@ -165,19 +166,19 @@
 <circle cx="350" cy="300" r="34" fill="#5fd4ff" opacity=".5" filter="url(#vg-flou)"/>
 <defs><radialGradient id="v9-e" cx="35%" cy="32%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#7fd8ff"/><stop offset="1" stop-color="#1d5aa8"/></radialGradient></defs>
 <circle cx="350.0" cy="300.0" r="24" fill="url(#v9-e)" filter="url(#vg-lueur)"/>
-<text x="350.0" y="308.6" text-anchor="middle" font-size="24" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">e⁻</text>
+<text x="350.0" y="308.6" text-anchor="middle" font-size="26" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">e⁻</text>
 <circle cx="350" cy="300" r="33" fill="none" stroke="#fff" stroke-opacity=".7" stroke-dasharray="4 4"/>
 <line x1="378" y1="278" x2="560" y2="128" stroke="#e6eefc" stroke-opacity=".6"/>
-<text x="666" y="112" text-anchor="end" class="label" fill="#e6eefc" style="font-size:19px">ÉLECTRON NU</text>
+<text x="666" y="112" text-anchor="end" class="label" fill="#e6eefc" style="font-size:21px">ÉLECTRON NU</text>
 <text x="666" y="136" text-anchor="end" class="sous" style="font-size:18px">inobservable</text>
 <line x1="214" y1="420" x2="150" y2="486" stroke="#5fd4ff" stroke-opacity=".7"/>
-<text x="34" y="510" class="label" fill="#5fd4ff" style="font-size:19px">ÉLECTRON HABILLÉ</text>
+<text x="34" y="510" class="label" fill="#5fd4ff" style="font-size:21px">ÉLECTRON HABILLÉ</text>
 <text x="34" y="534" class="sous" style="font-size:18px">ce que l’on mesure</text>
 <circle cx="480" cy="503" r="6" fill="#ff5a6e"/><circle cx="494" cy="503" r="6" fill="#5f8cff"/>
 <text x="508" y="510" class="sous" style="font-size:18px">paires polarisées</text>
-<text x="350" y="580" text-anchor="middle" class="texte" style="font-size:20px">on exprime tout avec la masse et la charge <tspan fill="#5fd4ff" font-weight="600">mesurées</tspan></text>
+<text x="350" y="580" text-anchor="middle" class="texte" style="font-size:20px">on exprime tout avec la masse et la charge <tspan font-size="22" fill="#5fd4ff" font-weight="600">mesurées</tspan></text>
 <text x="350" y="606" text-anchor="middle" class="sous" style="font-size:19px">→ les infinis disparaissent des résultats observables</text>
 <rect x="40" y="630" width="620" height="92" rx="12" fill="#050d22" fill-opacity=".7" stroke="#5fd4ff" stroke-opacity=".35"/>
-<text x="350" y="672" text-anchor="middle" class="math" font-size="30">a = α / 2π ≈ 0,00116</text>
+<text x="350" y="672" text-anchor="middle" class="math" font-size="32">a = α / 2π ≈ 0,00116</text>
 <text x="350" y="704" text-anchor="middle" class="sous" style="font-size:18px">Schwinger, 1948 : l’écart du moment magnétique de l’électron</text>
 </svg>

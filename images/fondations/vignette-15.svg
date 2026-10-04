@@ -1,7 +1,8 @@
-<!-- QuantumSite — Fondations, vignette 15 — version 1.0 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 750" role="img" aria-labelledby="t15 d15" data-version="1.0">
+<!-- QuantumSite — Fondations, vignette 15 — version 1.1 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 750" role="img" aria-labelledby="t15 d15" data-version="1.1">
 <title id="t15">La gravité, l'éléphant dans la pièce</title><desc id="d15">À gauche, une scène plate et fixe sur laquelle jouent les particules du modèle standard ; à droite, l'espace-temps de la relativité générale, courbé par une masse : la gravitation est la scène elle-même. Quantifiée naïvement, elle est non renormalisable ; elle reste valable comme théorie effective, sauf vers l'échelle de Planck.</desc>
 <style>
+  text, tspan { font-weight: 700 !important; }
   text { font-family: "Jost", "Segoe UI", Roboto, system-ui, sans-serif; }
   .titre  { font-size: 25px; font-weight: 600; letter-spacing: .14em; text-anchor: middle; }
   .label  { font-size: 22px; font-weight: 600; letter-spacing: .06em; }
@@ -62,11 +63,11 @@
 <circle cx="370.5" cy="350.8" r="0.54" opacity="0.47"/>
 <circle cx="539.4" cy="257.3" r="1.18" opacity="0.59"/>
 </g>
-<text class="titre" x="350.0" y="50" fill="#b39dff">LA GRAVITÉ</text>
+<text style="font-size:27px" class="titre" x="350.0" y="50" fill="#b39dff">LA GRAVITÉ</text>
 <line x1="290.0" y1="66" x2="342.0" y2="66" stroke="#b39dff" stroke-width="1.6" opacity=".7"/>
 <line x1="358.0" y1="66" x2="410.0" y2="66" stroke="#b39dff" stroke-width="1.6" opacity=".7"/>
 <circle cx="350.0" cy="66" r="3" fill="#b39dff"/>
-<text x="180" y="130" text-anchor="middle" class="label" fill="#5fd4ff" style="font-size:18px">3 FORCES</text>
+<text x="180" y="130" text-anchor="middle" class="label" fill="#5fd4ff" style="font-size:20px">3 FORCES</text>
 <text x="180" y="154" text-anchor="middle" class="sous" style="font-size:17px">une scène fixe</text>
 <g fill="none">
 <polyline points="180.0,215.1 176.3,216.7 172.5,218.2 168.8,219.8 165.0,221.4 161.3,223.0 157.5,224.5 153.8,226.1 150.0,227.7 146.3,229.3 142.6,230.8 138.8,232.4 135.1,234.0 131.3,235.5 127.6,237.1 123.8,238.7 120.1,240.3 116.4,241.8 112.6,243.4 108.9,245.0 105.1,246.6 101.4,248.1 97.6,249.7 93.9,251.3 90.1,252.8 86.4,254.4 82.7,256.0 78.9,257.6 75.2,259.1 71.4,260.7 67.7,262.3 63.9,263.8 60.2,265.4 56.4,267.0 52.7,268.6 49.0,270.1 45.2,271.7 41.5,273.3 37.7,274.9 34.0,276.4 30.2,278.0" stroke="#5fd4ff" stroke-width="1.1" opacity=".7"/>
@@ -98,14 +99,14 @@
 </g>
 <defs><radialGradient id="v15-e" cx="35%" cy="32%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#7fa8ff"/><stop offset="1" stop-color="#1d3a9a"/></radialGradient></defs>
 <circle cx="165.0" cy="247.1" r="12" fill="url(#v15-e)" filter="url(#vg-lueur)"/>
-<text x="165.0" y="251.8" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">e</text>
+<text x="165.0" y="251.8" text-anchor="middle" font-size="15" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">e</text>
 <defs><radialGradient id="v15-q" cx="35%" cy="32%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#ff8a9a"/><stop offset="1" stop-color="#8a1c2c"/></radialGradient></defs>
 <circle cx="232.4" cy="262.9" r="12" fill="url(#v15-q)" filter="url(#vg-lueur)"/>
-<text x="232.4" y="267.5" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">q</text>
+<text x="232.4" y="267.5" text-anchor="middle" font-size="15" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">q</text>
 <defs><radialGradient id="v15-γ" cx="35%" cy="32%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#ffe0a0"/><stop offset="1" stop-color="#b8862a"/></radialGradient></defs>
 <circle cx="165.0" cy="284.9" r="12" fill="url(#v15-γ)" filter="url(#vg-lueur)"/>
-<text x="165.0" y="289.5" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">γ</text>
-<text x="520" y="130" text-anchor="middle" class="label" fill="#b39dff" style="font-size:18px">GRAVITATION</text>
+<text x="165.0" y="289.5" text-anchor="middle" font-size="15" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">γ</text>
+<text x="520" y="130" text-anchor="middle" class="label" fill="#b39dff" style="font-size:20px">GRAVITATION</text>
 <text x="520" y="154" text-anchor="middle" class="sous" style="font-size:17px">la scène elle-même</text>
 <g fill="none">
 <polyline points="520.0,187.9 516.3,189.7 512.5,191.6 508.8,193.4 505.0,195.2 501.3,197.1 497.5,198.9 493.8,200.8 490.0,202.6 486.3,204.5 482.6,206.3 478.8,208.2 475.1,210.0 471.3,211.8 467.6,213.6 463.8,215.4 460.1,217.1 456.4,218.8 452.6,220.5 448.9,222.1 445.1,223.7 441.4,225.3 437.6,226.8 433.9,228.2 430.1,229.7 426.4,231.1 422.7,232.5 418.9,233.8 415.2,235.1 411.4,236.5 407.7,237.8 403.9,239.1 400.2,240.3 396.4,241.6 392.7,242.9 389.0,244.2 385.2,245.5 381.5,246.8 377.7,248.2 374.0,249.5 370.2,250.8" stroke="#b39dff" stroke-width="1.1" opacity=".7"/>
@@ -139,19 +140,19 @@
 <circle cx="520.0" cy="320.4" r="19" fill="url(#v15-m)" filter="url(#vg-lueur)"/>
 <line x1="350" y1="120" x2="350" y2="392" stroke="#9fb3d6" stroke-opacity=".25"/>
 <circle cx="74" cy="448" r="22" fill="#050d22" stroke="#ff5a6e" stroke-width="2"/>
-<text x="74" y="457" text-anchor="middle" font-size="26" font-weight="600" fill="#ff5a6e">∞</text>
-<text x="114" y="444" class="label" fill="#ff5a6e" style="font-size:19px">non renormalisable</text>
+<text x="74" y="457" text-anchor="middle" font-size="28" font-weight="600" fill="#ff5a6e">∞</text>
+<text x="114" y="444" class="label" fill="#ff5a6e" style="font-size:21px">non renormalisable</text>
 <text x="114" y="469" class="sous" style="font-size:17px">'t Hooft, Veltman 1974 · Goroff, Sagnotti 1986</text>
 <circle cx="74" cy="518" r="22" fill="#050d22" stroke="#5fd4ff" stroke-width="2"/>
-<text x="74" y="527" text-anchor="middle" font-size="26" font-weight="600" fill="#5fd4ff">≈</text>
-<text x="114" y="514" class="label" fill="#5fd4ff" style="font-size:19px">théorie effective</text>
+<text x="74" y="527" text-anchor="middle" font-size="28" font-weight="600" fill="#5fd4ff">≈</text>
+<text x="114" y="514" class="label" fill="#5fd4ff" style="font-size:21px">théorie effective</text>
 <text x="114" y="539" class="sous" style="font-size:17px">valable aux énergies ordinaires</text>
 <circle cx="74" cy="588" r="22" fill="#050d22" stroke="#b39dff" stroke-width="2"/>
-<text x="74" y="597" text-anchor="middle" font-size="26" font-weight="600" fill="#b39dff">?</text>
-<text x="114" y="584" class="label" fill="#b39dff" style="font-size:19px">échoue vers l’échelle de Planck</text>
+<text x="74" y="597" text-anchor="middle" font-size="28" font-weight="600" fill="#b39dff">?</text>
+<text x="114" y="584" class="label" fill="#b39dff" style="font-size:21px">échoue vers l’échelle de Planck</text>
 <text x="114" y="609" class="sous" style="font-size:17px">trous noirs, premiers instants du Big Bang</text>
 <circle cx="74" cy="658" r="22" fill="#050d22" stroke="#9fb3d6" stroke-width="2"/>
-<text x="74" y="667" text-anchor="middle" font-size="26" font-weight="600" fill="#9fb3d6">○</text>
-<text x="114" y="654" class="label" fill="#9fb3d6" style="font-size:19px">cordes, boucles…</text>
+<text x="74" y="667" text-anchor="middle" font-size="28" font-weight="600" fill="#9fb3d6">○</text>
+<text x="114" y="654" class="label" fill="#9fb3d6" style="font-size:21px">cordes, boucles…</text>
 <text x="114" y="679" class="sous" style="font-size:17px">aucune confirmation expérimentale</text>
 </svg>

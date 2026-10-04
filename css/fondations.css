@@ -1,4 +1,4 @@
-/* Version : 1.1 */
+/* Version : 1.2 */
 /* =====================================================================
    QuantumSite — page Fondations (La théorie quantique des champs)
    Complète css/style.css (en-tête, couleurs du site).
@@ -11,7 +11,7 @@
   /* Vignette : même taille que la figure en bas à gauche de l'accueil.
      Sur l'accueil, l'image (1698 × 608) occupe toute la largeur de l'écran ;
      la figure « Les mathématiques révèlent l'ordre » y mesure environ 350 × 375 px. */
-  --vignette-l: clamp(150px, calc(100vw * 350 / 1698), 400px);
+  --vignette-l: clamp(180px, calc(100vw * 420 / 1698), 480px);   /* agrandie de 20 % (v1.2) */
   --vignette-ratio: 350 / 375;
 }
 
@@ -160,6 +160,6 @@
 }
 
 @media (max-width: 560px) {
-  .page-fondations { --vignette-l: 42vw; }
+  .page-fondations { --vignette-l: 50vw; }   /* 42vw + 20 % */
   .vignette { margin-right: 0.9rem; }
 }

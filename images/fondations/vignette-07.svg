@@ -1,7 +1,8 @@
-<!-- QuantumSite — Fondations, vignette 07 — version 1.0 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 750" role="img" aria-labelledby="t7 d7" data-version="1.0">
+<!-- QuantumSite — Fondations, vignette 07 — version 1.1 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 750" role="img" aria-labelledby="t7 d7" data-version="1.1">
 <title id="t7">Le vide qui bout</title><desc id="d7">Le vide quantique : une mer de champs jamais parfaitement immobile, avec son énergie du point zéro ½ħω. Des paires particule-antiparticule virtuelles y sont une image commode. Effets mesurés : déplacement de Lamb, effet Casimir, polarisation du vide.</desc>
 <style>
+  text, tspan { font-weight: 700 !important; }
   text { font-family: "Jost", "Segoe UI", Roboto, system-ui, sans-serif; }
   .titre  { font-size: 25px; font-weight: 600; letter-spacing: .14em; text-anchor: middle; }
   .label  { font-size: 22px; font-weight: 600; letter-spacing: .06em; }
@@ -62,7 +63,7 @@
 <circle cx="25.7" cy="704.2" r="0.88" opacity="0.22"/>
 <circle cx="379.4" cy="29.7" r="0.88" opacity="0.59"/>
 </g>
-<text class="titre" x="350.0" y="50" fill="#b39dff">LE VIDE QUI BOUT</text>
+<text style="font-size:27px" class="titre" x="350.0" y="50" fill="#b39dff">LE VIDE QUI BOUT</text>
 <line x1="290.0" y1="66" x2="342.0" y2="66" stroke="#b39dff" stroke-width="1.6" opacity=".7"/>
 <line x1="358.0" y1="66" x2="410.0" y2="66" stroke="#b39dff" stroke-width="1.6" opacity=".7"/>
 <circle cx="350.0" cy="66" r="3" fill="#b39dff"/>
@@ -249,34 +250,34 @@
 <ellipse cx="180" cy="230" rx="62" ry="32" fill="#b39dff" fill-opacity=".10" stroke="#d6ccff" stroke-opacity=".5" stroke-dasharray="3 4"/>
 <defs><radialGradient id="b8233005" cx="35%" cy="32%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#5f8cff"/><stop offset="1" stop-color="#1d3a9a"/></radialGradient></defs>
 <circle cx="150.0" cy="230.0" r="17" fill="url(#b8233005)" filter="url(#vg-lueur)"/>
-<text x="150.0" y="238.3" text-anchor="middle" font-size="23" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">−</text>
+<text x="150.0" y="238.3" text-anchor="middle" font-size="25" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">−</text>
 <defs><radialGradient id="b54733830" cx="35%" cy="32%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#ff5a6e"/><stop offset="1" stop-color="#8a1c2c"/></radialGradient></defs>
 <circle cx="210.0" cy="230.0" r="17" fill="url(#b54733830)" filter="url(#vg-lueur)"/>
-<text x="210.0" y="238.3" text-anchor="middle" font-size="23" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">+</text>
+<text x="210.0" y="238.3" text-anchor="middle" font-size="25" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">+</text>
 <ellipse cx="470" cy="205" rx="52" ry="27" fill="#b39dff" fill-opacity=".10" stroke="#d6ccff" stroke-opacity=".5" stroke-dasharray="3 4"/>
 <defs><radialGradient id="b92681761" cx="35%" cy="32%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#5f8cff"/><stop offset="1" stop-color="#1d3a9a"/></radialGradient></defs>
 <circle cx="445.0" cy="205.0" r="14" fill="url(#b92681761)" filter="url(#vg-lueur)"/>
-<text x="445.0" y="211.8" text-anchor="middle" font-size="19" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">−</text>
+<text x="445.0" y="211.8" text-anchor="middle" font-size="21" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">−</text>
 <defs><radialGradient id="b12111732" cx="35%" cy="32%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#ff5a6e"/><stop offset="1" stop-color="#8a1c2c"/></radialGradient></defs>
 <circle cx="495.0" cy="205.0" r="14" fill="url(#b12111732)" filter="url(#vg-lueur)"/>
-<text x="495.0" y="211.8" text-anchor="middle" font-size="19" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">+</text>
+<text x="495.0" y="211.8" text-anchor="middle" font-size="21" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">+</text>
 <ellipse cx="360" cy="330" rx="58" ry="30" fill="#b39dff" fill-opacity=".10" stroke="#d6ccff" stroke-opacity=".5" stroke-dasharray="3 4"/>
 <defs><radialGradient id="b51499744" cx="35%" cy="32%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#5f8cff"/><stop offset="1" stop-color="#1d3a9a"/></radialGradient></defs>
 <circle cx="332.0" cy="330.0" r="16" fill="url(#b51499744)" filter="url(#vg-lueur)"/>
-<text x="332.0" y="337.9" text-anchor="middle" font-size="22" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">−</text>
+<text x="332.0" y="337.9" text-anchor="middle" font-size="24" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">−</text>
 <defs><radialGradient id="b70214608" cx="35%" cy="32%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#ff5a6e"/><stop offset="1" stop-color="#8a1c2c"/></radialGradient></defs>
 <circle cx="388.0" cy="330.0" r="16" fill="url(#b70214608)" filter="url(#vg-lueur)"/>
-<text x="388.0" y="337.9" text-anchor="middle" font-size="22" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">+</text>
+<text x="388.0" y="337.9" text-anchor="middle" font-size="24" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">+</text>
 <ellipse cx="590" cy="320" rx="46" ry="24" fill="#b39dff" fill-opacity=".10" stroke="#d6ccff" stroke-opacity=".5" stroke-dasharray="3 4"/>
 <defs><radialGradient id="b86357459" cx="35%" cy="32%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#5f8cff"/><stop offset="1" stop-color="#1d3a9a"/></radialGradient></defs>
 <circle cx="568.0" cy="320.0" r="12" fill="url(#b86357459)" filter="url(#vg-lueur)"/>
-<text x="568.0" y="325.8" text-anchor="middle" font-size="16" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">−</text>
+<text x="568.0" y="325.8" text-anchor="middle" font-size="18" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">−</text>
 <defs><radialGradient id="b79948122" cx="35%" cy="32%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#ff5a6e"/><stop offset="1" stop-color="#8a1c2c"/></radialGradient></defs>
 <circle cx="612.0" cy="320.0" r="12" fill="url(#b79948122)" filter="url(#vg-lueur)"/>
-<text x="612.0" y="325.8" text-anchor="middle" font-size="16" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">+</text>
+<text x="612.0" y="325.8" text-anchor="middle" font-size="18" font-weight="600" fill="#fff" font-style="italic" font-family="Georgia, serif">+</text>
 <text x="350" y="420" text-anchor="middle" class="sous" style="fill:#d6ccff">paires virtuelles : une image commode, jamais observées</text>
 <rect x="160" y="442" width="380" height="64" rx="10" fill="#050d22" fill-opacity=".7" stroke="#b39dff" stroke-opacity=".4"/>
-<text x="350" y="484" text-anchor="middle" class="math" font-size="30">E<tspan font-size="18" dy="7">0</tspan><tspan dy="-7"> = ½ ħω</tspan></text>
+<text x="350" y="484" text-anchor="middle" class="math" font-size="32">E<tspan font-size="18" dy="7">0</tspan><tspan dy="-7"> = ½ ħω</tspan></text>
 <text x="350" y="530" text-anchor="middle" class="sous">l’énergie minimale de chaque mode du champ</text>
 <rect x="56" y="560" width="188" height="164" rx="10" fill="#050d22" fill-opacity=".55" stroke="#5fd4ff" stroke-opacity=".3"/>
 <line x1="70" y1="608" x2="150" y2="608" stroke="#e6eefc" stroke-width="3"/>
@@ -284,7 +285,7 @@
 <text x="110" y="598" text-anchor="middle" font-size="15" fill="#e6eefc">2p</text>
 <text x="195" y="592" text-anchor="middle" font-size="15" fill="#f0c879">2s</text>
 <text x="150" y="660" text-anchor="middle" font-size="14" fill="#9fb3d6">attendus égaux</text>
-<text x="150" y="688" text-anchor="middle" class="label" fill="#5fd4ff" style="font-size:18px">LAMB</text>
+<text x="150" y="688" text-anchor="middle" class="label" fill="#5fd4ff" style="font-size:20px">LAMB</text>
 <text x="150" y="710" text-anchor="middle" class="sous" style="font-size:17px">1947 · hydrogène</text>
 <rect x="256" y="560" width="188" height="164" rx="10" fill="#050d22" fill-opacity=".55" stroke="#5fd4ff" stroke-opacity=".3"/>
 <rect x="318" y="585" width="10" height="70" fill="#9fb3d6"/>
@@ -294,7 +295,7 @@
 <polyline points="333,600.0 336,602.9215428926345 339,598.6724386701154 342,597.681706537332 345,602.3810035915475 348,601.2363554557253 351,597.0571913098005 354,600.1008691416635 357,602.8969733296478 360,598.5827340408046 363,597.7470382596849 366,602.4410212125213" fill="none" stroke="#b39dff" stroke-width="1.2"/>
 <polyline points="333,618.0 336,620.9215428926345 339,616.6724386701154 342,615.681706537332 345,620.3810035915475 348,619.2363554557253 351,615.0571913098005 354,618.1008691416635 357,620.8969733296478 360,616.5827340408046 363,615.7470382596849 366,620.4410212125213" fill="none" stroke="#b39dff" stroke-width="1.2"/>
 <polyline points="333,636.0 336,638.9215428926345 339,634.6724386701154 342,633.681706537332 345,638.3810035915475 348,637.2363554557253 351,633.0571913098005 354,636.1008691416635 357,638.8969733296478 360,634.5827340408046 363,633.7470382596849 366,638.4410212125213" fill="none" stroke="#b39dff" stroke-width="1.2"/>
-<text x="350" y="688" text-anchor="middle" class="label" fill="#5fd4ff" style="font-size:18px">CASIMIR</text>
+<text x="350" y="688" text-anchor="middle" class="label" fill="#5fd4ff" style="font-size:20px">CASIMIR</text>
 <text x="350" y="710" text-anchor="middle" class="sous" style="font-size:17px">1948 · mesuré 1997</text>
 <rect x="456" y="560" width="188" height="164" rx="10" fill="#050d22" fill-opacity=".55" stroke="#5fd4ff" stroke-opacity=".3"/>
 <circle cx="550" cy="620" r="11" fill="#5f8cff"/>
@@ -311,6 +312,6 @@
 <circle cx="529.0" cy="588.8" r="4.5" fill="#5f8cff" opacity=".7"/>
 <circle cx="565.5" cy="598.3" r="4.5" fill="#ff5a6e"/>
 <circle cx="571.0" cy="588.8" r="4.5" fill="#5f8cff" opacity=".7"/>
-<text x="550" y="688" text-anchor="middle" class="label" fill="#5fd4ff" style="font-size:18px">POLARISATION</text>
+<text x="550" y="688" text-anchor="middle" class="label" fill="#5fd4ff" style="font-size:20px">POLARISATION</text>
 <text x="550" y="710" text-anchor="middle" class="sous" style="font-size:17px">charge effective</text>
 </svg>
