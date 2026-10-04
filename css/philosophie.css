@@ -1,4 +1,4 @@
-/* Version : 1.2 */
+/* Version : 1.3 */
 /* =====================================================================
    QuantumSite — page Philosophie (trois paradigmes philosophiques)
    Complète css/style.css (en-tête, couleurs du site).
@@ -11,7 +11,7 @@
   --trait: rgba(159, 179, 214, 0.22);
   --or: #f2c879;
   --rouge: #ff5a6e;
-  --vignette-l: clamp(150px, 19vw, 270px);
+  --vignette-l: clamp(180px, calc(100vw * 420 / 1698), 480px);   /* même taille que les vignettes de Fondations */
 }
 
 .p1 { --couleur: var(--cyan);  --couleur-voile: rgba(95, 212, 255, 0.12); --panneau: 0%; }
@@ -29,9 +29,8 @@
 }
 
 .philosophie {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: calc(var(--hauteur-entete) + 2.75rem) clamp(1rem, 3vw, 3rem) 4rem;
+  /* Toute la largeur de la page, mêmes marges que Fondations */
+  padding: calc(var(--hauteur-entete) + 2.75rem) clamp(1rem, 3vw, 3.5rem) 4rem;
 }
 
 /* ---------- Titre ---------- */
@@ -229,7 +228,7 @@
 }
 
 @media (max-width: 560px) {
-  .page-philosophie { --vignette-l: 38vw; }
+  .page-philosophie { --vignette-l: 50vw; }
   .vignette { margin-right: 0.9rem; }
 }
 
