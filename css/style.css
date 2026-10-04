@@ -111,7 +111,7 @@ body {
   padding-top: var(--hauteur-entete);
   display: flex;
   overflow: hidden;
-  background: #06162c url("../images/accueil-fond.svg") center / cover no-repeat;
+  background: #06162c url("../images/accueil-fond.svg?v=1.1") center / cover no-repeat;
 }
 
 .scene-svg {
