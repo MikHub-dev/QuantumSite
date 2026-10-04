@@ -1,6 +1,6 @@
-/* Version : 1.1 */
+/* Version : 1.2 */
 /* =====================================================================
-   QuantumSite — pages de fiches (Fiches Quantiques, Fiches Mathématiques)
+   QuantumSite — pages de fiches (Fiches Quantiques, Fiches Mathématiques, Axiomisation)
    Complète css/style.css (en-tête, couleurs du site).
    ===================================================================== */
 
@@ -25,6 +25,11 @@
 .page-fiches.theme-maths {
   --accent: #f2c879;                       /* le cœur doré de la galaxie */
   --accent-voile: rgba(242, 200, 121, 0.14);
+}
+
+.page-fiches.theme-axiomes {
+  --accent: #b8a6ff;                       /* violet des illustrations, un ton plus clair */
+  --accent-voile: rgba(184, 166, 255, 0.16);
 }
 
 /* L'image de l'accueil, floutée et assombrie, fixée derrière le contenu */
@@ -97,6 +102,19 @@
   margin: 0;
   color: var(--texte-doux);
   font-size: 0.88rem;
+}
+
+/* Préambule facultatif, entre le titre et les vignettes (page Axiomisation) */
+.themes-preambule {
+  max-width: 78ch;
+  margin: 0 0 clamp(0.75rem, 2.2vh, 1.4rem);
+  padding: 0.55rem 1rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  background: var(--verre);
+  font-family: var(--serif);
+  font-size: clamp(0.95rem, 2.2vh, 1.08rem);
+  line-height: 1.5;
 }
 
 .grille-vignettes {
@@ -492,6 +510,7 @@
 
 @media (max-width: 640px) {
   .themes-intro { display: none; }
+  .themes-preambule { font-size: 0.88rem; padding: 0.45rem 0.75rem; }
   .themes-titre { font-size: 1.35rem; }
   .themes-bilan { font-size: 0.8rem; }
   .paquet-barre { grid-template-columns: 1fr auto; row-gap: 0.15rem; }

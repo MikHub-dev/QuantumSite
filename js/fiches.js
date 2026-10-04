@@ -1,10 +1,11 @@
-// Version : 1.1
+// Version : 1.2
 /* =====================================================================
    QuantumSite — moteur des pages de fiches
    ---------------------------------------------------------------------
    Lit window.JEU_DE_FICHES (donnees/*.js) et affiche :
    - la vue « thèmes » : une vignette par thème, plus Toutes et À revoir ;
    - la vue « paquet » : les fiches du thème choisi, une à la fois.
+   Un préambule facultatif (jeu.preambule) s'affiche sous le titre de la vue « thèmes ».
    Le thème ouvert est noté dans l'adresse (#mesure), ce qui fait marcher
    le bouton Précédent du navigateur et les liens directs.
    Les marques « Je la connais » / « À revoir » restent dans le navigateur.
@@ -107,6 +108,7 @@
             <button class="lien" type="button" data-action="effacer">Effacer mes marques</button>
           </p>
         </div>
+        ${jeu.preambule ? `<p class="themes-preambule">${jeu.preambule}</p>` : ""}
         <ul class="grille-vignettes">${vignettes}</ul>
       </div>`;
     disposerVignettes();
