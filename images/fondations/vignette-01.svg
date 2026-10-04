@@ -1,0 +1,127 @@
+<!-- QuantumSite — Fondations, vignette 01 — version 1.0 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 750" role="img" aria-labelledby="t1 d1" data-version="1.0">
+<title id="t1">Les trois piliers de la théorie quantique des champs</title><desc id="d1">Diagramme de Venn : théorie classique des champs (Faraday, Maxwell), mécanique quantique (Planck, Bohr, Heisenberg, Schrödinger) et relativité restreinte (Einstein, 1905). Leur intersection est la théorie quantique des champs.</desc>
+<style>
+  text { font-family: "Jost", "Segoe UI", Roboto, system-ui, sans-serif; }
+  .titre  { font-size: 25px; font-weight: 600; letter-spacing: .14em; text-anchor: middle; }
+  .label  { font-size: 22px; font-weight: 600; letter-spacing: .06em; }
+  .sous   { font-size: 21px; fill: #9fb3d6; }
+  .texte  { font-size: 22px; fill: #e6eefc; }
+  .math   { font-family: Georgia, "Times New Roman", serif; fill: #e6eefc; }
+</style>
+<defs>
+  <linearGradient id="vg-fond" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#0b2548"/><stop offset="1" stop-color="#050d22"/>
+  </linearGradient>
+  <filter id="vg-lueur" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="f"/>
+    <feMerge><feMergeNode in="f"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="vg-flou" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
+</defs>
+<rect width="700" height="750" rx="16" fill="url(#vg-fond)"/>
+<g fill="#cfe9ff">
+<circle cx="101.4" cy="628.6" r="1.09" opacity="0.26"/>
+<circle cx="346.9" cy="338.1" r="0.99" opacity="0.50"/>
+<circle cx="73.8" cy="30.7" r="1.15" opacity="0.34"/>
+<circle cx="528.4" cy="11.5" r="0.80" opacity="0.47"/>
+<circle cx="165.6" cy="700.0" r="1.21" opacity="0.16"/>
+<circle cx="27.3" cy="405.2" r="1.25" opacity="0.32"/>
+<circle cx="157.3" cy="318.1" r="0.43" opacity="0.25"/>
+<circle cx="307.8" cy="371.9" r="0.61" opacity="0.25"/>
+<circle cx="158.8" cy="345.5" r="0.66" opacity="0.16"/>
+<circle cx="579.6" cy="416.2" r="0.98" opacity="0.23"/>
+<circle cx="684.9" cy="637.8" r="0.51" opacity="0.30"/>
+<circle cx="500.6" cy="529.2" r="1.24" opacity="0.34"/>
+<circle cx="574.4" cy="499.3" r="0.67" opacity="0.41"/>
+<circle cx="610.1" cy="627.7" r="0.85" opacity="0.42"/>
+<circle cx="33.5" cy="187.2" r="1.12" opacity="0.34"/>
+<circle cx="127.6" cy="410.6" r="1.03" opacity="0.45"/>
+<circle cx="264.8" cy="330.4" r="0.86" opacity="0.50"/>
+<circle cx="364.2" cy="297.1" r="0.84" opacity="0.16"/>
+<circle cx="39.6" cy="523.5" r="1.28" opacity="0.42"/>
+<circle cx="277.6" cy="134.4" r="0.85" opacity="0.59"/>
+<circle cx="534.0" cy="403.9" r="1.17" opacity="0.25"/>
+<circle cx="359.4" cy="705.3" r="0.92" opacity="0.36"/>
+<circle cx="193.1" cy="410.0" r="1.26" opacity="0.15"/>
+<circle cx="542.9" cy="609.0" r="1.20" opacity="0.48"/>
+<circle cx="560.2" cy="388.6" r="0.91" opacity="0.34"/>
+<circle cx="48.2" cy="645.1" r="0.91" opacity="0.24"/>
+<circle cx="353.2" cy="364.0" r="0.72" opacity="0.31"/>
+<circle cx="376.2" cy="465.1" r="0.95" opacity="0.36"/>
+<circle cx="29.0" cy="177.6" r="0.56" opacity="0.41"/>
+<circle cx="595.5" cy="592.9" r="1.12" opacity="0.52"/>
+<circle cx="183.6" cy="624.5" r="1.01" opacity="0.19"/>
+<circle cx="21.3" cy="20.6" r="1.08" opacity="0.26"/>
+<circle cx="84.5" cy="466.1" r="0.71" opacity="0.18"/>
+<circle cx="118.5" cy="395.0" r="0.55" opacity="0.27"/>
+<circle cx="493.9" cy="341.9" r="0.69" opacity="0.36"/>
+<circle cx="26.1" cy="292.2" r="0.78" opacity="0.23"/>
+<circle cx="84.0" cy="666.9" r="0.86" opacity="0.24"/>
+<circle cx="421.8" cy="606.4" r="0.42" opacity="0.16"/>
+<circle cx="109.6" cy="534.7" r="0.54" opacity="0.47"/>
+<circle cx="471.2" cy="407.6" r="0.60" opacity="0.59"/>
+<circle cx="552.5" cy="387.1" r="0.60" opacity="0.44"/>
+<circle cx="278.5" cy="430.4" r="0.69" opacity="0.43"/>
+<circle cx="50.0" cy="228.0" r="1.27" opacity="0.54"/>
+<circle cx="218.3" cy="636.7" r="0.68" opacity="0.57"/>
+<circle cx="515.8" cy="313.8" r="0.63" opacity="0.15"/>
+<circle cx="607.5" cy="37.7" r="1.14" opacity="0.58"/>
+<circle cx="397.8" cy="135.2" r="1.18" opacity="0.59"/>
+<circle cx="488.7" cy="381.5" r="0.74" opacity="0.31"/>
+<circle cx="149.9" cy="502.1" r="0.79" opacity="0.24"/>
+<circle cx="81.0" cy="496.1" r="0.67" opacity="0.37"/>
+<circle cx="231.2" cy="646.3" r="1.21" opacity="0.16"/>
+<circle cx="146.6" cy="249.3" r="1.29" opacity="0.50"/>
+<circle cx="240.6" cy="165.5" r="1.01" opacity="0.53"/>
+<circle cx="643.9" cy="261.0" r="1.19" opacity="0.46"/>
+<circle cx="339.5" cy="729.4" r="0.61" opacity="0.48"/>
+<circle cx="67.6" cy="133.9" r="1.22" opacity="0.25"/>
+<circle cx="526.2" cy="448.2" r="1.16" opacity="0.32"/>
+<circle cx="241.4" cy="222.6" r="1.18" opacity="0.42"/>
+<circle cx="658.9" cy="657.7" r="0.52" opacity="0.40"/>
+<circle cx="80.9" cy="38.6" r="0.47" opacity="0.54"/>
+<circle cx="545.9" cy="614.8" r="0.71" opacity="0.43"/>
+<circle cx="541.7" cy="286.0" r="0.91" opacity="0.25"/>
+<circle cx="65.6" cy="204.7" r="1.20" opacity="0.40"/>
+<circle cx="639.0" cy="344.2" r="0.65" opacity="0.50"/>
+<circle cx="572.9" cy="19.0" r="1.00" opacity="0.19"/>
+<circle cx="88.3" cy="656.1" r="0.44" opacity="0.26"/>
+<circle cx="681.9" cy="317.3" r="0.50" opacity="0.23"/>
+<circle cx="174.2" cy="553.1" r="0.49" opacity="0.56"/>
+<circle cx="267.2" cy="718.3" r="1.22" opacity="0.28"/>
+<circle cx="182.3" cy="358.2" r="0.49" opacity="0.44"/>
+</g>
+<text class="titre" x="350.0" y="50" fill="#e6eefc">TROIS PILIERS</text>
+<line x1="290.0" y1="66" x2="342.0" y2="66" stroke="#e6eefc" stroke-width="1.6" opacity=".7"/>
+<line x1="358.0" y1="66" x2="410.0" y2="66" stroke="#e6eefc" stroke-width="1.6" opacity=".7"/>
+<circle cx="350.0" cy="66" r="3" fill="#e6eefc"/>
+<defs>
+  <clipPath id="v1-a"><circle cx="258" cy="318" r="150"/></clipPath>
+  <clipPath id="v1-b"><circle cx="442" cy="318" r="150"/></clipPath>
+  <clipPath id="v1-c"><circle cx="350" cy="478" r="150"/></clipPath>
+  <radialGradient id="v1-coeur" cx="50%" cy="45%"><stop offset="0" stop-color="#ffb08a"/><stop offset=".55" stop-color="#ff5a6e"/><stop offset="1" stop-color="#c0263f"/></radialGradient>
+</defs>
+<circle cx="258" cy="318" r="150" fill="#5fd4ff" fill-opacity=".07"/>
+<circle cx="442" cy="318" r="150" fill="#ff8a5c" fill-opacity=".07"/>
+<circle cx="350" cy="478" r="150" fill="#b39dff" fill-opacity=".07"/>
+<g clip-path="url(#v1-a)"><g clip-path="url(#v1-b)"><circle cx="350" cy="478" r="150" fill="url(#v1-coeur)" filter="url(#vg-lueur)"/></g></g>
+<circle cx="258" cy="318" r="150" fill="none" stroke="#5fd4ff" stroke-width="3.5" filter="url(#vg-lueur)"/>
+<circle cx="442" cy="318" r="150" fill="none" stroke="#ff8a5c" stroke-width="3.5" filter="url(#vg-lueur)"/>
+<circle cx="350" cy="478" r="150" fill="none" stroke="#b39dff" stroke-width="3.5" filter="url(#vg-lueur)"/>
+<text x="350" y="392" text-anchor="middle" font-size="31" font-weight="600" fill="#fff" letter-spacing=".04em">QFT</text>
+<text class="label" x="34" y="112" fill="#5fd4ff">CHAMPS</text>
+<text class="label" x="34" y="138" fill="#5fd4ff">CLASSIQUES</text>
+<text class="sous" x="34" y="164">Faraday, Maxwell</text>
+<text class="label" x="666" y="112" text-anchor="end" fill="#ff8a5c">MÉCANIQUE</text>
+<text class="label" x="666" y="138" text-anchor="end" fill="#ff8a5c">QUANTIQUE</text>
+<text class="sous" x="666" y="164" text-anchor="end">Planck, Bohr, Schrödinger</text>
+<text class="label" x="350" y="664" text-anchor="middle" fill="#b39dff">RELATIVITÉ RESTREINTE</text>
+<text class="sous" x="350" y="690" text-anchor="middle">Einstein, 1905</text>
+<text class="sous" x="178" y="300" text-anchor="middle" fill="#5fd4ff" style="fill:#bfeaff">un champ</text>
+<text class="sous" x="178" y="324" text-anchor="middle" style="fill:#bfeaff">partout</text>
+<text class="sous" x="522" y="300" text-anchor="middle" style="fill:#ffd2bd">des quanta,</text>
+<text class="sous" x="522" y="324" text-anchor="middle" style="fill:#ffd2bd">des probabilités</text>
+<text class="sous" x="350" y="548" text-anchor="middle" style="fill:#e0d6ff">E = mc²</text>
+<text class="texte" x="350" y="728" text-anchor="middle" style="font-size:20px;fill:#9fb3d6">des champs relativistes aux excitations quantifiées</text>
+</svg>

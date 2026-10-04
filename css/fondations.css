@@ -1,4 +1,4 @@
-/* Version : 1.0 */
+/* Version : 1.1 */
 /* =====================================================================
    QuantumSite — page Fondations (La théorie quantique des champs)
    Complète css/style.css (en-tête, couleurs du site).
@@ -74,6 +74,15 @@
   border: 1px dashed rgba(95, 212, 255, 0.35);
   border-radius: 6px;
   background: rgba(5, 13, 34, 0.45);
+}
+
+/* Vignette remplie par son SVG : plus de cadre pointillé */
+.vignette:has(> img),
+.vignette:has(> svg) {
+  border: 1px solid rgba(95, 212, 255, 0.18);
+  background: none;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .vignette > svg,
