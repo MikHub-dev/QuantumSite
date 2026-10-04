@@ -1,8 +1,8 @@
-/* Version : 1.0 */
+/* Version : 1.2 */
 /* =====================================================================
-   QuantumSite — page Philosophie (trois postulats)
+   QuantumSite — page Philosophie (trois paradigmes philosophiques)
    Complète css/style.css (en-tête, couleurs du site).
-   Chaque postulat reprend la couleur et le panneau de l'image d'accueil :
+   Chaque paradigme reprend la couleur et le panneau de l'image d'accueil :
    I cyan (mathématiques), II or (symétries, la galaxie), III rouge (géométrie).
    ===================================================================== */
 
@@ -56,7 +56,43 @@
   color: var(--texte-doux);
 }
 
-/* ---------- Sommaire : trois liens aux couleurs des postulats ---------- */
+/* ---------- Définition du paradigme philosophique ---------- */
+
+.definition {
+  /* Pleine largeur : le bord droit s'aligne sur celui de la vignette rouge du sommaire */
+  margin: 0 0 clamp(1.25rem, 3vh, 1.75rem);
+  padding: 0.75rem 1.2rem 0.8rem;
+  border: 1px solid var(--trait);
+  border-radius: 10px;
+  background: rgba(8, 20, 48, 0.55);
+}
+
+/* Interlignage réduit au minimum lisible (les accents et les jambages ne se touchent pas) */
+.definition h2 {
+  margin: 0 0 0.3rem;
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--texte);
+}
+
+.definition p,
+.definition li {
+  font-family: var(--serif);
+  font-size: clamp(1.02rem, 1.15vw, 1.12rem);
+  line-height: 1.25;
+  color: #d5e0f5;
+}
+
+.definition p { margin: 0 0 0.3rem; }
+.definition p:last-child { margin-bottom: 0; }
+.definition ul { margin: 0 0 0.3rem; padding-left: 1.3rem; }
+.definition li { margin: 0; }
+.definition li::marker { color: var(--cyan); }
+.definition dfn { font-style: normal; font-weight: 500; color: var(--texte); }
+.definition cite { font-style: italic; }
+
+/* ---------- Sommaire : trois liens aux couleurs des paradigmes ---------- */
 
 .sommaire ol {
   display: grid;
@@ -93,7 +129,7 @@
   color: var(--couleur);
 }
 
-/* ---------- Un postulat ---------- */
+/* ---------- Un paradigme ---------- */
 
 .postulat {
   display: flow-root;            /* contient la vignette flottante */

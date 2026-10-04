@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.2 -->
 <html lang="fr">
 <head>
   <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>QuantumSite — Philosophie</title>
-  <meta name="description" content="Trois postulats : les mathématiques et l'ordre de l'univers, les symétries et les forces, la géométrie comme fondement de la réalité.">
+  <meta name="description" content="Trois paradigmes philosophiques : les mathématiques et l'ordre de l'univers, les symétries et les forces, la géométrie comme fondement de la réalité.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/philosophie.css?v=1.0">
+  <link rel="stylesheet" href="css/style.css?v=1.4">
+  <link rel="stylesheet" href="css/recherche.css?v=1.0">
+  <link rel="stylesheet" href="css/philosophie.css?v=1.2">
 </head>
 <body class="page-philosophie">
 
@@ -26,20 +27,34 @@
         <li><a href="fiches-quantiques.html">Fiches Quantiques</a></li>
         <li><a href="fiches-mathematiques.html">Fiches Mathématiques</a></li>
         <li><a href="fiches-informatiques.html">Fiches Informatiques</a></li>
+        <li><a href="axiomisation.html">Axiomisation</a></li>
         <li><a href="videos.html">Vidéos</a></li>
-        <li><a href="recherche.html">Recherche</a></li>
       </ul>
     </nav>
+    <div class="nav-search">
+      <input id="global-search" type="search" placeholder="Rechercher... (+ = ET, espace = OU)" aria-label="Rechercher dans le site" autocomplete="off" />
+    </div>
   </header>
 
   <main class="philosophie">
 
     <header class="philosophie-titre">
       <h1>Philosophie</h1>
-      <p class="sous-titre">Trois postulats sur l'ordre du monde</p>
+      <p class="sous-titre">Trois paradigmes philosophiques sur l'ordre de l'univers</p>
     </header>
 
-    <nav class="sommaire" aria-label="Les trois postulats">
+    <section class="definition" id="definition" aria-labelledby="definition-titre">
+      <h2 id="definition-titre">Qu'est-ce qu'un paradigme philosophique&nbsp;?</h2>
+      <p>Un <dfn>paradigme philosophique</dfn> est une vision globale du monde, un cadre conceptuel ou une grille de lecture partagée qui détermine&nbsp;:</p>
+      <ul>
+        <li>Ce qui existe (l'ontologie)&nbsp;;</li>
+        <li>Comment on peut le connaître (l'épistémologie)&nbsp;;</li>
+        <li>Quelles questions sont légitimes et quels modes de raisonnement sont valides.</li>
+      </ul>
+      <p>Le terme «&nbsp;paradigme&nbsp;» a été popularisé par le philosophe des sciences Thomas Kuhn (dans <cite>La Structure des révolutions scientifiques</cite>, 1962). Kuhn l'appliquait d'abord aux sciences, mais le concept s'est étendu à la philosophie.</p>
+    </section>
+
+    <nav class="sommaire" aria-label="Les trois paradigmes philosophiques">
       <ol>
         <li><a class="lien-postulat p1" href="#mathematiques-ordre-univers"><span class="numero">I</span>Mathématiques et l'ordre de l'univers</a></li>
         <li><a class="lien-postulat p2" href="#symetries-forces-univers"><span class="numero">II</span>Symétries et forces de l'univers</a></li>
@@ -51,7 +66,7 @@
     <article class="postulat p1" id="mathematiques-ordre-univers">
       <figure class="vignette" aria-hidden="true"></figure>
       <header class="postulat-entete">
-        <p class="postulat-numero">Postulat I</p>
+        <p class="postulat-numero">Paradigme philosophique I</p>
         <h2>Mathématiques et l'ordre de l'univers</h2>
         <p class="question">Pourquoi et comment les mathématiques révèlent l'ordre dans l'univers&nbsp;?</p>
       </header>
@@ -87,7 +102,7 @@
     <article class="postulat p2" id="symetries-forces-univers">
       <figure class="vignette" aria-hidden="true"></figure>
       <header class="postulat-entete">
-        <p class="postulat-numero">Postulat II</p>
+        <p class="postulat-numero">Paradigme philosophique II</p>
         <h2>Symétries et forces de l'univers</h2>
         <p class="question">Pourquoi et comment les symétries guident les forces de l'univers&nbsp;?</p>
       </header>
@@ -119,7 +134,7 @@
     <article class="postulat p3" id="geometrie-fondement-realite">
       <figure class="vignette" aria-hidden="true"></figure>
       <header class="postulat-entete">
-        <p class="postulat-numero">Postulat III</p>
+        <p class="postulat-numero">Paradigme philosophique III</p>
         <h2>Géométrie et fondement de la réalité</h2>
         <p class="question">Pourquoi et comment de la géométrie naît la réalité&nbsp;?</p>
       </header>
@@ -152,6 +167,8 @@
     </article>
 
   </main>
+
+  <script src="js/recherche.js?v=1.0"></script>
 
 </body>
 </html>

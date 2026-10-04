@@ -1,4 +1,4 @@
-// Version : 1.2
+// Version : 1.3
 /* =====================================================================
    QuantumSite — moteur des pages de fiches
    ---------------------------------------------------------------------
@@ -179,11 +179,15 @@
     }
   }
 
-  function ouvrirPaquet(theme) {
+  function ouvrirPaquet(theme, numero) {
     themeCourant = theme;
     position = 0;
     retournee = false;
     construirePaquet();
+    if (numero != null) {                              // lien direct vers une fiche (ex. #mesure/21)
+      const k = paquet.findIndex(c => String(c.n) === String(numero));
+      if (k >= 0) position = k;
+    }
     document.title = "QuantumSite — " + theme;
 
     racine.className = "fiches vue-paquet";
@@ -379,8 +383,11 @@
 
   function router() {
     lireMarques();
-    const theme = themeParSlug[decodeURIComponent(location.hash.replace(/^#/, ""))];
-    if (theme) ouvrirPaquet(theme); else afficherThemes();
+    // #theme ouvre le paquet du thème ; #theme/12 l'ouvre directement sur la fiche n° 12
+    // (liens produits par la recherche du site).
+    const [cle, numero] = decodeURIComponent(location.hash.replace(/^#/, "")).split("/");
+    const theme = themeParSlug[cle];
+    if (theme) ouvrirPaquet(theme, numero); else afficherThemes();
   }
 
   window.addEventListener("hashchange", router);

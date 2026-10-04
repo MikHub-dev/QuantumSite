@@ -7,6 +7,7 @@ Site aide-mémoire sur les notions de la quantique.
 ## Contenu
 
 - **Fiches Quantiques** (`fiches-quantiques.html`) : 50 flashcards illustrées, réparties en six thèmes (Fondations, Formalisme, Mesure, Particules, Intrication, Technologies).
+- **Axiomisation** (`axiomisation.html`) : 42 flashcards sur les postulats physiques de la mécanique quantique et leur socle mathématique (espace de Hilbert, opérateurs, théorèmes clés, distributions), réparties en huit thèmes, avec un préambule sur les mots « postulat » et « axiome ».
 - **Fiches Mathématiques** (`fiches-mathematiques.html`) : 100 flashcards « Outils mathématiques de la quantique », chacune avec sa formule, sa définition et une illustration SVG calculée, réparties en seize thèmes.
 
 ## Utilisation
@@ -17,13 +18,20 @@ Site aide-mémoire sur les notions de la quantique.
 - Mélangez le paquet, ou activez « Définition d'abord » pour vous entraîner dans l'autre sens.
 - Clavier : flèches pour naviguer, R pour « à revoir », C pour « je la connais », Échap pour revenir aux thèmes. Sur mobile, balayez la carte.
 
+## Recherche
+
+La barre à droite du menu horizontal fonctionne comme celle de MathSite : des mots séparés par des espaces sont cherchés en OU, des termes séparés par « + » en ET, sans tenir compte des accents ni des majuscules. Les résultats s'affichent à chaque frappe, en trois familles (Menus, Fiches, Pages), avec un extrait surligné quand le mot est trouvé dans le contenu. Un clic ouvre la page, le thème ou directement la fiche (`fiches-quantiques.html#mesure/24`). Échap ou « Fermer » referme les résultats.
+
+L'index est construit dans le navigateur à partir des pages du menu et des fichiers `donnees/*.js` qu'elles chargent : toute page ou fiche ajoutée est trouvée sans autre modification. Il faut que le site soit servi par un serveur web (GitHub Pages, aperçu du Codespace) ; ouvert en fichier local, seules les entrées du menu sont trouvées.
+
 ## Structure
 
 - `index.html` : page d'accueil.
-- `fiches-quantiques.html`, `fiches-mathematiques.html` : pages des deux séries.
-- `donnees/` : le contenu des fiches (textes, formules, illustrations) et le symbole de chaque thème.
-- `js/fiches.js` : le moteur commun (vignettes, paquet, marques).
-- `philosophie.html` : trois postulats (mathématiques et ordre de l'univers, symétries et forces, géométrie et réalité).
+- `axiomisation.html`, `fiches-quantiques.html`, `fiches-mathematiques.html` : pages des trois séries.
+- `donnees/` : le contenu des fiches (textes, formules, illustrations), le symbole de chaque thème et, si besoin, un préambule (`preambule`) affiché sous le titre.
+- `js/fiches.js` : le moteur commun (vignettes, paquet, marques, préambule).
+- `philosophie.html` : trois paradigmes philosophiques (mathématiques et ordre de l'univers, symétries et forces, géométrie et réalité), précédés de la définition d'un paradigme philosophique.
+- `js/recherche.js`, `css/recherche.css` : la recherche du site.
 - `css/style.css` : styles communs (en-tête, accueil) ; `css/fiches.css` : styles des pages de fiches ; `css/philosophie.css` : styles de la page Philosophie.
 - `outils-mathematiques.html` : ancienne adresse, redirige vers `fiches-mathematiques.html`.
 

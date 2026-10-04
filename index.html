@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Version : 1.2 -->
+<!-- Version : 1.4 -->
 <html lang="fr">
 <head>
   <meta name="robots" content="noindex, nofollow">
@@ -10,7 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=1.2">
+  <link rel="stylesheet" href="css/style.css?v=1.4">
+  <link rel="stylesheet" href="css/recherche.css?v=1.0">
 </head>
 <body class="page-accueil">
 
@@ -25,10 +26,13 @@
         <li><a href="fiches-quantiques.html">Fiches Quantiques</a></li>
         <li><a href="fiches-mathematiques.html">Fiches Mathématiques</a></li>
         <li><a href="fiches-informatiques.html">Fiches Informatiques</a></li>
+        <li><a href="axiomisation.html">Axiomisation</a></li>
         <li><a href="videos.html">Vidéos</a></li>
-        <li><a href="recherche.html">Recherche</a></li>
       </ul>
     </nav>
+    <div class="nav-search">
+      <input id="global-search" type="search" placeholder="Rechercher... (+ = ET, espace = OU)" aria-label="Rechercher dans le site" autocomplete="off" />
+    </div>
   </header>
 
   <main class="scene">
@@ -36,6 +40,8 @@
             aria-label="Des particules dans l’espace vide à la théorie quantique des champs (1927) : il n’y a pas de particules dans l’univers, ni d’objets ni de solides, mais des vibrations de champs. Les mathématiques révèlent l’ordre, les symétries guident les forces, de la géométrie naît la réalité.">
     </object>
   </main>
+
+  <script src="js/recherche.js?v=1.0"></script>
 
 </body>
 </html>
