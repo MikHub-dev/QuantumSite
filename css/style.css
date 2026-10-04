@@ -122,20 +122,6 @@ body {
   min-height: 0;
 }
 
-/* ---------- Écrans moyens : le menu (8 entrées) se resserre ---------- */
-/* S'il ne tient toujours pas, il défile horizontalement au lieu d'être coupé. */
-
-@media (min-width: 901px) and (max-width: 1360px) {
-  .entete { gap: 1.75rem; padding: 0 1.25rem; }
-  .menu ul {
-    gap: 1.1rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .menu ul::-webkit-scrollbar { display: none; }
-  .menu a { font-size: 0.92rem; }
-}
-
 /* ---------- Écrans étroits ---------- */
 
 @media (max-width: 900px) {
@@ -157,6 +143,19 @@ body {
   }
   .menu ul::-webkit-scrollbar { display: none; }
 
+}
+
+/* Écrans moyens (901 à 1360 px) : menu resserré ; s'il ne tient toujours pas,
+   il défile horizontalement, comme sur mobile, au lieu d'être coupé. */
+@media (min-width: 901px) and (max-width: 1360px) {
+  .entete { gap: 2rem; }
+  .menu ul {
+    gap: 1.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .menu ul::-webkit-scrollbar { display: none; }
+  .menu a { font-size: 0.94rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

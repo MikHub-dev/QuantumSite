@@ -7,7 +7,6 @@ Site aide-mémoire sur les notions de la quantique.
 ## Contenu
 
 - **Fiches Quantiques** (`fiches-quantiques.html`) : 50 flashcards illustrées, réparties en six thèmes (Fondations, Formalisme, Mesure, Particules, Intrication, Technologies).
-- **Axiomisation** (`axiomisation.html`) : 42 flashcards sur les postulats physiques de la mécanique quantique et leur socle mathématique (espace de Hilbert, opérateurs, théorèmes clés, distributions), réparties en huit thèmes, avec un préambule sur les mots « postulat » et « axiome ».
 - **Fiches Mathématiques** (`fiches-mathematiques.html`) : 100 flashcards « Outils mathématiques de la quantique », chacune avec sa formule, sa définition et une illustration SVG calculée, réparties en seize thèmes.
 
 ## Utilisation
@@ -21,10 +20,11 @@ Site aide-mémoire sur les notions de la quantique.
 ## Structure
 
 - `index.html` : page d'accueil.
-- `axiomisation.html`, `fiches-quantiques.html`, `fiches-mathematiques.html` : pages des trois séries.
-- `donnees/` : le contenu des fiches (textes, formules, illustrations), le symbole de chaque thème et, si besoin, un préambule (`preambule`) affiché sous le titre.
-- `js/fiches.js` : le moteur commun (vignettes, paquet, marques, préambule).
-- `css/style.css` : styles communs (en-tête, accueil) ; `css/fiches.css` : styles des pages de fiches.
+- `fiches-quantiques.html`, `fiches-mathematiques.html` : pages des deux séries.
+- `donnees/` : le contenu des fiches (textes, formules, illustrations) et le symbole de chaque thème.
+- `js/fiches.js` : le moteur commun (vignettes, paquet, marques).
+- `philosophie.html` : trois postulats (mathématiques et ordre de l'univers, symétries et forces, géométrie et réalité).
+- `css/style.css` : styles communs (en-tête, accueil) ; `css/fiches.css` : styles des pages de fiches ; `css/philosophie.css` : styles de la page Philosophie.
 - `outils-mathematiques.html` : ancienne adresse, redirige vers `fiches-mathematiques.html`.
 
 ## Synchronisation depuis `_inbox/`
