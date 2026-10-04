@@ -1,0 +1,156 @@
+/* Version : 1.0 */
+/* =====================================================================
+   QuantumSite — page Fondations (La théorie quantique des champs)
+   Complète css/style.css (en-tête, couleurs du site).
+   ===================================================================== */
+
+.page-fondations {
+  --serif: "Spectral", "Cambria Math", "STIX Two Text", Georgia, serif;
+  --trait: rgba(159, 179, 214, 0.22);
+
+  /* Vignette : même taille que la figure en bas à gauche de l'accueil.
+     Sur l'accueil, l'image (1698 × 608) occupe toute la largeur de l'écran ;
+     la figure « Les mathématiques révèlent l'ordre » y mesure environ 350 × 375 px. */
+  --vignette-l: clamp(150px, calc(100vw * 350 / 1698), 400px);
+  --vignette-ratio: 350 / 375;
+}
+
+/* L'image de l'accueil, floutée et assombrie, fixée derrière le contenu */
+.page-fondations::before {
+  content: "";
+  position: fixed;
+  inset: -40px;
+  z-index: -1;
+  background: url("../images/fond-accueil.jpeg") center / cover no-repeat;
+  filter: blur(30px) brightness(0.32) saturate(1.2);
+}
+
+.fondations {
+  padding: calc(var(--hauteur-entete) + 2.75rem) clamp(1rem, 3vw, 3.5rem) 4rem;
+}
+
+/* ---------- Titre de la page ---------- */
+
+.fondations-titre {
+  margin: 0 0 clamp(2rem, 5vh, 3.5rem);
+  padding-left: 1.1rem;
+  border-left: 3px solid var(--cyan);
+}
+
+.fondations-titre h1 {
+  margin: 0;
+  font-size: clamp(2.1rem, 4.6vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.005em;
+  color: var(--texte);
+}
+
+.fondations-titre .sous-titre {
+  margin: 0.45rem 0 0;
+  font-size: clamp(1.05rem, 1.7vw, 1.4rem);
+  font-weight: 400;
+  color: var(--cyan);
+  text-shadow: 0 0 14px rgba(95, 212, 255, 0.35);
+}
+
+/* ---------- Une partie par diapositive ---------- */
+
+.fondation {
+  display: flow-root;            /* contient la vignette flottante */
+  padding: clamp(1.6rem, 3.5vh, 2.4rem) 0;
+  border-top: 1px solid var(--trait);
+  scroll-margin-top: calc(var(--hauteur-entete) + 1rem);
+}
+
+.fondation:first-of-type { border-top: none; padding-top: 0; }
+
+/* Emplacement de l'illustration (SVG à venir) */
+.vignette {
+  float: left;
+  width: var(--vignette-l);
+  aspect-ratio: var(--vignette-ratio);
+  margin: 0.3rem clamp(1.1rem, 2vw, 2rem) 0.9rem 0;
+  border: 1px dashed rgba(95, 212, 255, 0.35);
+  border-radius: 6px;
+  background: rgba(5, 13, 34, 0.45);
+}
+
+.vignette > svg,
+.vignette > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.fondation h2 {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.35rem, 2.1vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--texte);
+}
+
+.fondation p {
+  margin: 0 0 0.9rem;
+  font-family: var(--serif);
+  font-size: clamp(1.02rem, 1.15vw, 1.14rem);
+  line-height: 1.7;
+  color: #d5e0f5;
+  hyphens: auto;
+}
+
+.fondation p:last-child { margin-bottom: 0; }
+
+.fondation strong { font-weight: 500; color: var(--texte); }
+
+.fondation em { font-style: italic; }
+
+/* Formules affichées */
+.fondation .formule {
+  margin: 0.2rem 0 1rem;
+  padding: 0.55rem 1rem;
+  overflow-x: auto;
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+  font-style: italic;
+  color: var(--texte);
+  background: rgba(95, 212, 255, 0.06);
+  border-left: 2px solid rgba(95, 212, 255, 0.5);
+  border-radius: 0 4px 4px 0;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.formule .droit { font-style: normal; }
+
+/* ---------- Sources ---------- */
+
+.fondations-sources {
+  margin-top: 1rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--trait);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--texte-doux);
+}
+
+.fondations-sources p { margin: 0 0 0.4rem; }
+
+.fondations-sources a { color: var(--cyan); }
+.fondations-sources a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Écrans étroits ---------- */
+
+@media (max-width: 900px) {
+  .fondations { padding-top: calc(var(--hauteur-entete) + 1.75rem); }
+}
+
+@media (max-width: 560px) {
+  .page-fondations { --vignette-l: 42vw; }
+  .vignette { margin-right: 0.9rem; }
+}
