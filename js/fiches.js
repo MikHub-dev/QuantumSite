@@ -1,4 +1,4 @@
-// Version : 1.0
+// Version : 1.1
 /* =====================================================================
    QuantumSite — moteur des pages de fiches
    ---------------------------------------------------------------------
@@ -84,9 +84,11 @@
       return `
         <li>
           <a class="${classes.join(" ")}" href="#${slug(theme)}">
-            <span class="vignette-symbole" aria-hidden="true">${jeu.symboles[theme] || ""}</span>
-            <span class="vignette-nom">${theme}</span>
-            <span class="vignette-compte">${detail}</span>
+            <span class="vignette-corps">
+              <span class="vignette-symbole" aria-hidden="true">${jeu.symboles[theme] || ""}</span>
+              <span class="vignette-nom">${theme}</span>
+              <span class="vignette-compte">${detail}</span>
+            </span>
             ${jauge}
           </a>
         </li>`;
@@ -95,17 +97,66 @@
     racine.className = "fiches vue-themes";
     racine.innerHTML = `
       <div class="themes">
-        <h1 class="themes-titre">${jeu.titre}</h1>
-        <p class="themes-intro">${total} fiches réparties en ${jeu.themes.length} thèmes. Choisis un thème pour commencer.</p>
-        <p class="themes-bilan">${pluriel(ok, "connue")}, ${rev} à revoir, ${libres} pas encore marquée${libres > 1 ? "s" : ""}</p>
+        <div class="themes-entete">
+          <div>
+            <h1 class="themes-titre">${jeu.titre}</h1>
+            <p class="themes-intro">${total} fiches, ${jeu.themes.length} thèmes. Choisis un thème pour commencer.</p>
+          </div>
+          <p class="themes-bilan">
+            <span>${pluriel(ok, "connue")}, ${rev} à revoir, ${libres} pas encore marquée${libres > 1 ? "s" : ""}</span>
+            <button class="lien" type="button" data-action="effacer">Effacer mes marques</button>
+          </p>
+        </div>
         <ul class="grille-vignettes">${vignettes}</ul>
-        <p class="themes-pied">
-          <button class="lien" type="button" data-action="effacer">Effacer mes marques</button>
-        </p>
       </div>`;
+    disposerVignettes();
     confirmationEffacer = false;
     window.scrollTo(0, 0);
   }
+
+  /* Choisit le nombre de colonnes pour que toutes les vignettes tiennent dans
+     la hauteur de l'écran, sans ascenseur.
+     - De préférence des vignettes « cartes » (assez hautes : symbole au-dessus du nom),
+       aussi grandes que possible.
+     - Sinon des vignettes « lignes » (basses : symbole à gauche du nom), assez larges
+       pour que le nom se lise.
+     Le passage d'une forme à l'autre se fait en CSS (@container dans css/fiches.css). */
+  const CARTE_MIN_H = 100, CARTE_MIN_L = 130;
+  const LIGNE_MIN_H = 46, LIGNE_MIN_L = 150;
+
+  function disposerVignettes() {
+    const grille = racine.querySelector(".grille-vignettes");
+    if (!grille) return;
+    const items = grille.children;
+    const n = items.length;
+    const cases = n + 1;                               // « Toutes » occupe deux cases
+    const ecart = parseFloat(getComputedStyle(grille).columnGap) || 0;
+    const L = grille.clientWidth, H = grille.clientHeight;
+
+    let meilleur = null;
+    for (let colonnes = 2; colonnes <= cases; colonnes++) {
+      const rangees = Math.ceil(cases / colonnes);
+      const l = (L - ecart * (colonnes - 1)) / colonnes;
+      const h = (H - ecart * (rangees - 1)) / rangees;
+      let score;
+      if (h >= CARTE_MIN_H && l >= CARTE_MIN_L) score = 2000 + Math.min(l, h * 1.5);
+      else if (h >= LIGNE_MIN_H && l >= LIGNE_MIN_L) score = 1000 + Math.min(l / 3.2, h);
+      else score = Math.min(l / LIGNE_MIN_L, h / LIGNE_MIN_H);
+      if (!meilleur || score > meilleur.score) meilleur = { colonnes, rangees, score };
+    }
+
+    grille.style.setProperty("--colonnes", meilleur.colonnes);
+    grille.style.setProperty("--rangees", meilleur.rangees);
+    // « À revoir », en dernier, s'étire sur les cases vides de la dernière rangée.
+    const vides = meilleur.rangees * meilleur.colonnes - cases;
+    items[n - 1].style.gridColumn = "span " + (1 + vides);
+  }
+
+  let attenteRedimension = null;
+  window.addEventListener("resize", () => {
+    cancelAnimationFrame(attenteRedimension);
+    attenteRedimension = requestAnimationFrame(disposerVignettes);
+  });
 
   /* ================= Vue « paquet » ================= */
 
@@ -146,17 +197,15 @@
         <div class="paquet-commandes">
           <div class="rangee">
             <button class="bouton" type="button" data-action="precedente">Précédente</button>
-            <button class="bouton bouton-principal" type="button" data-action="suivante">Suivante</button>
-          </div>
-          <div class="rangee">
             <button class="bouton bouton-revoir" type="button" data-action="rev" aria-pressed="false">À revoir</button>
             <button class="bouton bouton-connue" type="button" data-action="ok" aria-pressed="false">Je la connais</button>
+            <button class="bouton bouton-principal" type="button" data-action="suivante">Suivante</button>
           </div>
           <div class="options">
+            <span class="clavier">Clavier : ← → naviguer, Espace retourner, R à revoir, C connue, Échap thèmes</span>
             <label><input type="checkbox" data-option="melange"${melange ? " checked" : ""}> Mélanger</label>
             <label><input type="checkbox" data-option="definition"${definitionDabord ? " checked" : ""}> Définition d’abord</label>
           </div>
-          <p class="clavier">Clavier : flèches pour naviguer, Espace pour retourner, R pour « À revoir », C pour « Je la connais », Échap pour revenir aux thèmes. Sur mobile, balaie la carte.</p>
         </div>
       </div>`;
     window.scrollTo(0, 0);
