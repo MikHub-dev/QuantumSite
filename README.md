@@ -6,6 +6,7 @@ Site aide-mémoire sur les notions de la quantique.
 
 ## Contenu
 
+- **Le solide** (`solide.html`) : pourquoi un solide est un état de plusieurs champs quantiques, ce qu'il faut corriger dans l'énoncé « un solide est un ensemble de milliards d'excitations coordonnées de plusieurs champs quantiques », et d'où viennent les quasiparticules (phonons, magnons, plasmons).
 - **Fiches Quantiques** (`fiches-quantiques.html`) : 50 flashcards illustrées, réparties en six thèmes (Fondations, Formalisme, Mesure, Particules, Intrication, Technologies).
 - **Axiomisation** (`axiomisation.html`) : 42 flashcards sur les postulats physiques de la mécanique quantique et leur socle mathématique (espace de Hilbert, opérateurs, théorèmes clés, distributions), réparties en huit thèmes, avec un préambule sur les mots « postulat » et « axiome ».
 - **Fiches Informatiques** (`fiches-informatiques.html`) : 70 flashcards sur l'informatique quantique, réparties en dix thèmes qui suivent la pile d'un ordinateur quantique, du qubit jusqu'aux usages et à l'infrastructure, avec un préambule.
@@ -33,9 +34,10 @@ L'index est construit dans le navigateur à partir des pages du menu et des fich
 - `donnees/` : le contenu des fiches (textes, formules, illustrations), le symbole de chaque thème et, si besoin, un préambule (`preambule`) affiché sous le titre.
 - `js/fiches.js` : le moteur commun (vignettes, paquet, marques, préambule).
 - `philosophie.html` : trois paradigmes philosophiques (mathématiques et ordre de l'univers, symétries et forces, géométrie et réalité), précédés de la définition d'un paradigme philosophique.
+- `solide.html`, `css/solide.css` : la page Le solide (même fond et même typographie que Philosophie).
 - `videos.html`, `css/videos.css` : la page Vidéos ; pour ajouter une vidéo, copier un bloc `<article class="video">` (un `id`, un titre `h2`, un résumé).
 - `js/recherche.js`, `css/recherche.css` : la recherche du site.
-- `css/style.css` : styles communs (en-tête, accueil) ; `css/fiches.css` : styles des pages de fiches ; `css/philosophie.css` : styles de la page Philosophie ; `css/videos.css` : styles de la page Vidéos.
+- `css/style.css` : styles communs (en-tête, accueil) ; `css/fiches.css` : styles des pages de fiches ; `css/philosophie.css` : styles de la page Philosophie ; `css/videos.css` : styles de la page Vidéos ; `css/solide.css` : styles de la page Le solide.
 - `outils-mathematiques.html` : ancienne adresse, redirige vers `fiches-mathematiques.html`.
 
 ## Synchronisation depuis `_inbox/`
