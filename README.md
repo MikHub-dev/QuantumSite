@@ -6,7 +6,7 @@ Site aide-mémoire sur les notions de la quantique.
 
 ## Contenu
 
-- **Le solide** (`solide.html`) : pourquoi un solide est un état de plusieurs champs quantiques, ce qu'il faut corriger dans l'énoncé « un solide est un ensemble de milliards d'excitations coordonnées de plusieurs champs quantiques », et d'où viennent les quasiparticules (phonons, magnons, plasmons).
+- **Le solide** (`solide.html`) : pourquoi un solide est un état de plusieurs champs quantiques, ce qu'il faut corriger dans l'énoncé « un solide est un ensemble de milliards d'excitations coordonnées de plusieurs champs quantiques », d'où viennent les quasiparticules (phonons, magnons, plasmons), puis le tableau des quatorze étapes de constitution, des champs quantiques au corps humain, illustré par deux colonnes de dessins (« 1 cm³ de métal » jusqu'à l'étape 8, « Vivant » jusqu'à l'étape 14) reliés par un fil rose, et un encadré sur la bifurcation entre le vivant et le non vivant après l'étape 5.
 - **Fiches Quantiques** (`fiches-quantiques.html`) : 50 flashcards illustrées, réparties en six thèmes (Fondations, Formalisme, Mesure, Particules, Intrication, Technologies).
 - **Axiomisation** (`axiomisation.html`) : 42 flashcards sur les postulats physiques de la mécanique quantique et leur socle mathématique (espace de Hilbert, opérateurs, théorèmes clés, distributions), réparties en huit thèmes, avec un préambule sur les mots « postulat » et « axiome ».
 - **Fiches Informatiques** (`fiches-informatiques.html`) : 70 flashcards sur l'informatique quantique, réparties en dix thèmes qui suivent la pile d'un ordinateur quantique, du qubit jusqu'aux usages et à l'infrastructure, avec un préambule.
