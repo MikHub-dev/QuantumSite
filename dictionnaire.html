@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <!-- Page générée : les définitions sont rangées par ordre alphabétique, une section par lettre. -->
 <html lang="fr">
 <head>
@@ -44,7 +44,7 @@
 
     <header class="solide-titre">
       <h1>Dictionnaire</h1>
-      <p class="sous-titre">Les mots importants de la page <a href="solide.html">Le solide</a>, de A à Z (99 définitions)</p>
+      <p class="sous-titre">Nombre total de définitions&nbsp;: <span id="nb-definitions">99</span></p>
     </header>
 
     <nav class="alphabet" aria-label="Lettres du dictionnaire">
@@ -948,6 +948,10 @@
 
   </main>
 
+  <script>
+    // Le total se recompte à chaque affichage : il reste juste si l'on ajoute ou retire une définition.
+    document.getElementById("nb-definitions").textContent = document.querySelectorAll(".entree").length;
+  </script>
   <script src="js/recherche.js?v=1.0"></script>
 
 </body>
