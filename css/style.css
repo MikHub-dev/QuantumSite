@@ -1,4 +1,4 @@
-/* Version : 1.7 */
+/* Version : 1.8 */
 /* ===== QuantumSite — feuille de style commune ===== */
 
 :root {
@@ -54,7 +54,7 @@ body {
 .menu ul {
   display: flex;
   /* Sur grand écran, les entrées s'espacent vers la gauche à mesure que la fenêtre s'élargit */
-  gap: clamp(1.3rem, calc(1.3rem + (100vw - 1600px) * 0.0625), 3rem);
+  gap: clamp(0.9rem, calc(0.9rem + (100vw - 1600px) * 0.05), 2.4rem);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -146,30 +146,47 @@ body {
 
 }
 
-/* Écrans moyens (901 à 1600 px) : menu (10 entrées + barre de recherche) resserré ; s'il ne tient toujours pas,
+/* Écrans moyens (901 à 1600 px) : menu (11 entrées + barre de recherche) resserré ; s'il ne tient toujours pas,
    il défile horizontalement, comme sur mobile, au lieu d'être coupé. */
 @media (min-width: 901px) and (max-width: 1600px) {
   .entete { gap: 1.25rem; padding: 0 1.25rem; }
   .menu ul {
-    gap: 0.55rem;
+    gap: 0.36rem;
     overflow-x: auto;
     scrollbar-width: none;
   }
   .menu ul::-webkit-scrollbar { display: none; }
+  .menu a { font-size: 0.78rem; }
+}
+
+/* Avec la onzième entrée (Les quasiparticules), le menu est encore resserré jusqu'à 1439 px
+   pour tenir sans défiler sur un écran de 1366 px, puis un cran de plus en dessous de 1320 px. */
+@media (min-width: 901px) and (max-width: 1439px) {
+  .menu ul { gap: 0.3rem; }
+  .menu a { font-size: 0.72rem; }
+}
+
+@media (min-width: 901px) and (max-width: 1319px) {
+  .menu ul { gap: 0.26rem; }
+  .menu a { font-size: 0.69rem; }
+}
+
+/* En dessous de 1280 px, dernier cran avant le défilement horizontal du menu */
+@media (min-width: 901px) and (max-width: 1279px) {
+  .menu ul { gap: 0.2rem; }
+  .menu a { font-size: 0.64rem; }
+}
+
+/* De 1601 à 1899 px, le menu de 11 entrées est légèrement resserré pour ne pas toucher la recherche */
+@media (min-width: 1601px) and (max-width: 1899px) {
+  .menu ul { gap: 0.5rem; }
   .menu a { font-size: 0.86rem; }
 }
 
-/* Avec la dixième entrée (Dictionnaire), le menu est encore un peu resserré jusqu'à 1439 px
-   pour tenir sans défiler sur les écrans de 1280 et 1366 px. */
-@media (min-width: 901px) and (max-width: 1439px) {
-  .menu ul { gap: 0.45rem; }
-  .menu a { font-size: 0.8rem; }
-}
-
-/* De 1601 à 1899 px, le menu de 10 entrées est légèrement resserré pour ne pas toucher la recherche */
-@media (min-width: 1601px) and (max-width: 1899px) {
-  .menu ul { gap: 0.9rem; }
-  .menu a { font-size: 0.92rem; }
+/* De 1900 à 2199 px, les onze entrées tiennent avec un pas un peu plus serré */
+@media (min-width: 1900px) and (max-width: 2199px) {
+  .menu ul { gap: 0.62rem; }
+  .menu a { font-size: 0.93rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

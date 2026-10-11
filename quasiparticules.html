@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QuantumSite — Les quasiparticules</title>
+  <meta name="description" content="Les huit quasiparticules d'un solide — phonon, magnon, plasmon, trou, exciton, polaron, polariton, paire de Cooper — et les quatre étapes qui mènent de l'état fondamental du cristal à chacune d'elles, en une planche illustrée.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=1.8">
+  <link rel="stylesheet" href="css/recherche.css?v=1.1">
+  <link rel="stylesheet" href="css/quasiparticules.css?v=1.0">
+</head>
+<body class="page-quasiparticules">
+
+  <header class="entete">
+    <a class="nom-site" href="index.html">QuantumSite</a>
+
+    <nav class="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="fondations.html">Fondations</a></li>
+        <li><a href="philosophie.html">Philosophie</a></li>
+        <li><a href="fiches-quantiques.html">Fiches Quantiques</a></li>
+        <li><a href="fiches-mathematiques.html">Fiches Mathématiques</a></li>
+        <li><a href="fiches-informatiques.html">Fiches Informatiques</a></li>
+        <li><a href="axiomisation.html">Axiomisation</a></li>
+        <li><a href="solide.html">Le solide</a></li>
+        <li><a href="quasiparticules.html" aria-current="page">Les quasiparticules</a></li>
+        <li><a href="dictionnaire.html">Dictionnaire</a></li>
+        <li><a href="videos.html">Vidéos</a></li>
+      </ul>
+    </nav>
+    <div class="nav-search">
+      <input id="global-search" type="search" placeholder="Rechercher... (+ = ET, espace = OU)" aria-label="Rechercher dans le site" autocomplete="off" />
+    </div>
+  </header>
+
+  <main class="quasiparticules">
+
+    <header class="qp-titre">
+      <h1>Les quasiparticules</h1>
+      <p class="sous-titre">Les excitations collectives d'un solide, et les étapes de leur formation</p>
+    </header>
+
+    <section class="partie" id="pourquoi" aria-labelledby="pourquoi-titre">
+      <h2 id="pourquoi-titre">Pourquoi des quasiparticules</h2>
+      <p>Un centimètre cube de métal contient environ 10²³ particules qui interagissent toutes entre elles. Résoudre ce problème exactement est hors de portée, et le résultat serait d'ailleurs illisible. La physique du solide procède autrement&nbsp;: elle part de l'état de plus basse énergie, le perturbe faiblement, cherche les modes propres de cette perturbation, puis les quantifie. Ce qui en sort se comporte comme une particule libre&nbsp;: une énergie ε(k), une masse effective, une charge, un spin et une durée de vie finie. On l'appelle une quasiparticule, et les états excités du solide se décrivent alors comme un gaz de ces objets.</p>
+      <p>Ces quasiparticules ne sont pas des particules fondamentales. Elles n'existent que dans le milieu qui les porte et disparaissent avec lui. Elles n'en sont pas moins réelles pour autant&nbsp;: elles se créent, se diffusent, s'annihilent, et se mesurent. C'est un phonon qui transporte la chaleur, un plasmon qui donne son éclat au métal, un trou qui fait fonctionner un transistor de type p, une paire de Cooper qui rend un fil supraconducteur. Voir la page <a href="solide.html">Le solide</a> pour le cadre général.</p>
+      <p>Elles se rangent en quatre familles, repérées par les couleurs de la planche&nbsp;:</p>
+      <ul class="lecture">
+        <li><b>Mode collectif quantifié</b>Un mouvement d'ensemble du cristal, dont le quantum est un boson&nbsp;: phonon, magnon, plasmon.</li>
+        <li><b>Particule « habillée »</b>Une particule modifiée par son environnement, qui garde sa statistique mais change de masse&nbsp;: trou, polaron.</li>
+        <li><b>État lié composite</b>Deux excitations liées l'une à l'autre&nbsp;: exciton, paire de Cooper.</li>
+        <li><b>Hybride lumière–matière</b>Un photon et une excitation du matériau mêlés par un couplage fort&nbsp;: polariton.</li>
+      </ul>
+    </section>
+
+    <section class="partie" id="planche" aria-labelledby="planche-titre">
+      <h2 id="planche-titre">La planche</h2>
+      <p>Une ligne par quasiparticule, à lire de gauche à droite&nbsp;: le point de départ, ce qui change, le mécanisme, puis la quasiparticule obtenue avec ses ordres de grandeur. Chaque case porte son illustration.</p>
+      <figure class="planche">
+        <span class="planche-cadre">
+          <img src="images/quasiparticules-planche.svg?v=1.0"
+               alt="Planche des huit quasiparticules d'un solide — phonon, magnon, plasmon, trou, exciton, polaron, polariton et paire de Cooper — chacune en quatre étapes illustrées : point de départ, ce qui change, mécanisme, quasiparticule obtenue."
+               width="1738" height="3628" loading="lazy">
+        </span>
+        <figcaption><a href="images/quasiparticules-planche.svg?v=1.0" target="_blank" rel="noopener">Ouvrir la planche dans un nouvel onglet</a> pour l'agrandir ou l'imprimer.</figcaption>
+      </figure>
+    </section>
+
+  </main>
+
+  <script src="js/recherche.js?v=1.0"></script>
+
+</body>
+</html>
