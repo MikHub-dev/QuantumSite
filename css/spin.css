@@ -1,4 +1,4 @@
-/* Version : 1.0 */
+/* Version : 1.1 */
 /* =====================================================================
    QuantumSite — page « Le spin »
    Complète css/style.css (en-tête, couleurs du site).
@@ -87,7 +87,6 @@
 /* ---------- Chapeau ---------- */
 
 .partie .chapeau {
-  max-width: 62rem;
   font-size: clamp(1.1rem, 1.35vw, 1.3rem);
   color: #e3ebfa;
 }
@@ -119,7 +118,6 @@
 .puces, .encadre ol {
   margin: 0 0 1.1rem;
   padding-left: 1.3rem;
-  max-width: 70rem;
 }
 
 .puces li, .encadre li {
@@ -131,16 +129,13 @@
 }
 .puces li::marker, .encadre li::marker { color: var(--cyan); }
 
-.partie p { max-width: 70rem; }
+.partie p { max-width: none; }
 
 /* ---------- Illustrations (dessins sur fond clair, posés sur une carte blanche) ---------- */
 
 .illustration {
   margin: 1.4rem 0;
-  max-width: 34rem;
 }
-.illustration.large { max-width: 70rem; }
-.illustration.moyenne { max-width: 30rem; }
 
 .illustration .cadre {
   display: block;
@@ -155,7 +150,7 @@
   display: block;
   width: 100%;
   height: auto;
-  max-height: 70vh;
+  max-height: 82vh;
   object-fit: contain;
 }
 
@@ -170,15 +165,15 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.4rem;
   align-items: start;
-  max-width: 70rem;
 }
+.duo.trio { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.duo .illustration .cadre { display: flex; align-items: center; justify-content: center; min-height: 100%; }
 .duo .illustration { margin: 1.4rem 0 0; max-width: none; }
-.duo .illustration img { max-height: 380px; }
+.duo .illustration img { height: clamp(220px, 22vw, 420px); max-height: none; width: 100%; }
 
 /* ---------- Encadré ---------- */
 
 .encadre {
-  max-width: 70rem;
   padding: clamp(1rem, 2.5vw, 1.6rem) clamp(1rem, 2.5vw, 1.8rem);
   border: 1px solid rgba(95, 212, 255, 0.35);
   border-left: 3px solid var(--cyan);
@@ -193,7 +188,7 @@
 .tableau-spin {
   margin: 0.4rem 0 1.3rem;
   border-collapse: collapse;
-  min-width: min(100%, 34rem);
+  width: 100%;
   font-family: var(--serif);
   font-size: clamp(1rem, 1.1vw, 1.1rem);
   color: #d5e0f5;
