@@ -12,6 +12,7 @@ Site aide-mémoire sur les notions de la quantique.
 - **Axiomisation** (`axiomisation.html`) : 42 flashcards sur les postulats physiques de la mécanique quantique et leur socle mathématique (espace de Hilbert, opérateurs, théorèmes clés, distributions), réparties en huit thèmes, avec un préambule sur les mots « postulat » et « axiome ».
 - **Fiches Informatiques** (`fiches-informatiques.html`) : 70 flashcards sur l'informatique quantique, réparties en dix thèmes qui suivent la pile d'un ordinateur quantique, du qubit jusqu'aux usages et à l'infrastructure, avec un préambule.
 - **Fiches Mathématiques** (`fiches-mathematiques.html`) : 100 flashcards « Outils mathématiques de la quantique », chacune avec sa formule, sa définition et une illustration SVG calculée, réparties en seize thèmes.
+- **Spin** (`spin.html`) : le spin d'une particule, de l'image de la toupie-boussole (infographie de ses usages : IRM, disques durs, aimants, chimie, qubits) à la précession de Larmor, la définition, l'exemple de l'électron et la sphère de Bloch, deux précisions sur la mesure et la superposition, et le tableau des spins des particules élémentaires.
 - **Vidéos** (`videos.html`) : une carte titrée par lien YouTube (trois vidéos, dont un short sur l'intrication, et la recherche « quantique » sur la chaîne de l'École polytechnique), qui s'ouvre dans un nouvel onglet.
 
 ## Utilisation
@@ -37,6 +38,7 @@ L'index est construit dans le navigateur à partir des pages du menu et des fich
 - `philosophie.html` : trois paradigmes philosophiques (mathématiques et ordre de l'univers, symétries et forces, géométrie et réalité), précédés de la définition d'un paradigme philosophique.
 - `solide.html`, `css/solide.css` : la page Le solide (même fond et même typographie que Philosophie).
 - `dictionnaire.html`, `css/dictionnaire.css` : la page Dictionnaire (même fond et même typographie que Le solide) ; chaque définition est un bloc `<article class="entree" id="…">` avec un titre `h2`, rangé dans la section de sa lettre, et la recherche du site la trouve sous son nom.
+- `spin.html`, `css/spin.css`, `images/spin/` : la page Spin (même fond et même typographie que Les quasiparticules) ; les dessins sont posés sur des cartes claires.
 - `videos.html`, `css/videos.css` : la page Vidéos ; pour ajouter une vidéo, copier un bloc `<article class="video">` (un `id`, un titre `h2`, un résumé).
 - `js/recherche.js`, `css/recherche.css` : la recherche du site.
 - `css/style.css` : styles communs (en-tête, accueil) ; `css/fiches.css` : styles des pages de fiches ; `css/philosophie.css` : styles de la page Philosophie ; `css/videos.css` : styles de la page Vidéos ; `css/solide.css` : styles de la page Le solide.

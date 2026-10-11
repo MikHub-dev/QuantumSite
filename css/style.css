@@ -1,4 +1,4 @@
-/* Version : 1.8 */
+/* Version : 1.9 */
 /* ===== QuantumSite — feuille de style commune ===== */
 
 :root {
@@ -151,24 +151,24 @@ body {
 @media (min-width: 901px) and (max-width: 1600px) {
   .entete { gap: 1.25rem; padding: 0 1.25rem; }
   .menu ul {
-    gap: 0.36rem;
+    gap: 0.32rem;
     overflow-x: auto;
     scrollbar-width: none;
   }
   .menu ul::-webkit-scrollbar { display: none; }
-  .menu a { font-size: 0.78rem; }
+  .menu a { font-size: 0.74rem; }
 }
 
-/* Avec la onzième entrée (Les quasiparticules), le menu est encore resserré jusqu'à 1439 px
+/* Avec douze entrées (Spin ajouté), le menu est encore resserré jusqu'à 1439 px
    pour tenir sans défiler sur un écran de 1366 px, puis un cran de plus en dessous de 1320 px. */
 @media (min-width: 901px) and (max-width: 1439px) {
-  .menu ul { gap: 0.3rem; }
-  .menu a { font-size: 0.72rem; }
+  .menu ul { gap: 0.24rem; }
+  .menu a { font-size: 0.67rem; }
 }
 
 @media (min-width: 901px) and (max-width: 1319px) {
-  .menu ul { gap: 0.26rem; }
-  .menu a { font-size: 0.69rem; }
+  .menu ul { gap: 0.22rem; }
+  .menu a { font-size: 0.65rem; }
 }
 
 /* En dessous de 1280 px, dernier cran avant le défilement horizontal du menu */

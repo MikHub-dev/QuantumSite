@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560">
+  <title>Sphère de Bloch</title>
+  <defs>
+    <marker id="fl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/>
+    </marker>
+    <radialGradient id="sph" cx=".38" cy=".32" r=".8">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="960" height="560" fill="#ffffff"/>
+
+  <!-- Titre -->
+  <text x="34" y="62" font-family="Helvetica, Arial, sans-serif" font-size="34" fill="#1f2328">Sphère de Bloch</text>
+
+  <!-- Sphère -->
+  <circle cx="330" cy="300" r="200" fill="url(#sph)" stroke="#1f2328" stroke-width="3"/>
+
+  <!-- Équateur (pointillés) -->
+  <ellipse cx="330" cy="300" rx="200" ry="48" fill="none" stroke="#1f2328" stroke-width="2.5" stroke-dasharray="12 8"/>
+
+  <!-- Axes -->
+  <line x1="330" y1="300" x2="330" y2="58" stroke="#1f2328" stroke-width="2.5" marker-end="url(#fl)"/>
+  <line x1="330" y1="300" x2="610" y2="300" stroke="#1f2328" stroke-width="2.5" marker-end="url(#fl)"/>
+  <line x1="330" y1="300" x2="198" y2="398" stroke="#1f2328" stroke-width="2.5" marker-end="url(#fl)"/>
+  <text x="344" y="74" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#1f2328">z</text>
+  <text x="602" y="336" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#1f2328">y</text>
+  <text x="196" y="432" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#1f2328">x</text>
+
+  <!-- Pôles -->
+  <circle cx="330" cy="100" r="7" fill="#ffffff" stroke="#1f2328" stroke-width="2.5"/>
+  <circle cx="330" cy="500" r="7" fill="#ffffff" stroke="#1f2328" stroke-width="2.5"/>
+
+  <!-- Vecteur d'état |ψ⟩ -->
+  <line x1="330" y1="300" x2="392" y2="142" stroke="#1f2328" stroke-width="2.5"/>
+  <circle cx="392" cy="142" r="4.5" fill="#1f2328"/>
+  <text x="404" y="156" font-family="'Cambria Math', 'Times New Roman', serif" font-size="24" fill="#1f2328">|ψ⟩</text>
+
+  <!-- Ligne rouge vers l'étiquette -->
+  <line x1="375" y1="186" x2="572" y2="420" stroke="#d62828" stroke-width="2.5"/>
+  <line x1="572" y1="420" x2="602" y2="420" stroke="#d62828" stroke-width="2.5"/>
+  <text x="610" y="427" font-family="'Times New Roman', Georgia, serif" font-style="italic" font-size="22" fill="#1f2328">Composante de spin</text>
+
+  <!-- Texte explicatif -->
+  <g font-family="Helvetica, Arial, sans-serif" font-size="15.5" fill="#1f2328">
+    <text x="620" y="56">Une composante de spin pointe dans</text>
+    <text x="620" y="76">une direction.</text>
+    <text x="620" y="96">L'ensemble de toutes les directions</text>
+    <text x="620" y="116">possibles dans l'espace 3D forme</text>
+    <text x="620" y="136">une sphère.</text>
+
+    <text x="620" y="172">Représenter l'orientation du spin</text>
+    <text x="620" y="192">sur une sphère en 3D rend donc</text>
+    <text x="620" y="212">la présentation très simple et claire.</text>
+
+    <text x="620" y="248">Cette sphère s'appelle la</text>
+    <text x="620" y="268" font-weight="bold">sphère de Bloch.</text>
+  </g>
+</svg>

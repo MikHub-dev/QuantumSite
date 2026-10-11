@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QuantumSite — Le spin</title>
+  <meta name="description" content="Le spin d'une particule : l'image de la toupie-boussole, ses usages (IRM, disques durs, aimants, chimie, qubits), la précession de Larmor, sa définition, l'exemple de l'électron, la sphère de Bloch et les valeurs possibles du spin.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=1.9">
+  <link rel="stylesheet" href="css/recherche.css?v=1.1">
+  <link rel="stylesheet" href="css/spin.css?v=1.0">
+</head>
+<body class="page-spin">
+
+  <header class="entete">
+    <a class="nom-site" href="index.html">QuantumSite</a>
+
+    <nav class="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="fondations.html">Fondations</a></li>
+        <li><a href="philosophie.html">Philosophie</a></li>
+        <li><a href="fiches-quantiques.html">Fiches Quantiques</a></li>
+        <li><a href="fiches-mathematiques.html">Fiches Mathématiques</a></li>
+        <li><a href="fiches-informatiques.html">Fiches Informatiques</a></li>
+        <li><a href="axiomisation.html">Axiomisation</a></li>
+        <li><a href="solide.html">Le solide</a></li>
+        <li><a href="quasiparticules.html">Les quasiparticules</a></li>
+        <li><a href="dictionnaire.html">Dictionnaire</a></li>
+        <li><a href="spin.html" aria-current="page">Spin</a></li>
+        <li><a href="videos.html">Vidéos</a></li>
+      </ul>
+    </nav>
+    <div class="nav-search">
+      <input id="global-search" type="search" placeholder="Rechercher... (+ = ET, espace = OU)" aria-label="Rechercher dans le site" autocomplete="off" />
+    </div>
+  </header>
+
+  <main class="spin">
+
+    <header class="spin-titre">
+      <h1>Le spin</h1>
+      <p class="sous-titre">Une toupie-boussole minuscule et indestructible</p>
+    </header>
+
+    <nav class="sommaire" aria-label="Sommaire de la page">
+      <a href="#usages">À quoi ça sert</a>
+      <a href="#toupie">La toupie et la précession</a>
+      <a href="#definition">Définition</a>
+      <a href="#electron">Exemple de l'électron</a>
+      <a href="#precisions">Deux précisions</a>
+      <a href="#plus-loin">Pour aller plus loin</a>
+    </nav>
+
+    <section class="partie" id="une-phrase" aria-label="En une phrase">
+      <p class="chapeau"><b>En une phrase&nbsp;:</b> le spin, c'est comme si chaque particule portait une toupie-boussole minuscule et indestructible. On ne peut jamais la regarder tourner, mais on sait lire sa direction et la faire basculer, et c'est cela qui fait fonctionner l'IRM, les disques durs, les aimants et la chimie.</p>
+    </section>
+
+    <section class="partie" id="usages" aria-labelledby="usages-titre">
+      <h2 id="usages-titre">À quoi ça sert concrètement</h2>
+      <p>C'est là que l'analogie de la boussole devient très utile, car presque toutes les applications utilisent le spin comme <b>un minuscule aimant qu'on peut orienter et lire</b>.</p>
+      <ul class="puces">
+        <li><b>L'IRM à l'hôpital.</b> Les noyaux d'hydrogène de votre corps (dans l'eau) ont un spin. Dans le grand aimant de l'IRM, ils précessent comme des toupies. Une onde radio les fait basculer, puis on écoute le signal qu'ils émettent en revenant. Comme la quantité d'eau varie selon les tissus, on obtient une image du corps.</li>
+        <li><b>Les disques durs.</b> La <b>magnétorésistance géante</b>, découverte en 1988 par le Français Albert Fert (prix Nobel 2007) et par Peter Grünberg, utilise le fait que le courant électrique passe plus ou moins bien selon l'orientation du spin des électrons. C'est elle qui a permis de lire des données très denses sur les disques durs. Ce domaine s'appelle la <b>spintronique</b>.</li>
+        <li><b>Les aimants permanents.</b> Un aimant de frigo, ce sont des milliards de milliards de spins d'électrons alignés dans la même direction. Le magnétisme de la matière vient presque entièrement du spin.</li>
+        <li><b>La chimie et la matière elle-même.</b> Comme l'électron a un spin 1/2, deux électrons au maximum peuvent partager la même orbitale (un «&nbsp;up&nbsp;», un «&nbsp;down&nbsp;»). C'est ce qui oblige les électrons à remplir des couches successives, et donc ce qui donne sa structure au tableau périodique. Sans spin, pas de chimie, pas de liaisons, pas de matière stable.</li>
+        <li><b>Les qubits.</b> Un spin «&nbsp;up/down&nbsp;» qu'on peut mettre en superposition est un qubit naturel. Certains ordinateurs quantiques (sur silicium notamment) stockent l'information directement dans le spin d'électrons isolés.</li>
+      </ul>
+      <figure class="illustration large">
+        <span class="cadre"><img src="images/spin/toupie-boussole.svg?v=1.0" alt="Infographie : chaque particule porte une toupie-boussole minuscule et indestructible, ce qui fait fonctionner l'IRM, les disques durs (damier de spins haut et bas), les aimants (spins alignés le long des lignes de champ) et la chimie (paires de spins opposés)." width="1400" height="780" loading="lazy"></span>
+        <figcaption>La toupie-boussole et ses quatre grands usages. <a href="images/spin/toupie-boussole.svg?v=1.0" target="_blank" rel="noopener">Agrandir</a></figcaption>
+      </figure>
+    </section>
+
+    <section class="partie" id="toupie" aria-labelledby="toupie-titre">
+      <h2 id="toupie-titre">Une toupie qui serait aussi une boussole</h2>
+      <p>Le spin, c'est donc en première approximation <b>une toupie qui serait en même temps une aiguille de boussole</b>. Cette double nature (moment cinétique + aimant) explique presque tout ce qu'on en fait.</p>
+      <p>Il existe d'ailleurs un comportement de toupie très réel. Placé dans un champ magnétique, le spin ne s'aligne pas immédiatement. Son axe <b>tourne autour de la direction du champ</b>, exactement comme une toupie penchée dont l'axe décrit un cône avant de tomber. C'est la <b>précession de Larmor</b>.</p>
+      <div class="duo">
+        <figure class="illustration">
+          <span class="cadre"><img src="images/spin/champ-b0.jpg?v=1.0" alt="Le spin I précesse autour du champ magnétique B₀ à la vitesse angulaire ω." width="316" height="540" loading="lazy"></span>
+          <figcaption>Le spin <i>I</i> tourne autour du champ <i>B</i><sub>0</sub>.</figcaption>
+        </figure>
+        <figure class="illustration">
+          <span class="cadre"><img src="images/spin/precession-larmor.png?v=1.0" alt="Un proton H⁺ dont le spin est vertical ; une fois le champ magnétique appliqué, son axe décrit un cône : c'est la précession." width="350" height="169" loading="lazy"></span>
+          <figcaption>Sans champ, puis avec champ magnétique appliqué&nbsp;: la précession.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="partie" id="definition" aria-labelledby="definition-titre">
+      <h2 id="definition-titre">Définition</h2>
+      <p>Le <b>spin</b> est le <b>moment cinétique intrinsèque</b> d'une particule&nbsp;: une propriété qui lui appartient en propre, au même titre que sa masse ou sa charge électrique. Il ne dépend pas de son mouvement dans l'espace.</p>
+      <p>Malgré son nom (<i>to spin</i> = tourner sur soi-même), le spin <b>n'est pas une vraie rotation</b>. Un électron est ponctuel&nbsp;: il n'a pas de surface qui pourrait tourner. Le spin est une grandeur purement quantique, sans équivalent exact dans le monde classique.</p>
+      <p>Ses caractéristiques essentielles&nbsp;:</p>
+      <ul class="puces">
+        <li><b>Il est quantifié.</b> Le nombre de spin <i>s</i> ne prend que des valeurs entières ou demi-entières&nbsp;: 0, 1/2, 1, 3/2, 2… (voir <a href="#plus-loin">Pour aller plus loin</a>).</li>
+        <li><b>Sa mesure ne donne que des valeurs discrètes.</b> Pour un électron (<i>s</i> = 1/2), la mesure du spin selon un axe donne toujours <b>+ħ/2</b> («&nbsp;up&nbsp;») ou <b>−ħ/2</b> («&nbsp;down&nbsp;»), jamais une valeur intermédiaire.</li>
+        <li><b>Il crée un moment magnétique.</b> Une particule chargée avec un spin se comporte comme un minuscule aimant. C'est ce qui permet de le détecter, et c'est l'origine du magnétisme des matériaux.</li>
+        <li><b>Il classe les particules en deux familles.</b> Les <b>fermions</b> (spin demi-entier&nbsp;: électrons, quarks, protons) obéissent au principe d'exclusion de Pauli, ce qui structure les atomes et donc la chimie. Les <b>bosons</b> (spin entier&nbsp;: photon, gluons, boson de Higgs) peuvent s'accumuler dans le même état.</li>
+      </ul>
+      <p>On représente souvent le spin par une flèche qui pointe vers le haut ou vers le bas&nbsp;:</p>
+      <figure class="illustration large">
+        <span class="cadre"><img src="images/spin/types-spin-electron.jpg?v=1.0" alt="Les deux directions du spin de l'électron, spin up et spin down : l'électron se comporte comme un minuscule barreau aimanté, aligné avec le champ magnétique ou contre lui." width="1400" height="788" loading="lazy"></span>
+        <figcaption>Spin up et spin down&nbsp;: l'électron comme un minuscule barreau aimanté.</figcaption>
+      </figure>
+      <div class="duo">
+        <figure class="illustration">
+          <span class="cadre"><img src="images/spin/superposition-hadamard.jpg?v=1.0" alt="(a) Superposition d'états : |ψ⟩ = a|0⟩ + b|1⟩ sur la sphère de Bloch. (b) Une porte de Hadamard envoie |0⟩ vers (|0⟩ + |1⟩)/√2 et |1⟩ vers (|0⟩ − |1⟩)/√2." width="850" height="387" loading="lazy"></span>
+          <figcaption>(a) Superposition d'états. (b) Effet d'une porte de Hadamard sur un qubit.</figcaption>
+        </figure>
+        <figure class="illustration">
+          <span class="cadre"><img src="images/spin/sphere-de-bloch.svg?v=1.0" alt="Sphère de Bloch : une composante de spin pointe dans une direction ; l'ensemble des directions possibles forme une sphère." width="960" height="560" loading="lazy"></span>
+          <figcaption>La sphère de Bloch.</figcaption>
+        </figure>
+      </div>
+      <figure class="illustration moyenne">
+        <span class="cadre"><img src="images/spin/sphere-bloch-etats.jpg?v=1.0" alt="Sphère de Bloch avec |0⟩ au pôle nord, |1⟩ au pôle sud, les angles θ et φ, et l'état |ψ⟩ = cos(θ/2)|0⟩ + e^{iφ} sin(θ/2)|1⟩." width="850" height="770" loading="lazy"></span>
+        <figcaption>|ψ⟩ = cos(θ/2)&nbsp;|0⟩ + e<sup>iφ</sup>&nbsp;sin(θ/2)&nbsp;|1⟩&nbsp;: tout point de la sphère est un état possible.</figcaption>
+      </figure>
+    </section>
+
+    <section class="partie" id="electron" aria-labelledby="electron-titre">
+      <h2 id="electron-titre">Exemple de l'électron</h2>
+      <p>L'électron n'a que deux états fondamentaux mesurables&nbsp;: <b>Spin Up</b> et <b>Spin Down</b>.</p>
+      <p>La superposition n'est pas un troisième état fixe ou permanent. C'est plutôt un état de «&nbsp;mélange&nbsp;» ou d'attente&nbsp;: tant qu'on ne mesure pas l'électron, sa fonction d'onde combine les deux possibilités à la fois (il n'est ni vraiment en haut, ni vraiment en bas).</p>
+      <p>Pour se représenter les choses&nbsp;:</p>
+      <ul class="puces">
+        <li><b>L'analogie de la pièce de monnaie.</b> Imaginez une pièce de monnaie lancée en l'air. Pendant qu'elle tourne, elle est dans une sorte d'état de «&nbsp;superposition&nbsp;» (on ne peut pas dire si c'est pile ou face). Mais dès qu'elle retombe sur la table (la mesure), elle est obligée de donner soit Pile (Spin Up), soit Face (Spin Down). Il n'y a pas de troisième côté sur une pièce&nbsp;!</li>
+        <li><b>Le rôle de la mesure.</b> Dès que l'appareil de mesure interagit avec l'électron en superposition, l'état quantique «&nbsp;cède&nbsp;» (c'est la réduction du paquet d'ondes) et l'électron est forcé de choisir brusquement l'une des deux issues&nbsp;: Spin Up ou Spin Down.</li>
+      </ul>
+      <p>L'électron peut donc se trouver dans un état de superposition avant la mesure, mais le résultat final se soldera toujours par l'un des deux états fondamentaux.</p>
+    </section>
+
+    <section class="partie" id="precisions" aria-labelledby="precisions-titre">
+      <div class="encadre">
+        <h2 id="precisions-titre">Deux précisions pour compléter ce texte</h2>
+        <ol>
+          <li><b>«&nbsp;Up&nbsp;» et «&nbsp;down&nbsp;» dépendent de l'axe de mesure choisi.</b> Un électron mesuré «&nbsp;up&nbsp;» selon l'axe vertical, puis mesuré selon un axe horizontal, donnera «&nbsp;gauche&nbsp;» ou «&nbsp;droite&nbsp;» avec 50&nbsp;% de chances chacun. Sur la sphère de Bloch, une superposition est simplement une flèche qui pointe dans une autre direction.</li>
+          <li><b>L'analogie de la pièce a une limite.</b> La pièce en l'air a en réalité déjà un résultat déterminé&nbsp;; nous ne le connaissons simplement pas. Une superposition quantique est différente, car les deux possibilités peuvent <b>interférer</b> entre elles. C'est cette interférence que l'informatique quantique exploite. L'analogie aide bien à comprendre le rôle de la mesure, mais pas la nature de la superposition elle-même.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="partie" id="plus-loin" aria-labelledby="plus-loin-titre">
+      <h2 id="plus-loin-titre">Pour aller plus loin</h2>
+      <p><b>En théorie</b>, les règles de la mécanique quantique autorisent toute valeur de la forme <i>s</i> = n/2, avec n un entier positif ou nul&nbsp;: 0, 1/2, 1, 3/2, 2, 5/2, 3, et ainsi de suite sans limite supérieure.</p>
+      <p><b>Pour les particules élémentaires connues, la liste est courte&nbsp;:</b></p>
+      <table class="tableau-spin">
+        <thead>
+          <tr><th scope="col">Spin</th><th scope="col">Particules</th><th scope="col">Statut</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0</td><td>boson de Higgs</td><td>observé</td></tr>
+          <tr><td>1/2</td><td>électron, quarks, neutrinos…</td><td>observés</td></tr>
+          <tr><td>1</td><td>photon, gluons, bosons W et Z</td><td>observés</td></tr>
+          <tr class="hypothese"><td>3/2</td><td>gravitino</td><td>hypothétique</td></tr>
+          <tr class="hypothese"><td>2</td><td>graviton</td><td>hypothétique</td></tr>
+        </tbody>
+      </table>
+      <p>La théorie donne de bonnes raisons de penser qu'au-delà du spin 2, une particule élémentaire ne peut pas interagir de façon cohérente avec le reste de la physique. En pratique, la liste s'arrête donc là.</p>
+      <p><b>Les objets composés peuvent avoir des spins plus grands.</b> Leur spin est la somme de ceux de leurs constituants et de leurs mouvements internes&nbsp;:</p>
+      <ul class="puces">
+        <li>le baryon Δ (fait de trois quarks) a un spin 3/2&nbsp;;</li>
+        <li>le noyau de bismuth-209 a un spin 9/2&nbsp;;</li>
+        <li>certains noyaux excités qui tournent très vite atteignent des valeurs de plusieurs dizaines.</li>
+      </ul>
+      <p><b>Ce qu'on mesure en pratique.</b> Une particule de spin <i>s</i> donne exactement <b>2<i>s</i> + 1 résultats possibles</b> quand on mesure son spin selon un axe. On retrouve l'électron&nbsp;: <i>s</i> = 1/2, donc 2 résultats (up et down). Une particule de spin 1 en a 3, une de spin 3/2 en a 4, et ainsi de suite. La toupie-boussole n'a donc deux positions que dans le cas du spin 1/2.</p>
+    </section>
+
+  </main>
+
+  <script src="js/recherche.js?v=1.0"></script>
+
+</body>
+</html>
