@@ -7,6 +7,7 @@ Site aide-mémoire sur les notions de la quantique.
 ## Contenu
 
 - **Le solide** (`solide.html`) : pourquoi un solide est un état de plusieurs champs quantiques, ce qu'il faut corriger dans l'énoncé « un solide est un ensemble de milliards d'excitations coordonnées de plusieurs champs quantiques », d'où viennent les quasiparticules (phonons, magnons, plasmons), puis le tableau des quatorze étapes de constitution, des champs quantiques au corps humain, illustré par deux colonnes de dessins (« 1 cm³ de métal » jusqu'à l'étape 8, « Vivant » jusqu'à l'étape 14) reliés par un fil rose, et un encadré sur la bifurcation entre le vivant et le non vivant après l'étape 5.
+- **Dictionnaire** (`dictionnaire.html`) : 99 définitions, par ordre alphabétique, des mots importants de la page Le solide (champs et particules, interactions, cristal et quasiparticules, molécules du vivant, cellule et organisme), avec une barre des lettres en haut de page qui mène directement à chaque lettre et des renvois entre définitions.
 - **Fiches Quantiques** (`fiches-quantiques.html`) : 50 flashcards illustrées, réparties en six thèmes (Fondations, Formalisme, Mesure, Particules, Intrication, Technologies).
 - **Axiomisation** (`axiomisation.html`) : 42 flashcards sur les postulats physiques de la mécanique quantique et leur socle mathématique (espace de Hilbert, opérateurs, théorèmes clés, distributions), réparties en huit thèmes, avec un préambule sur les mots « postulat » et « axiome ».
 - **Fiches Informatiques** (`fiches-informatiques.html`) : 70 flashcards sur l'informatique quantique, réparties en dix thèmes qui suivent la pile d'un ordinateur quantique, du qubit jusqu'aux usages et à l'infrastructure, avec un préambule.
@@ -35,6 +36,7 @@ L'index est construit dans le navigateur à partir des pages du menu et des fich
 - `js/fiches.js` : le moteur commun (vignettes, paquet, marques, préambule).
 - `philosophie.html` : trois paradigmes philosophiques (mathématiques et ordre de l'univers, symétries et forces, géométrie et réalité), précédés de la définition d'un paradigme philosophique.
 - `solide.html`, `css/solide.css` : la page Le solide (même fond et même typographie que Philosophie).
+- `dictionnaire.html`, `css/dictionnaire.css` : la page Dictionnaire (même fond et même typographie que Le solide) ; chaque définition est un bloc `<article class="entree" id="…">` avec un titre `h2`, rangé dans la section de sa lettre, et la recherche du site la trouve sous son nom.
 - `videos.html`, `css/videos.css` : la page Vidéos ; pour ajouter une vidéo, copier un bloc `<article class="video">` (un `id`, un titre `h2`, un résumé).
 - `js/recherche.js`, `css/recherche.css` : la recherche du site.
 - `css/style.css` : styles communs (en-tête, accueil) ; `css/fiches.css` : styles des pages de fiches ; `css/philosophie.css` : styles de la page Philosophie ; `css/videos.css` : styles de la page Vidéos ; `css/solide.css` : styles de la page Le solide.

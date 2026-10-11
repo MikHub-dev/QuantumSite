@@ -1,4 +1,4 @@
-/* Version : 1.6 */
+/* Version : 1.7 */
 /* ===== QuantumSite — feuille de style commune ===== */
 
 :root {
@@ -54,7 +54,7 @@ body {
 .menu ul {
   display: flex;
   /* Sur grand écran, les entrées s'espacent vers la gauche à mesure que la fenêtre s'élargit */
-  gap: clamp(1.3rem, calc(1.3rem + (100vw - 1600px) * 0.045), 2.7rem);
+  gap: clamp(1.3rem, calc(1.3rem + (100vw - 1600px) * 0.0625), 3rem);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -146,7 +146,7 @@ body {
 
 }
 
-/* Écrans moyens (901 à 1600 px) : menu (9 entrées + barre de recherche) resserré ; s'il ne tient toujours pas,
+/* Écrans moyens (901 à 1600 px) : menu (10 entrées + barre de recherche) resserré ; s'il ne tient toujours pas,
    il défile horizontalement, comme sur mobile, au lieu d'être coupé. */
 @media (min-width: 901px) and (max-width: 1600px) {
   .entete { gap: 1.25rem; padding: 0 1.25rem; }
@@ -156,7 +156,20 @@ body {
     scrollbar-width: none;
   }
   .menu ul::-webkit-scrollbar { display: none; }
-  .menu a { font-size: 0.88rem; }
+  .menu a { font-size: 0.86rem; }
+}
+
+/* Avec la dixième entrée (Dictionnaire), le menu est encore un peu resserré jusqu'à 1439 px
+   pour tenir sans défiler sur les écrans de 1280 et 1366 px. */
+@media (min-width: 901px) and (max-width: 1439px) {
+  .menu ul { gap: 0.45rem; }
+  .menu a { font-size: 0.8rem; }
+}
+
+/* De 1601 à 1899 px, le menu de 10 entrées est légèrement resserré pour ne pas toucher la recherche */
+@media (min-width: 1601px) and (max-width: 1899px) {
+  .menu ul { gap: 0.9rem; }
+  .menu a { font-size: 0.92rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

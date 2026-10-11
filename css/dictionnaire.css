@@ -1,0 +1,145 @@
+/* Version : 1.0 */
+/* =====================================================================
+   QuantumSite — page « Dictionnaire »
+   Complète css/style.css et css/solide.css (même fond, même typographie).
+   ===================================================================== */
+
+.page-dictionnaire {
+  --hauteur-alphabet: 3rem;
+}
+
+.dictionnaire .sous-titre a {
+  color: var(--cyan);
+  text-decoration: underline;
+  text-decoration-color: rgba(95, 212, 255, 0.45);
+  text-underline-offset: 0.18em;
+}
+
+/* ---------- Barre des lettres : reste visible sous le menu ---------- */
+
+.alphabet {
+  position: sticky;
+  top: var(--hauteur-entete);
+  z-index: 5;
+  margin: 0 calc(-1 * clamp(1rem, 3vw, 3.5rem)) 0.5rem;
+  padding: 0 clamp(1rem, 3vw, 3.5rem);
+  background: rgba(5, 13, 34, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--trait);
+  border-bottom: 1px solid var(--trait);
+}
+
+.alphabet ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 0.35rem 0;
+  list-style: none;
+}
+
+.alphabet a,
+.alphabet span {
+  display: grid;
+  place-items: center;
+  min-width: 2.1rem;
+  height: 2.2rem;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.alphabet a {
+  color: var(--texte);
+  transition: background 0.15s, color 0.15s;
+}
+.alphabet a:hover { background: var(--cyan-voile); color: var(--cyan); }
+.alphabet a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 1px; }
+
+.alphabet span {
+  color: rgba(159, 179, 214, 0.32);
+  cursor: default;
+}
+
+/* ---------- Lettres et définitions ---------- */
+
+.lettre {
+  padding-top: 1.2rem;
+}
+
+.lettre-titre {
+  margin: 0 0 0.4rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(95, 212, 255, 0.35);
+  font-size: clamp(2rem, 3.6vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--cyan);
+  text-shadow: 0 0 18px rgba(95, 212, 255, 0.35);
+  scroll-margin-top: calc(var(--hauteur-entete) + var(--hauteur-alphabet) + 0.75rem);
+}
+
+.entree {
+  padding: 1.1rem 0 1.2rem;
+  border-bottom: 1px solid var(--trait);
+  scroll-margin-top: calc(var(--hauteur-entete) + var(--hauteur-alphabet) + 0.75rem);
+}
+.lettre .entree:last-child { border-bottom: 0; }
+
+.entree h2 {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.25rem, 1.9vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--texte);
+}
+
+/* Au clic sur un renvoi, la définition visée s'éclaire brièvement */
+.entree:target h2 { color: var(--cyan); }
+
+.entree p,
+.entree li {
+  font-family: var(--serif);
+  font-size: clamp(1.02rem, 1.15vw, 1.14rem);
+  line-height: 1.7;
+  color: #d5e0f5;
+  hyphens: auto;
+}
+
+.entree p { margin: 0 0 0.75rem; max-width: 78rem; }
+.entree p:last-child { margin-bottom: 0; }
+
+.entree ul {
+  margin: 0 0 0.75rem;
+  padding-left: 1.3rem;
+}
+.entree li { margin-bottom: 0.25rem; }
+.entree li::marker { color: var(--cyan); }
+
+.entree a {
+  color: var(--cyan);
+  text-decoration: underline;
+  text-decoration-color: rgba(95, 212, 255, 0.35);
+  text-underline-offset: 0.18em;
+}
+.entree a:hover { text-decoration-color: var(--cyan); }
+.entree a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; border-radius: 2px; }
+
+/* ---------- Écrans étroits ---------- */
+
+@media (max-width: 900px) {
+  /* Une seule ligne de lettres, qu'on fait défiler du doigt */
+  .alphabet ul {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .alphabet ul::-webkit-scrollbar { display: none; }
+  .alphabet li { flex: 0 0 auto; }
+  .alphabet a,
+  .alphabet span { min-width: 1.9rem; height: 2rem; font-size: 0.98rem; }
+}
