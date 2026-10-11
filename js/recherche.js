@@ -1,4 +1,4 @@
-// Version : 1.0
+// Version : 1.1
 /* =====================================================================
    QuantumSite — recherche unique du site (barre à droite du menu horizontal)
    ---------------------------------------------------------------------
@@ -466,6 +466,52 @@
     if (e.key === "Escape") { fermer(); e.preventDefault(); }
     e.stopPropagation();
   }, true);
+
+  // ---------- La loupe : le champ de recherche s'ouvre au clic, sous l'en-tête ----------
+  const zone = document.querySelector(".nav-search");
+  const champ = document.getElementById("global-search");
+  if (zone && champ) {
+    const bouton = document.createElement("button");
+    bouton.type = "button";
+    bouton.className = "loupe";
+    bouton.setAttribute("aria-label", "Rechercher dans le site");
+    bouton.setAttribute("aria-controls", "global-search");
+    bouton.setAttribute("aria-expanded", "false");
+    bouton.title = "Rechercher";
+    bouton.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/></svg>';
+    zone.insertBefore(bouton, champ);
+
+    const ouvrirChamp = () => {
+      zone.classList.add("ouverte");
+      bouton.setAttribute("aria-expanded", "true");
+      champ.focus();
+    };
+    const fermerChamp = () => {
+      zone.classList.remove("ouverte");
+      bouton.setAttribute("aria-expanded", "false");
+    };
+    bouton.addEventListener("click", () => {
+      zone.classList.contains("ouverte") ? fermerChamp() : ouvrirChamp();
+    });
+    // Échap dans le champ (résultats fermés) : le champ se referme, la loupe reprend le focus.
+    champ.addEventListener("keydown", e => {
+      if (e.key === "Escape" && (!panneau || panneau.hidden)) { fermerChamp(); bouton.focus(); }
+    });
+    // Clic ailleurs : le champ se referme (les résultats affichés restent consultables).
+    document.addEventListener("pointerdown", e => {
+      if (!zone.classList.contains("ouverte")) return;
+      if (e.target.closest && e.target.closest(".nav-search")) return;
+      fermerChamp();
+    });
+    // Raccourci : « / » ouvre la recherche (sauf pendant une saisie).
+    window.addEventListener("keydown", e => {
+      if (e.key !== "/" || e.ctrlKey || e.metaKey || e.altKey) return;
+      const t = e.target;
+      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+      e.preventDefault();
+      ouvrirChamp();
+    });
+  }
 
   // Index préparé en tâche de fond, pour que la première frappe n'attende pas.
   function prechauffer() { obtenirIndex().then(idx => { indexCourant = idx; }); }

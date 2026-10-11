@@ -25,7 +25,7 @@ Site aide-mémoire sur les notions de la quantique.
 
 ## Recherche
 
-La barre à droite du menu horizontal fonctionne comme celle de MathSite : des mots séparés par des espaces sont cherchés en OU, des termes séparés par « + » en ET, sans tenir compte des accents ni des majuscules. Les résultats s'affichent à chaque frappe, en trois familles (Menus, Fiches, Pages), avec un extrait surligné quand le mot est trouvé dans le contenu. Un clic ouvre la page, le thème ou directement la fiche (`fiches-quantiques.html#mesure/24`). Échap ou « Fermer » referme les résultats.
+La loupe à droite du menu horizontal ouvre le champ de recherche (raccourci clavier : « / » ; Échap le referme). La recherche fonctionne comme celle de MathSite : des mots séparés par des espaces sont cherchés en OU, des termes séparés par « + » en ET, sans tenir compte des accents ni des majuscules. Les résultats s'affichent à chaque frappe, en trois familles (Menus, Fiches, Pages), avec un extrait surligné quand le mot est trouvé dans le contenu. Un clic ouvre la page, le thème ou directement la fiche (`fiches-quantiques.html#mesure/24`). Échap ou « Fermer » referme les résultats.
 
 L'index est construit dans le navigateur à partir des pages du menu et des fichiers `donnees/*.js` qu'elles chargent : toute page ou fiche ajoutée est trouvée sans autre modification. Il faut que le site soit servi par un serveur web (GitHub Pages, aperçu du Codespace) ; ouvert en fichier local, seules les entrées du menu sont trouvées.
 
