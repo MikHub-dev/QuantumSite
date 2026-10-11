@@ -1,4 +1,4 @@
-/* Version : 1.1 */
+/* Version : 1.2 */
 /* =====================================================================
    QuantumSite — barre de recherche (à droite du menu) et résultats.
    Reprend la présentation de la recherche de MathSite, aux couleurs du site.
@@ -6,9 +6,8 @@
 
 /* ---------- Barre de recherche unique du site, au bout du menu horizontal ---------- */
 
-/* Le menu horizontal est poussé à droite : il se colle à la barre de recherche,
-   le nom du site restant seul à gauche. */
-.entete .menu { margin-left: auto; }
+/* Le menu horizontal s'étale du nom du site jusqu'à la barre de recherche
+   (voir css/style.css, « En-tête »). */
 
 .nav-search {
   display: flex;
@@ -16,10 +15,7 @@
   flex-shrink: 0;
 }
 
-/* Même écart entre le menu et la barre sur toutes les largeurs (environ 20 px) */
-@media (min-width: 1601px) {
-  .nav-search { margin-left: -1.75rem; }
-}
+
 
 #global-search {
   width: 200px;
@@ -45,8 +41,8 @@
   outline-offset: 2px;
 }
 
-/* Le texte d'aide entier reste lisible ; sur écran moyen, la barre se fait un peu plus compacte */
-#global-search { width: 286px; }
+/* Le texte d'aide entier reste lisible ; la barre est compacte pour laisser la place au menu */
+#global-search { width: 262px; padding: 7px 8px; font-size: 13px; }
 @media (min-width: 901px) and (max-width: 1699px) {
   #global-search { width: 262px; padding: 7px 8px; font-size: 13px; }
 }

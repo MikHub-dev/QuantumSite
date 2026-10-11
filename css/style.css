@@ -1,4 +1,4 @@
-/* Version : 1.9 */
+/* Version : 2.0 */
 /* ===== QuantumSite — feuille de style commune ===== */
 
 :root {
@@ -49,12 +49,22 @@ body {
   text-decoration: none;
 }
 
-.menu { min-width: 0; }
+/* Le menu s'étale du nom du site jusqu'à la barre de recherche.
+   Entre « QuantumSite » et « Accueil » : l'équivalent de 25 caractères du menu
+   (12,5em, soit 25 fois la largeur moyenne d'une lettre du menu).
+   La taille du menu est réglée par --menu-taille. */
+.menu {
+  --menu-taille: 1.12rem;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: var(--menu-taille);
+  margin-left: calc(12.5em - 3rem);   /* 3rem = écart déjà donné par .entete */
+}
 
 .menu ul {
   display: flex;
-  /* Sur grand écran, les entrées s'espacent vers la gauche à mesure que la fenêtre s'élargit */
-  gap: clamp(0.9rem, calc(0.9rem + (100vw - 1600px) * 0.05), 2.4rem);
+  justify-content: space-between;
+  gap: 1.1em;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -64,7 +74,7 @@ body {
   position: relative;
   display: block;
   padding: 0.4rem 0;
-  font-size: 0.98rem;
+  font-size: 1em;
   font-weight: 400;
   color: var(--texte-doux);
   text-decoration: none;
@@ -128,6 +138,8 @@ body {
 @media (max-width: 900px) {
   :root { --hauteur-entete: 104px; }
 
+  .menu { --menu-taille: 0.98rem; margin-left: 0; }
+
   .entete {
     flex-direction: column;
     align-items: stretch;
@@ -146,48 +158,28 @@ body {
 
 }
 
-/* Écrans moyens (901 à 1600 px) : menu (11 entrées + barre de recherche) resserré ; s'il ne tient toujours pas,
-   il défile horizontalement, comme sur mobile, au lieu d'être coupé. */
-@media (min-width: 901px) and (max-width: 1600px) {
-  .entete { gap: 1.25rem; padding: 0 1.25rem; }
-  .menu ul {
-    gap: 0.32rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
+/* Écrans moyens et larges : la police du menu se règle par crans pour que les
+   douze entrées tiennent sans défiler, avec les 25 caractères avant « Accueil ». */
+@media (min-width: 901px) {
+  .entete { gap: 1.25rem; padding: 0 1.5rem; }
+  .menu { margin-left: calc(12.5em - 1.25rem); }
+  .menu ul { gap: 0.55em; overflow-x: auto; scrollbar-width: none; }
   .menu ul::-webkit-scrollbar { display: none; }
-  .menu a { font-size: 0.74rem; }
 }
+@media (min-width: 901px) and (max-width: 2199px) { .menu { --menu-taille: 1.02rem; } }
+@media (min-width: 901px) and (max-width: 1999px) { .menu { --menu-taille: 0.97rem; } }
+@media (min-width: 901px) and (max-width: 1899px) { .menu { --menu-taille: 0.9rem; } }
+@media (min-width: 901px) and (max-width: 1799px) { .menu { --menu-taille: 0.82rem; } }
+@media (min-width: 901px) and (max-width: 1699px) { .menu { --menu-taille: 0.76rem; } }
 
-/* Avec douze entrées (Spin ajouté), le menu est encore resserré jusqu'à 1439 px
-   pour tenir sans défiler sur un écran de 1366 px, puis un cran de plus en dessous de 1320 px. */
-@media (min-width: 901px) and (max-width: 1439px) {
-  .menu ul { gap: 0.24rem; }
-  .menu a { font-size: 0.67rem; }
+/* En dessous de 1600 px, l'écart de 25 caractères ne laisse plus de place au menu :
+   il est réduit, le menu garde la même taille qu'avant et s'étale toujours. */
+@media (min-width: 901px) and (max-width: 1599px) {
+  .menu { --menu-taille: 0.73rem; margin-left: 1.5rem; }
+  .menu ul { gap: 0.45em; }
 }
-
-@media (min-width: 901px) and (max-width: 1319px) {
-  .menu ul { gap: 0.22rem; }
-  .menu a { font-size: 0.65rem; }
-}
-
-/* En dessous de 1280 px, dernier cran avant le défilement horizontal du menu */
-@media (min-width: 901px) and (max-width: 1279px) {
-  .menu ul { gap: 0.2rem; }
-  .menu a { font-size: 0.64rem; }
-}
-
-/* De 1601 à 1899 px, le menu de 11 entrées est légèrement resserré pour ne pas toucher la recherche */
-@media (min-width: 1601px) and (max-width: 1899px) {
-  .menu ul { gap: 0.5rem; }
-  .menu a { font-size: 0.86rem; }
-}
-
-/* De 1900 à 2199 px, les onze entrées tiennent avec un pas un peu plus serré */
-@media (min-width: 1900px) and (max-width: 2199px) {
-  .menu ul { gap: 0.62rem; }
-  .menu a { font-size: 0.93rem; }
-}
+@media (min-width: 901px) and (max-width: 1439px) { .menu { --menu-taille: 0.69rem; margin-left: 0.75rem; } .menu ul { gap: 0.4em; } }
+@media (min-width: 901px) and (max-width: 1319px) { .menu { --menu-taille: 0.66rem; margin-left: 0.5rem; } .menu ul { gap: 0.35em; } }
 
 @media (prefers-reduced-motion: reduce) {
   .menu a, .menu a::after { transition: none; }
