@@ -30,6 +30,7 @@ body {
   inset: 0 0 auto 0;
   z-index: 10;
   height: var(--hauteur-entete);
+  --menu-taille: 1.215rem;   /* taille du menu = 90 % de celle du logo (1,35rem) */
   display: flex;
   align-items: center;
   gap: 3rem;
@@ -42,7 +43,7 @@ body {
 
 .nom-site {
   flex-shrink: 0;
-  font-size: 1.35rem;
+  font-size: calc(var(--menu-taille) / 0.9);   /* le menu fait 90 % de cette taille */
   font-weight: 600;
   letter-spacing: 0.01em;
   color: var(--texte);
@@ -54,7 +55,6 @@ body {
    (7,5em, soit 15 fois la largeur moyenne d'une lettre du menu).
    La taille du menu est réglée par --menu-taille. */
 .menu {
-  --menu-taille: 1.2rem;
   flex: 1 1 auto;
   min-width: 0;
   font-size: var(--menu-taille);
@@ -138,7 +138,8 @@ body {
 @media (max-width: 900px) {
   :root { --hauteur-entete: 104px; }
 
-  .menu { --menu-taille: 0.98rem; margin-left: 0; }
+  .entete { --menu-taille: 1.215rem; }
+  .menu { margin-left: 0; }
 
   .entete {
     flex-direction: column;
@@ -167,14 +168,14 @@ body {
   .menu ul { gap: 0.55em; overflow-x: auto; scrollbar-width: none; }
   .menu ul::-webkit-scrollbar { display: none; }
 }
-@media (min-width: 901px) and (max-width: 1999px) { .menu { --menu-taille: 1.12rem; } }
-@media (min-width: 901px) and (max-width: 1899px) { .menu { --menu-taille: 1.05rem; } }
-@media (min-width: 901px) and (max-width: 1799px) { .menu { --menu-taille: 0.98rem; } }
-@media (min-width: 901px) and (max-width: 1699px) { .menu { --menu-taille: 0.92rem; } }
-@media (min-width: 901px) and (max-width: 1599px) { .menu { --menu-taille: 0.8rem; } }
-@media (min-width: 901px) and (max-width: 1439px) { .menu { --menu-taille: 0.75rem; } }
-@media (min-width: 901px) and (max-width: 1365px) { .menu { --menu-taille: 0.7rem; } }
-@media (min-width: 901px) and (max-width: 1279px) { .menu { --menu-taille: 0.64rem; } }
+@media (min-width: 901px) and (max-width: 1999px) { .entete { --menu-taille: 1.12rem; } }
+@media (min-width: 901px) and (max-width: 1899px) { .entete { --menu-taille: 1.05rem; } }
+@media (min-width: 901px) and (max-width: 1799px) { .entete { --menu-taille: 0.98rem; } }
+@media (min-width: 901px) and (max-width: 1699px) { .entete { --menu-taille: 0.92rem; } }
+@media (min-width: 901px) and (max-width: 1599px) { .entete { --menu-taille: 0.8rem; } }
+@media (min-width: 901px) and (max-width: 1439px) { .entete { --menu-taille: 0.75rem; } }
+@media (min-width: 901px) and (max-width: 1365px) { .entete { --menu-taille: 0.7rem; } }
+@media (min-width: 901px) and (max-width: 1279px) { .entete { --menu-taille: 0.64rem; } }
 
 @media (prefers-reduced-motion: reduce) {
   .menu a, .menu a::after { transition: none; }
