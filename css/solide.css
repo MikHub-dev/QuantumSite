@@ -1,4 +1,4 @@
-/* Version : 1.2 */
+/* Version : 1.3 */
 /* =====================================================================
    QuantumSite — page « Le solide »
    Complète css/style.css (en-tête, couleurs du site).
@@ -277,7 +277,7 @@
   .etapes-cadre .etapes tbody tr td.v::after { display: none; }
   .etapes-cadre .etapes tbody tr td.s::before,
   .etapes-cadre .etapes tbody tr td.v::before {
-    content: "1\00a0 cm³ de métal";
+    content: "Non vivant";
     display: block;
     position: static;
     height: auto;
@@ -297,12 +297,12 @@
     grid-template-rows: auto 1fr;
     column-gap: 0.9rem;
   }
-  .etapes tbody tr:nth-child(n+9) { grid-template-columns: minmax(0, 1fr) 320px; }
+  .etapes tbody tr:nth-child(n+12) { grid-template-columns: minmax(0, 1fr) 320px; }
   .etapes td.el { grid-column: 1; grid-row: 1; }
   .etapes td.txt { grid-column: 1; grid-row: 2; }
   .etapes td.s { grid-column: 2; grid-row: 1 / span 2; }
   .etapes td.v { grid-column: 3; grid-row: 1 / span 2; }
-  .etapes tbody tr:nth-child(n+9) td.v { grid-column: 2; }
+  .etapes tbody tr:nth-child(n+12) td.v { grid-column: 2; }
 }
 
 /* ---------- Écrans étroits ---------- */
@@ -329,7 +329,7 @@
   .etapes td.txt { grid-column: 1 / 4; }
   .etapes td.s { grid-column: 1 / 3; width: auto; padding: 0.3rem 0 0; }
   .etapes td.v { grid-column: 3 / 4; width: auto; padding: 0.3rem 0 0; }
-  .etapes tr:nth-child(n+9) td.v { grid-column: 1 / 4; }
+  .etapes tr:nth-child(n+12) td.v { grid-column: 1 / 4; }
   .etapes td.na { display: none; }
   .etapes td.s::before, .etapes td.s::after,
   .etapes td.v::before, .etapes td.v::after { display: none; }
