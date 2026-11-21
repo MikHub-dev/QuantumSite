@@ -1,4 +1,4 @@
-/* Version : 2.7 */
+/* Version : 2.8 */
 /* ===== QuantumSite — feuille de style commune ===== */
 
 :root {
@@ -195,23 +195,27 @@ body { padding-left: var(--largeur-lateral); }
 
 /* ---------- Page Frise et planches : le SVG remplit toute la largeur ---------- */
 
-/* Du bord droit du menu vertical jusqu'au bord droit de l'écran, et de l'en-tête jusqu'au bas de l'écran :
-   jamais d'ascenseur. Si l'espace est moins haut que le format 16:9, le dessin est
-   légèrement aplati (preserveAspectRatio="none" dans chaque SVG) ; sinon il garde ses proportions. */
+/* Le dessin garde son format 16:9 (aucune déformation) et se règle sur l'espace libre :
+   il occupe toute la largeur à droite du menu vertical quand l'écran est assez haut ;
+   sinon sa hauteur ET sa largeur diminuent ensemble, et il est centré. Jamais d'ascenseur. */
 .frise {
   --nav: 0px;                       /* hauteur de la barre de navigation (planches) */
+  --h-dispo: calc(100vh - var(--hauteur-entete) - var(--nav));
   padding-top: var(--hauteur-entete);
-  background: #0e1228;   /* même fond que le SVG */
+  background: var(--nuit);
+}
+@supports (height: 100dvh) {
+  .frise { --h-dispo: calc(100dvh - var(--hauteur-entete) - var(--nav)); }
 }
 .planche { --nav: 3rem; }
 
 .frise-svg {
+  --h: min(calc((100vw - var(--largeur-lateral)) * 9 / 16), var(--h-dispo));
   display: block;
-  width: 100%;
-  height: min(calc((100vw - var(--largeur-lateral)) * 9 / 16),
-              calc(100vh - var(--hauteur-entete) - var(--nav)));
-  height: min(calc((100vw - var(--largeur-lateral)) * 9 / 16),
-              calc(100dvh - var(--hauteur-entete) - var(--nav)));
+  height: var(--h);
+  width: calc(var(--h) * 16 / 9);
+  margin: 0 auto;
+  box-shadow: 0 0 0 1px rgba(95, 212, 255, 0.12);
 }
 
 /* Barre de navigation des planches, toujours visible en bas de l'écran */
