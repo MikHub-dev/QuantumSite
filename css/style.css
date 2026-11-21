@@ -1,4 +1,4 @@
-/* Version : 2.8 */
+/* Version : 2.9 */
 /* ===== QuantumSite — feuille de style commune ===== */
 
 :root {
@@ -200,14 +200,18 @@ body { padding-left: var(--largeur-lateral); }
    sinon sa hauteur ET sa largeur diminuent ensemble, et il est centré. Jamais d'ascenseur. */
 .frise {
   --nav: 0px;                       /* hauteur de la barre de navigation (planches) */
-  --h-dispo: calc(100vh - var(--hauteur-entete) - var(--nav));
+  --h-dispo: calc(100vh - var(--hauteur-entete) - var(--nav) - 3px);
   padding-top: var(--hauteur-entete);
   background: var(--nuit);
 }
 @supports (height: 100dvh) {
-  .frise { --h-dispo: calc(100dvh - var(--hauteur-entete) - var(--nav)); }
+  .frise { --h-dispo: calc(100dvh - var(--hauteur-entete) - var(--nav) - 3px); }
 }
 .planche { --nav: 3rem; }
+
+/* La frise et les planches tiennent toujours dans l'écran : aucun ascenseur, même à 1 px près */
+html:has(.frise), body.page-frise { overflow: hidden; }
+.frise { height: 100%; }
 
 .frise-svg {
   --h: min(calc((100vw - var(--largeur-lateral)) * 9 / 16), var(--h-dispo));
@@ -215,6 +219,7 @@ body { padding-left: var(--largeur-lateral); }
   height: var(--h);
   width: calc(var(--h) * 16 / 9);
   margin: 0 auto;
+  overflow: hidden;
   box-shadow: 0 0 0 1px rgba(95, 212, 255, 0.12);
 }
 
