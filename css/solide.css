@@ -1,4 +1,4 @@
-/* Version : 1.4 */
+/* Version : 1.5 */
 /* =====================================================================
    QuantumSite — page « Le solide »
    Complète css/style.css (en-tête, couleurs du site).
@@ -195,8 +195,6 @@
 .legende b { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
 .legende b.cadre-rose { width: 12px; height: 12px; border: 1.5px dashed var(--fil, #d4537e); border-radius: 2px; }
 
-.legende-note { margin: 0.7rem 0 0; font-size: 0.85rem; line-height: 1.5; color: var(--texte-doux); }
-
 /* ---------- Encadré : la bifurcation ---------- */
 
 .encadre {
@@ -273,6 +271,7 @@
   /* Dessins : 160 px doublés en 320 px, ou la largeur de leur demi-fiche si elle est plus petite */
   .etapes td svg { width: 100%; max-width: 320px; height: auto; aspect-ratio: 1 / 1; }
   .etapes .cap { font-size: 0.85rem; line-height: 1.3; }
+  .partie .etapes td p.cap-note { margin: 0.5rem 0 0; font-family: inherit; font-size: 0.8rem; line-height: 1.4; text-align: center; hyphens: manual; color: var(--texte-doux); }
 
   /* Plus de fil rose vertical ; l'ancien ::before sert d'intitulé au dessin */
   .etapes-cadre .etapes tbody tr td.s::after,
