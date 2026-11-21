@@ -1,0 +1,252 @@
+/* Version : 1.0 */
+/* =====================================================================
+   QuantumSite — page « Satellites quantiques »
+   Version interactive d'origine (cours, calculateur, simulateur BB84, fiches,
+   cartes, quiz), reprise telle quelle. Toutes les règles sont préfixées par
+   .qsat : rien ne déborde sur le reste du site. L'en-tête vient de css/style.css.
+   ===================================================================== */
+
+.qsat {
+  padding-top: var(--hauteur-entete);
+  min-height: 100vh;
+}
+.qsat [id] { scroll-margin-top: calc(var(--hauteur-entete) + 72px); }
+
+
+/* Plan : cahier d'observatoire. Papier bleu-gris, encre marine, ambre réservé aux photons.
+   Lecture en colonne étroite, instruments (calculateur, simulateur) en cartes pleines.
+   Titres en Bricolage Grotesque, mesures en IBM Plex Mono. */
+.qsat {
+  --bg: #f1f4f9;
+  --surface: #ffffff;
+  --soft: #e7ecf5;
+  --ink: #0d1930;
+  --muted: #4a5772;
+  --line: #d3dbea;
+  --photon: #f2b01e;
+  --photon-ink: #2b1d00;
+  --link: #1856c4;
+  --focus: #1856c4;
+  --good: #12724a;
+  --good-bg: #e1f3ea;
+  --bad: #b4332a;
+  --bad-bg: #fbe6e3;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  .qsat:not([data-theme="light"]) {
+    --bg: #0a1124; --surface: #121c37; --soft: #1a2750; --ink: #e8edf8; --muted: #9eabc8;
+    --line: #27365f; --photon: #ffc233; --photon-ink: #2b1d00; --link: #86b8ff; --focus: #ffc233;
+    --good: #55d493; --good-bg: #11392b; --bad: #ff8478; --bad-bg: #432019;
+    color-scheme: dark;
+  }
+}
+.qsat[data-theme="dark"] {
+  --bg: #0a1124; --surface: #121c37; --soft: #1a2750; --ink: #e8edf8; --muted: #9eabc8;
+  --line: #27365f; --photon: #ffc233; --photon-ink: #2b1d00; --link: #86b8ff; --focus: #ffc233;
+  --good: #55d493; --good-bg: #11392b; --bad: #ff8478; --bad-bg: #432019;
+  color-scheme: dark;
+}
+
+.qsat * { box-sizing: border-box; }
+.qsat { -webkit-text-size-adjust: 100%; }
+.qsat {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 400 17px/1.62 var(--font-body);
+}
+.qsat :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+.qsat .wrap { max-width: 880px; margin: 0 auto; padding: 0 18px; }
+.qsat .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.qsat a { color: var(--link); }
+.qsat h1, .qsat h2, .qsat h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.12; margin: 0; }
+.qsat p { margin: 0 0 1em; max-width: 68ch; }
+.qsat ul, .qsat ol { padding-left: 1.2em; margin: 0 0 1em; max-width: 68ch; }
+.qsat li { margin-bottom: .35em; }
+.qsat dfn { font-style: normal; font-weight: 600; border-bottom: 2px solid var(--photon); }
+.qsat sup { font-size: .7em; line-height: 0; }
+.qsat code, .qsat .mono { font-family: var(--font-mono); font-size: .92em; }
+
+/* Hero */
+.qsat .hero { padding: 34px 0 18px; }
+.qsat .hero h1 { font-size: clamp(2.3rem, 7vw, 4rem); font-weight: 800; letter-spacing: -0.025em; max-width: 14ch; }
+.qsat .hero .lede { font-size: 1.2rem; color: var(--ink); margin: 14px 0 6px; max-width: 46ch; }
+.qsat .hero .meta { color: var(--muted); font-size: .92rem; margin: 0 0 18px; }
+.qsat .fig { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 10px 10px 6px; }
+.qsat .fig svg { display: block; width: 100%; height: auto; }
+.qsat .fig figcaption { color: var(--muted); font-size: .86rem; padding: 6px 8px 8px; }
+.qsat .svg-ink { fill: var(--ink); } .qsat .svg-muted { fill: var(--muted); }
+.qsat .svg-line { stroke: var(--ink); fill: none; }
+.qsat .svg-soft { fill: var(--soft); stroke: var(--line); }
+.qsat .svg-photon { fill: var(--photon); }
+.qsat .svg-beam { stroke: var(--photon); stroke-width: 2.5; stroke-dasharray: 3 7; fill: none; }
+.qsat .svg-t { font: 500 13px var(--font-body); fill: var(--ink); }
+.qsat .svg-tm { font: 400 12px var(--font-mono); fill: var(--muted); }
+
+/* Navigation */
+.qsat .top { position: sticky; top: var(--hauteur-entete, 64px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
+.qsat .tabs { display: flex; gap: 4px; overflow-x: auto; padding: 6px 0 0; }
+.qsat .tabs button {
+  appearance: none; border: 0; background: transparent; color: var(--muted); cursor: pointer;
+  font: 600 1rem var(--font-display); padding: 10px 14px 9px; border-bottom: 3px solid transparent; white-space: nowrap;
+}
+.qsat .tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--photon); }
+.qsat .tabs button:hover { color: var(--ink); }
+.qsat .view { padding: 22px 0 60px; }
+.qsat .view[hidden] { display: none; }
+
+/* Cours */
+.qsat .tldr { background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--photon); border-radius: 12px; padding: 16px 20px 8px; margin-bottom: 18px; }
+.qsat .tldr h2 { font-size: 1.25rem; margin-bottom: 10px; }
+.qsat .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 26px; }
+.qsat .toc button { appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 12px; font: 500 .9rem var(--font-body); cursor: pointer; }
+.qsat .toc button:hover { border-color: var(--photon); }
+.qsat .chap { margin: 0 0 46px; scroll-margin-top: 64px; }
+.qsat .chap > h2 { font-size: clamp(1.5rem, 4.5vw, 2rem); font-weight: 700; margin-bottom: 14px; display: flex; gap: 12px; align-items: baseline; }
+.qsat .num { font: 500 .9rem var(--font-mono); color: var(--photon-ink); background: var(--photon); border-radius: 6px; padding: 2px 8px; flex: none; transform: translateY(-3px); }
+.qsat .chap h3 { font-size: 1.15rem; margin: 22px 0 8px; }
+.qsat .formula { font-family: var(--font-mono); background: var(--soft); border-radius: 6px; padding: 1px 7px; white-space: nowrap; }
+.qsat .keys { list-style: none; padding: 0; display: grid; gap: 10px; max-width: none; }
+.qsat .keys li { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin: 0; }
+.qsat .keys b { font: 500 1.05rem var(--font-mono); margin-right: 6px; }
+.qsat .recap { border-top: 2px solid var(--ink); margin-top: 18px; padding-top: 10px; font-weight: 500; max-width: 68ch; }
+.qsat .recap::before { content: "À retenir  "; font: 700 .8rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-right: 6px; }
+.qsat .note { background: var(--soft); border-radius: 10px; padding: 12px 16px; margin: 0 0 1em; max-width: 68ch; }
+.qsat .note.warn { background: var(--bad-bg); }
+.qsat .note p:last-child { margin-bottom: 0; }
+.qsat .tbl { overflow-x: auto; margin: 0 0 1.2em; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.qsat table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+.qsat th, .qsat td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.qsat th { background: var(--soft); font-weight: 600; }
+.qsat tr:last-child td { border-bottom: 0; }
+.qsat .tbl.compact th, .qsat .tbl.compact td { padding: 7px 10px; }
+.qsat .tbl.proj td:first-child { white-space: nowrap; }
+.qsat .cols2 { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin: 0 0 1.2em; }
+.qsat .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px 6px; }
+.qsat .card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+.qsat .card p { font-size: .96rem; }
+.qsat .mono-n { font-family: var(--font-mono); }
+
+/* Instruments */
+.qsat .instr { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px 16px; margin: 0 0 1.4em; }
+.qsat .instr h3 { margin: 0 0 4px; font-size: 1.1rem; }
+.qsat .instr .hint { color: var(--muted); font-size: .93rem; margin: 0 0 12px; }
+.qsat .row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin-bottom: 12px; }
+.qsat label { font-weight: 500; }
+.qsat input[type="range"] { accent-color: var(--photon); flex: 1 1 200px; min-width: 140px; height: 28px; }
+.qsat select { font: inherit; color: inherit; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; }
+.qsat .btn { appearance: none; font: 600 .95rem var(--font-body); border-radius: 9px; padding: 8px 14px; cursor: pointer; border: 1.5px solid var(--ink); background: transparent; color: var(--ink); }
+.qsat .btn:hover { background: var(--soft); }
+.qsat .btn.primary { background: var(--photon); border-color: var(--photon); color: var(--photon-ink); }
+.qsat .btn.primary:hover { filter: brightness(.96); }
+.qsat .btn.small { padding: 5px 10px; font-size: .88rem; }
+.qsat .btn[disabled] { opacity: .5; cursor: default; }
+.qsat .readout { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: 12px; }
+.qsat .readout div { background: var(--bg); border-radius: 10px; padding: 8px 12px; }
+.qsat .readout small { display: block; color: var(--muted); font-size: .8rem; }
+.qsat .readout strong { font: 500 1.15rem var(--font-mono); font-variant-numeric: tabular-nums; }
+.qsat .meter { height: 14px; background: var(--soft); border-radius: 7px; overflow: hidden; margin: 4px 0 6px; }
+.qsat .meter i { display: block; height: 100%; background: var(--bad); border-radius: 7px; transition: width .15s; }
+.qsat .chk { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.qsat .chk input { width: 20px; height: 20px; accent-color: var(--bad); }
+
+.qsat .simwrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 12px; background: var(--bg); }
+.qsat .sim { border-collapse: collapse; font-size: .9rem; width: max-content; min-width: 100%; }
+.qsat .sim th, .qsat .sim td { padding: 5px 6px; text-align: center; border-bottom: 1px solid var(--line); background: transparent; font-variant-numeric: tabular-nums; min-width: 34px; }
+.qsat .sim th { text-align: left; font-weight: 500; position: sticky; left: 0; background: var(--bg); min-width: 128px; white-space: nowrap; z-index: 1; }
+.qsat .sim tr.alice th { color: var(--ink); } .qsat .sim tr.eve th, .qsat .sim tr.eve td { color: var(--bad); }
+.qsat .sim .no { color: var(--muted); opacity: .55; }
+.qsat .sim .keep { background: var(--good-bg); color: var(--good); font-weight: 600; }
+.qsat .sim .err { background: var(--bad-bg); color: var(--bad); font-weight: 700; }
+.qsat .sim .bad-base { background: var(--bad-bg); }
+.qsat .pol { display: inline-block; width: 3px; height: 20px; border-radius: 2px; background: currentColor; transform: rotate(var(--a)); vertical-align: middle; }
+.qsat .verdict { border-radius: 10px; padding: 10px 14px; font-weight: 500; margin: 0 0 8px; max-width: none; }
+.qsat .verdict.ok { background: var(--good-bg); color: var(--good); }
+.qsat .verdict.ko { background: var(--bad-bg); color: var(--bad); }
+.qsat .stat { color: var(--muted); font-size: .93rem; margin: 0; max-width: none; }
+
+/* Fiches */
+.qsat .sub { font-size: 1.5rem; font-weight: 700; margin: 0 0 12px; }
+.qsat .memos { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin-bottom: 40px; }
+.qsat .memo { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px 12px; display: flex; flex-direction: column; }
+.qsat .memo h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.qsat .memo ul { padding-left: 1.1em; font-size: .94rem; margin-bottom: 10px; }
+.qsat .memo .key { margin: auto 0 0; padding-top: 8px; border-top: 2px solid var(--photon); font: 500 .88rem var(--font-mono); color: var(--ink); }
+.qsat .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; }
+.qsat .chip { appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 5px 12px; font: 500 .88rem var(--font-body); cursor: pointer; }
+.qsat .chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.qsat .deck-status { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; color: var(--muted); font: 400 .9rem var(--font-mono); margin-bottom: 8px; }
+.qsat .fcard { display: block; width: 100%; text-align: left; appearance: none; font: inherit; color: inherit; cursor: pointer;
+  background: var(--surface); border: 1.5px solid var(--line); border-radius: 16px; min-height: 220px; padding: 22px 24px; position: relative; }
+.qsat .fcard:hover { border-color: var(--photon); }
+.qsat .fcard .side { font: 700 .75rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; display: block; }
+.qsat .fcard .txt { font: 600 1.3rem/1.35 var(--font-display); display: block; max-width: 40ch; }
+.qsat .fcard.back { background: var(--soft); border-color: var(--photon); }
+.qsat .fcard.back .txt { font: 400 1.08rem/1.55 var(--font-body); max-width: 56ch; }
+.qsat .fcard .tap { position: absolute; right: 16px; bottom: 12px; font-size: .8rem; color: var(--muted); }
+.qsat .deck-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.qsat .done-box { background: var(--good-bg); color: var(--good); border-radius: 14px; padding: 22px 24px; font-weight: 600; }
+
+/* Quiz */
+.qsat .levels { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 14px 0 26px; }
+.qsat .level { text-align: left; appearance: none; font: inherit; color: inherit; cursor: pointer; background: var(--surface); border: 1.5px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+.qsat .level:hover { border-color: var(--photon); }
+.qsat .level b { display: block; font: 700 1.1rem var(--font-display); }
+.qsat .level span { color: var(--muted); font-size: .9rem; }
+.qsat .progress { height: 8px; background: var(--soft); border-radius: 4px; overflow: hidden; margin: 8px 0 18px; }
+.qsat .progress i { display: block; height: 100%; background: var(--photon); transition: width .2s; }
+.qsat .qmeta { display: flex; justify-content: space-between; color: var(--muted); font: 400 .9rem var(--font-mono); }
+.qsat .qtext { font: 600 1.3rem/1.3 var(--font-display); margin: 6px 0 16px; max-width: 46ch; }
+.qsat .opts { display: grid; gap: 10px; margin-bottom: 14px; }
+.qsat .opt { text-align: left; appearance: none; font: inherit; color: inherit; cursor: pointer; display: flex; gap: 12px; align-items: baseline; width: 100%;
+  background: var(--surface); border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.qsat .opt:hover:not([disabled]) { border-color: var(--ink); }
+.qsat .opt .l { font: 600 .9rem var(--font-mono); color: var(--muted); flex: none; min-width: 2.6em; white-space: nowrap; }
+.qsat .opt[data-s="good"] { border-color: var(--good); background: var(--good-bg); }
+.qsat .opt[data-s="bad"] { border-color: var(--bad); background: var(--bad-bg); }
+.qsat .opt[data-s="good"] .l::after { content: " ✓"; color: var(--good); }
+.qsat .opt[data-s="bad"] .l::after { content: " ✗"; color: var(--bad); }
+.qsat .opt[disabled] { cursor: default; }
+.qsat .why { border-radius: 12px; padding: 12px 16px; background: var(--soft); margin-bottom: 14px; max-width: none; }
+.qsat .why b { display: block; margin-bottom: 2px; }
+.qsat .why.good b { color: var(--good); } .qsat .why.bad b { color: var(--bad); }
+.qsat .score { font: 800 clamp(2.6rem, 9vw, 4.4rem)/1 var(--font-display); margin: 6px 0 4px; }
+.qsat .bars { display: grid; gap: 10px; margin: 16px 0 20px; }
+.qsat .bars .b { display: grid; grid-template-columns: 130px 1fr 52px; gap: 10px; align-items: center; font-size: .92rem; }
+.qsat .bars .b i { display: block; height: 10px; border-radius: 5px; background: var(--photon); }
+.qsat .bars .b div { background: var(--soft); border-radius: 5px; }
+.qsat .review { list-style: none; padding: 0; max-width: none; }
+.qsat .review li { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; }
+.qsat .review small { color: var(--muted); display: block; }
+.qsat details.open-q { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 4px 16px; margin-bottom: 10px; }
+.qsat details.open-q summary { cursor: pointer; font-weight: 600; padding: 10px 0; }
+.qsat details.open-q[open] summary { border-bottom: 1px solid var(--line); margin-bottom: 10px; }
+
+/* Sources */
+.qsat .src h3 { margin: 22px 0 6px; font-size: 1.1rem; }
+.qsat .src ul { max-width: none; }
+.qsat .src li small { color: var(--muted); }
+.qsat details.notes { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 6px 16px; margin: 16px 0; }
+.qsat details.notes summary { cursor: pointer; font: 700 1.05rem var(--font-display); padding: 8px 0; }
+.qsat details.notes ol { max-width: none; }
+
+.qsat footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; padding: 18px 0 40px; }
+
+@media (max-width: 560px) {
+  .qsat #hero-svg .svg-t { font-size: 22px; }
+  .qsat #hero-svg .svg-tm { font-size: 19px; }
+  .qsat .fig.scroll { overflow-x: auto; }
+  .qsat .fig.scroll svg { min-width: 620px; }
+}
+@media (max-width: 520px) {
+  .qsat { font-size: 16.5px; }
+  .qsat .bars .b { grid-template-columns: 100px 1fr 44px; }
+  .qsat .fcard { padding: 18px; } .qsat .fcard .txt { font-size: 1.15rem; }
+  .qsat .qtext { font-size: 1.15rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qsat * { transition: none !important; animation: none !important; }
+}
+
