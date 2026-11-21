@@ -1,4 +1,4 @@
-/* Version : 2.4 */
+/* Version : 2.5 */
 /* ===== QuantumSite — feuille de style commune ===== */
 
 :root {
@@ -145,8 +145,9 @@ body { padding-left: var(--largeur-lateral); }
 .menu-lateral a {
   display: block;
   padding: 0.6rem 1rem 0.6rem 1.1rem;
-  font-size: 1rem;
+  font-size: 0.86rem;      /* assez petit pour que chaque entrée tienne sur une seule ligne */
   line-height: 1.25;
+  white-space: nowrap;
   color: var(--texte-doux);
   text-decoration: none;
   border-left: 3px solid transparent;
@@ -223,7 +224,7 @@ body { padding-left: var(--largeur-lateral); }
 
 @media (max-width: 900px) {
   :root { --hauteur-entete: 104px; --largeur-lateral: 6.5rem; }
-  .menu-lateral a { font-size: 0.85rem; padding: 0.5rem 0.5rem 0.5rem 0.7rem; }
+  .menu-lateral a { font-size: 0.85rem; padding: 0.5rem 0.5rem 0.5rem 0.7rem; white-space: normal; }
 
   .entete { --menu-taille: 1.215rem; }
   .menu { margin-left: 0; }
