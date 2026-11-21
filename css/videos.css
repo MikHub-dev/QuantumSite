@@ -1,4 +1,4 @@
-/* Version : 1.1 */
+/* Version : 1.2 */
 /* =====================================================================
    QuantumSite — page Vidéos
    Complète css/style.css (en-tête, couleurs du site).
@@ -17,6 +17,8 @@
 .v2 { --couleur: var(--or);    --couleur-voile: rgba(242, 200, 121, 0.12); }
 .v3 { --couleur: var(--rouge); --couleur-voile: rgba(255, 90, 110, 0.12); }
 .v4 { --couleur: var(--violet); --couleur-voile: rgba(183, 156, 255, 0.12); }
+.v5 { --couleur: var(--cyan);  --couleur-voile: rgba(95, 212, 255, 0.12); }
+.v6 { --couleur: var(--violet); --couleur-voile: rgba(183, 156, 255, 0.12); }
 
 /* L'image de l'accueil, floutée et assombrie, fixée derrière le contenu */
 .page-videos::before {
@@ -58,7 +60,7 @@
 
 .grille-videos {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));   /* les quatre cartes sur une ligne */
+  grid-template-columns: repeat(3, minmax(0, 1fr));   /* trois cartes par ligne */
   gap: clamp(1rem, 2vw, 1.75rem);
 }
 
