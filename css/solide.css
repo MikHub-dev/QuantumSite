@@ -1,4 +1,4 @@
-/* Version : 1.1 */
+/* Version : 1.2 */
 /* =====================================================================
    QuantumSite — page « Le solide »
    Complète css/style.css (en-tête, couleurs du site).
@@ -224,6 +224,86 @@
   color: #d5e0f5;
 }
 .encadre li::marker { color: var(--cyan); }
+
+/* ---------- Étapes : deux étapes par ligne, dessins doublés (version 1.2) ----------
+   Chaque étape devient une fiche : numéro et nom, texte court, puis les dessins (320 px).
+   Ligne 1 = étapes 1 et 2, ligne 2 = étapes 3 et 4, etc. Le fil rose vertical est retiré,
+   car il reliait les lignes entre elles. */
+@media (min-width: 761px) {
+  .etapes thead { display: none; }
+  .etapes { display: block; }
+  .etapes tbody {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.5rem;
+  }
+  .etapes tbody tr {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: start;
+    gap: 0.35rem 0.6rem;
+    padding: 0.9rem 0 1rem;
+    border-bottom: 1px solid var(--trait);
+  }
+  .etapes td { display: block; padding: 0; border: 0; }
+
+  .etapes td.n {
+    position: absolute;
+    top: 0.9rem;
+    left: 0;
+    width: 1.8rem;
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .etapes td.na { display: none; }
+  .etapes td.el { grid-column: 1 / -1; width: auto; padding-left: 1.8rem; }
+  .partie .etapes td.el p { font-size: 1.02rem; }
+  .etapes td.txt { grid-column: 1 / -1; }
+  .partie .etapes td.txt p { font-size: 0.95rem; line-height: 1.45; }
+
+  .etapes td.s,
+  .etapes td.v { width: auto; padding: 0.3rem 0 0; }
+  .etapes td.s { grid-column: 1; }
+  .etapes td.v { grid-column: 2; }
+
+  /* Dessins : 160 px doublés en 320 px, ou la largeur de leur demi-fiche si elle est plus petite */
+  .etapes td svg { width: 100%; max-width: 320px; height: auto; aspect-ratio: 1 / 1; }
+  .etapes .cap { font-size: 0.85rem; line-height: 1.3; }
+
+  /* Plus de fil rose vertical ; l'ancien ::before sert d'intitulé au dessin */
+  .etapes-cadre .etapes tbody tr td.s::after,
+  .etapes-cadre .etapes tbody tr td.v::after { display: none; }
+  .etapes-cadre .etapes tbody tr td.s::before,
+  .etapes-cadre .etapes tbody tr td.v::before {
+    content: "1\00a0 cm³ de métal";
+    display: block;
+    position: static;
+    height: auto;
+    margin-bottom: 4px;
+    border: 0;
+    font-size: 0.8rem;
+    text-align: center;
+    color: var(--texte-doux);
+  }
+  .etapes-cadre .etapes tbody tr td.v::before { content: "Vivant"; }
+}
+
+/* Très grands écrans : texte réduit à gauche, les deux dessins de 320 px à droite */
+@media (min-width: 1860px) {
+  .etapes tbody tr {
+    grid-template-columns: minmax(0, 1fr) 320px 320px;
+    grid-template-rows: auto 1fr;
+    column-gap: 0.9rem;
+  }
+  .etapes tbody tr:nth-child(n+9) { grid-template-columns: minmax(0, 1fr) 320px; }
+  .etapes td.el { grid-column: 1; grid-row: 1; }
+  .etapes td.txt { grid-column: 1; grid-row: 2; }
+  .etapes td.s { grid-column: 2; grid-row: 1 / span 2; }
+  .etapes td.v { grid-column: 3; grid-row: 1 / span 2; }
+  .etapes tbody tr:nth-child(n+9) td.v { grid-column: 2; }
+}
 
 /* ---------- Écrans étroits ---------- */
 
