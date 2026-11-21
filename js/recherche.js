@@ -1,4 +1,4 @@
-// Version : 1.1
+// Version : 1.2
 /* =====================================================================
    QuantumSite — recherche unique du site (barre à droite du menu horizontal)
    ---------------------------------------------------------------------
@@ -203,8 +203,8 @@
     };
 
     // 1) Menu horizontal — lu dans la barre du haut de la page courante.
-    const liens = [...document.querySelectorAll(".menu a[href]")]
-      .map(a => ({ label: a.textContent.trim(), url: urlPage(a.getAttribute("href")) }))
+    const liens = [...document.querySelectorAll(".menu a[href], .menu-lateral a[href]")]
+      .map(a => ({ label: a.textContent.trim(), url: urlPage(a.getAttribute("href")), lateral: !!a.closest(".menu-lateral") }))
       .filter(l => l.label && l.url);
 
     // Chaque page du menu est lue une seule fois.
@@ -216,7 +216,7 @@
     pages.forEach(({ lien, doc }) => {
       const desc = doc && doc.querySelector('meta[name="description"]');
       add("menus", {
-        label: lien.label, tag: "Menu horizontal", tagClass: "tag-menu",
+        label: lien.label, tag: lien.lateral ? "Menu vertical" : "Menu horizontal", tagClass: "tag-menu",
         path: desc ? desc.getAttribute("content") : "", url: lien.url.href
       });
     });

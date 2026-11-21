@@ -1,4 +1,4 @@
-/* Version : 2.1 */
+/* Version : 2.2 */
 /* ===== QuantumSite — feuille de style commune ===== */
 
 :root {
@@ -9,6 +9,7 @@
   --cyan:        #5fd4ff;   /* lueur du panneau « mathématiques » */
   --rouge:       #ff5a6e;   /* lueur du panneau « géométrie » */
   --hauteur-entete: 64px;
+  --largeur-lateral: 11rem;  /* menu vertical, à l'extrême gauche */
 }
 
 *,
@@ -111,6 +112,64 @@ body {
   border-radius: 2px;
 }
 
+/* ---------- Menu vertical (extrême gauche, présent sur toutes les pages) ---------- */
+
+/* Il reste fixe sous l'en-tête, comme le menu horizontal, quelle que soit la page.
+   Le contenu de chaque page est décalé d'autant vers la droite. */
+body { padding-left: var(--largeur-lateral); }
+
+.menu-lateral {
+  position: fixed;
+  top: var(--hauteur-entete);
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  width: var(--largeur-lateral);
+  padding: 1.25rem 0;
+  overflow-y: auto;
+  background: var(--nuit-voile);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(95, 212, 255, 0.18);
+}
+
+.menu-lateral ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu-lateral a {
+  display: block;
+  padding: 0.6rem 1rem 0.6rem 1.1rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: var(--texte-doux);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.menu-lateral a:hover {
+  color: var(--texte);
+  background: rgba(95, 212, 255, 0.08);
+}
+
+.menu-lateral a[aria-current="page"] {
+  color: var(--texte);
+  font-weight: 500;
+  background: rgba(95, 212, 255, 0.12);
+  border-left-color: var(--cyan);
+}
+
+.menu-lateral a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: -2px;
+}
+
 /* ---------- Page d'accueil : illustration SVG (version 1.1) ---------- */
 
 /* Le fond (dégradé, lueurs, vagues de particules) couvre tout l'écran, d'un bord à l'autre ;
@@ -136,7 +195,8 @@ body {
 /* ---------- Écrans étroits ---------- */
 
 @media (max-width: 900px) {
-  :root { --hauteur-entete: 104px; }
+  :root { --hauteur-entete: 104px; --largeur-lateral: 6.5rem; }
+  .menu-lateral a { font-size: 0.85rem; padding: 0.5rem 0.5rem 0.5rem 0.7rem; }
 
   .entete { --menu-taille: 1.215rem; }
   .menu { margin-left: 0; }
@@ -178,5 +238,5 @@ body {
 @media (min-width: 901px) and (max-width: 1279px) { .entete { --menu-taille: 0.548rem; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .menu a, .menu a::after { transition: none; }
+  .menu a, .menu a::after, .menu-lateral a { transition: none; }
 }

@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2.4">
+  <link rel="stylesheet" href="css/style.css?v=2.5">
   <link rel="stylesheet" href="css/recherche.css?v=1.3">
   <link rel="stylesheet" href="css/satellites-quantiques.css?v=1.0">
 </head>
@@ -23,11 +23,7 @@
       <ul>
         <li><a href="fondations.html">Fondations</a></li>
         <li><a href="philosophie.html">Philosophie</a></li>
-        <li><a href="fiches-quantiques.html">Fiches Quantiques</a></li>
-        <li><a href="fiches-mathematiques.html">Fiches Mathématiques</a></li>
-        <li><a href="fiches-informatiques.html">Fiches Informatiques</a></li>
         <li><a href="satellites-quantiques.html" aria-current="page">Satellites quantiques</a></li>
-        <li><a href="axiomisation.html">Axiomisation</a></li>
         <li><a href="spin.html">Spin</a></li>
         <li><a href="solide.html">Le solide</a></li>
         <li><a href="chiralite.html">La chiralité</a></li>
@@ -41,6 +37,16 @@
       <input id="global-search" type="search" placeholder="Rechercher... (+ = ET, espace = OU)" aria-label="Rechercher dans le site" autocomplete="off" />
     </div>
   </header>
+
+  <nav class="menu-lateral" aria-label="Menu latéral">
+    <ul>
+      <li><a href="fiches-quantiques.html">Fiches Quantiques</a></li>
+      <li><a href="fiches-mathematiques.html">Fiches Mathématiques</a></li>
+      <li><a href="fiches-informatiques.html">Fiches Informatiques</a></li>
+      <li><a href="axiomisation.html">Axiomisation</a></li>
+    </ul>
+  </nav>
+
 
   <main class="qsat">
 <div class="wrap">
@@ -455,7 +461,7 @@
 
   </main>
 
-  <script src="js/recherche.js?v=1.1"></script>
+  <script src="js/recherche.js?v=1.2"></script>
 <script>
 /* Données des fiches et du quiz. Texte brut uniquement. */
 const MEMOS = [
