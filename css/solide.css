@@ -1,4 +1,4 @@
-/* Version : 1.3 */
+/* Version : 1.4 */
 /* =====================================================================
    QuantumSite — page « Le solide »
    Complète css/style.css (en-tête, couleurs du site).
@@ -194,6 +194,8 @@
 .legende span { display: inline-flex; align-items: center; gap: 0.4rem; }
 .legende b { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
 .legende b.cadre-rose { width: 12px; height: 12px; border: 1.5px dashed var(--fil, #d4537e); border-radius: 2px; }
+
+.legende-note { margin: 0.7rem 0 0; font-size: 0.85rem; line-height: 1.5; color: var(--texte-doux); }
 
 /* ---------- Encadré : la bifurcation ---------- */
 
