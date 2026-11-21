@@ -30,7 +30,7 @@ body {
   inset: 0 0 auto 0;
   z-index: 10;
   height: var(--hauteur-entete);
-  --menu-taille: 1.215rem;   /* taille du menu = 90 % de celle du logo (1,35rem) */
+  --menu-taille: 1.12rem;   /* taille du menu = 90 % de celle du logo (1,35rem) */
   display: flex;
   align-items: center;
   gap: 3rem;
@@ -168,14 +168,14 @@ body {
   .menu ul { gap: 0.55em; overflow-x: auto; scrollbar-width: none; }
   .menu ul::-webkit-scrollbar { display: none; }
 }
-@media (min-width: 901px) and (max-width: 1999px) { .entete { --menu-taille: 1.12rem; } }
-@media (min-width: 901px) and (max-width: 1899px) { .entete { --menu-taille: 1.05rem; } }
-@media (min-width: 901px) and (max-width: 1799px) { .entete { --menu-taille: 0.98rem; } }
-@media (min-width: 901px) and (max-width: 1699px) { .entete { --menu-taille: 0.92rem; } }
-@media (min-width: 901px) and (max-width: 1599px) { .entete { --menu-taille: 0.8rem; } }
-@media (min-width: 901px) and (max-width: 1439px) { .entete { --menu-taille: 0.75rem; } }
-@media (min-width: 901px) and (max-width: 1365px) { .entete { --menu-taille: 0.7rem; } }
-@media (min-width: 901px) and (max-width: 1279px) { .entete { --menu-taille: 0.64rem; } }
+@media (min-width: 901px) and (max-width: 1999px) { .entete { --menu-taille: 1.03rem; } }
+@media (min-width: 901px) and (max-width: 1899px) { .entete { --menu-taille: 0.966rem; } }
+@media (min-width: 901px) and (max-width: 1799px) { .entete { --menu-taille: 0.902rem; } }
+@media (min-width: 901px) and (max-width: 1699px) { .entete { --menu-taille: 0.846rem; } }
+@media (min-width: 901px) and (max-width: 1599px) { .entete { --menu-taille: 0.736rem; } }
+@media (min-width: 901px) and (max-width: 1439px) { .entete { --menu-taille: 0.69rem; } }
+@media (min-width: 901px) and (max-width: 1365px) { .entete { --menu-taille: 0.644rem; } }
+@media (min-width: 901px) and (max-width: 1279px) { .entete { --menu-taille: 0.589rem; } }
 
 @media (prefers-reduced-motion: reduce) {
   .menu a, .menu a::after { transition: none; }

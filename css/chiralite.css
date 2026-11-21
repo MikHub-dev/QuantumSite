@@ -1,0 +1,16 @@
+/* La chiralité — compléments à solide.css */
+.page-chiralite { --t: #a9bbdb; --fil: #d4537e; }
+.page-chiralite .fig { margin: 1.2rem auto; text-align: center; }
+.page-chiralite .fig svg { max-width: min(100%, 1000px); height: auto; }
+.page-chiralite figcaption { font-size: .85rem; opacity: .85; margin: .5rem auto 0; max-width: 46rem; line-height: 1.45; }
+.page-chiralite .partie h3 { margin: 1.6rem 0 .5rem; }
+.page-chiralite .tableau-cadre { overflow-x: auto; margin: 1rem 0; }
+.page-chiralite .tableau { border-collapse: collapse; width: 100%; font-size: .9rem; }
+.page-chiralite .tableau th, .page-chiralite .tableau td { border: 1px solid rgba(169,187,219,.3); padding: .45rem .7rem; text-align: left; vertical-align: top; }
+.page-chiralite .tableau thead th { background: rgba(55,138,221,.15); }
+.page-chiralite .hyp-grille { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin: 1rem 0; }
+.page-chiralite .hyp { border: 1px solid rgba(169,187,219,.3); border-radius: 8px; padding: .8rem 1rem; background: rgba(11,23,51,.5); }
+.page-chiralite .hyp h3 { margin: 0 0 .4rem; font-size: 1rem; }
+.page-chiralite .hyp p { font-size: .9rem; margin: .5rem 0 0; }
+.page-chiralite .sources { padding-left: 1.2rem; line-height: 1.6; }
+@media (max-width: 860px) { .page-chiralite .hyp-grille { grid-template-columns: 1fr; } }
