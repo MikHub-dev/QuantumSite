@@ -290,16 +290,16 @@ html:has(.frise), body.page-frise { overflow: hidden; }
   .menu ul { gap: 0.55em; overflow-x: auto; scrollbar-width: none; }
   .menu ul::-webkit-scrollbar { display: none; }
 }
-@media (min-width: 901px) and (max-width: 1999px) { .entete { --menu-taille: 1.23rem; } }
-@media (min-width: 901px) and (max-width: 1899px) { .entete { --menu-taille: 1.16rem; } }
-@media (min-width: 901px) and (max-width: 1799px) { .entete { --menu-taille: 1.08rem; } }
-@media (min-width: 901px) and (max-width: 1699px) { .entete { --menu-taille: 1.01rem; } }
-@media (min-width: 901px) and (max-width: 1599px) { .entete { --menu-taille: 0.89rem; } }
-@media (min-width: 901px) and (max-width: 1439px) { .entete { --menu-taille: 0.83rem; } }
-@media (min-width: 901px) and (max-width: 1365px) { .entete { --menu-taille: 0.77rem; } }
-@media (min-width: 901px) and (max-width: 1279px) { .entete { --menu-taille: 0.68rem; } }
-@media (min-width: 901px) and (max-width: 1099px) { .entete { --menu-taille: 0.6rem; } }
-@media (min-width: 901px) and (max-width: 999px) { .entete { --menu-taille: 0.52rem; } }
+@media (min-width: 901px) and (max-width: 1999px) { .entete { --menu-taille: 1.11rem; } }
+@media (min-width: 901px) and (max-width: 1899px) { .entete { --menu-taille: 1.04rem; } }
+@media (min-width: 901px) and (max-width: 1799px) { .entete { --menu-taille: 0.97rem; } }
+@media (min-width: 901px) and (max-width: 1699px) { .entete { --menu-taille: 0.91rem; } }
+@media (min-width: 901px) and (max-width: 1599px) { .entete { --menu-taille: 0.8rem; } }
+@media (min-width: 901px) and (max-width: 1439px) { .entete { --menu-taille: 0.75rem; } }
+@media (min-width: 901px) and (max-width: 1365px) { .entete { --menu-taille: 0.69rem; } }
+@media (min-width: 901px) and (max-width: 1279px) { .entete { --menu-taille: 0.61rem; } }
+@media (min-width: 901px) and (max-width: 1099px) { .entete { --menu-taille: 0.54rem; } }
+@media (min-width: 901px) and (max-width: 999px) { .entete { --menu-taille: 0.47rem; } }
 
 @media (prefers-reduced-motion: reduce) {
   .menu a, .menu a::after, .menu-lateral a { transition: none; }
