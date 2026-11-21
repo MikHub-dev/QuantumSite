@@ -16,7 +16,13 @@ Site aide-mémoire sur les notions de la quantique.
 - **Fiches Mathématiques** (`fiches-mathematiques.html`) : 100 flashcards « Outils mathématiques de la quantique », chacune avec sa formule, sa définition et une illustration SVG calculée, réparties en seize thèmes.
 - **Spin** (`spin.html`) : le spin d'une particule, de l'image de la toupie-boussole (infographie de ses usages : IRM, disques durs, aimants, chimie, qubits) à la précession de Larmor, la définition, l'exemple de l'électron et la sphère de Bloch, deux précisions sur la mesure et la superposition, et le tableau des spins des particules élémentaires.
 - **Satellites quantiques** (`satellites-quantiques.html`) : cours interactif pour lycéens, « Internet quantique par satellite » : la fibre et ses pertes (avec un calculateur), le satellite comme relais, l'intrication, la QKD et le protocole BB84 (avec un simulateur qui montre l'espion), les limites techniques, les attaques sur les détecteurs et la MDI-QKD, le débat QKD ou cryptographie post-quantique, les projets européens (TeQuantS, QINSAT, QKD-GEO, SAGA, Eagle-1, état au 21 novembre 2026), puis fiches, cartes à retourner, quiz de 25 questions, questions ouvertes et sources. Page autonome à quatre onglets (Cours, Fiches, Quiz, Sources).
+- **Frise** (`frise.html`) : le parcours de la mécanique quantique en quatorze étapes, de Planck (1900) au qubit (SVG animé `images/parcours-quantique/00-parcours.svg`, pleine largeur). Chaque étape ouvre sa planche animée (`frise-NN-nom.html`, SVG `NN-nom.svg` du même dossier), avec étape précédente / suivante (aussi par les flèches du clavier) et, pour les étapes 1 à 9, un lien vers la fiche vidéo correspondante.
+- **Fiches vidéo Heisenberg** (`video-heisenberg-1.html`, `video-heisenberg-2.html`, `css/fiche-video.css`) : synthèse, conclusion, chapitres chronométrés (liens YouTube à la minute) et précautions des deux vidéos « Heisenberg » de Photons Jumeaux ; accessibles depuis la page Vidéos et la frise.
 - **Vidéos** (`videos.html`) : une carte titrée par lien YouTube (trois vidéos, dont un short sur l'intrication, et la recherche « quantique » sur la chaîne de l'École polytechnique), qui s'ouvre dans un nouvel onglet.
+
+## Menus
+
+- Menu horizontal (en haut) et menu vertical (à l'extrême gauche : Frise, Fiches Quantiques, Fiches Mathématiques, Fiches Informatiques, Axiomisation) sont présents sur toutes les pages. Le menu vertical est recopié à l'identique dans chaque page ; la recherche lit les deux menus.
 
 ## Utilisation
 
