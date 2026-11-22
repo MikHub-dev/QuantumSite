@@ -1,4 +1,4 @@
-// Version : 1.2
+// Version : 1.3
 /* =====================================================================
    QuantumSite — recherche unique du site (barre à droite du menu horizontal)
    ---------------------------------------------------------------------
@@ -20,7 +20,8 @@
    par-dessus la page courante ; Échap ou « Fermer » les referme.
 
    L'index est construit automatiquement à partir du site lui-même : les pages du menu
-   horizontal et les fichiers donnees/*.js qu'elles chargent. Une page ou une fiche
+   horizontal, les fichiers donnees/*.js qu'elles chargent, et les sous-pages liées
+   depuis ces pages (planches de la frise, fiches vidéo…), avec le texte de leurs SVG. Une page ou une fiche
    ajoutée au site est donc trouvée sans rien changer ici.
    (Il faut que le site soit servi par un serveur web, comme GitHub Pages ; ouvert en
    fichier local, seules les entrées du menu sont trouvées.)
@@ -257,6 +258,63 @@
       }
 
       // 3) Pages de texte : chaque partie qui porte un id et un titre h2.
+      indexerParties(doc, lien.label, titrePage.trim() === lien.label ? lien.label : `${lien.label} › ${titrePage.trim()}`, lien.url);
+    }
+
+    // 4) Sous-pages : pages du site liées depuis les pages déjà lues mais absentes des menus
+    //    (planches de la frise et du confinement, fiches vidéo…), lues de proche en proche.
+    const vues = new Set(pages.map(p => p.lien.url.pathname));
+    let vague = pages.filter(p => p.doc).map(p => ({ doc: p.doc, url: p.lien.url, label: p.lien.label }));
+    for (let tour = 0; tour < 3 && vague.length; tour++) {
+      const aLire = [];
+      const suivre = (href, base, label) => {
+        const u = urlPage(new URL(href, base).href);
+        if (!u || vues.has(u.pathname)) return;
+        vues.add(u.pathname);
+        aLire.push({ url: new URL(u.pathname, u), label });
+      };
+      for (const { doc, url, label } of vague) {
+        doc.querySelectorAll("a[href]").forEach(a => suivre(a.getAttribute("href"), url, label));
+        // Liens portés par les SVG animés (parcours de la frise, du confinement…).
+        for (const o of doc.querySelectorAll('main object[data*=".svg"]')) {
+          try {
+            const svgUrl = new URL(o.getAttribute("data"), url);
+            const code = await chargerTexte(svgUrl.href);
+            for (const m of code.matchAll(/href="([^"#]+\.html)[^"]*"/g)) suivre(m[1], svgUrl, label);
+          } catch (e) { /* SVG absent */ }
+        }
+      }
+      vague = (await Promise.all(aLire.map(async l => {
+        try { return { doc: analyseur.parseFromString(await chargerTexte(l.url.href), "text/html"), url: l.url, label: l.label }; }
+        catch (e) { return null; }
+      }))).filter(Boolean);
+      for (const { doc, url, label } of vague) {
+        const titre = ((doc.querySelector("main h1") || {}).textContent || "").replace(/\s+/g, " ").trim()
+          || (doc.title || "").replace(/^\s*QuantumSite\s*[—–-]\s*|\s*[—–-]\s*QuantumSite\s*$/g, "").trim() || label;
+        if (indexerParties(doc, label, `${label} › ${titre}`, url)) continue;
+        // Page sans parties titrées (planche animée…) : une entrée pour toute la page,
+        // avec le texte de ses illustrations SVG.
+        const main = doc.querySelector("main") || doc.body;
+        if (!main) continue;
+        const fields = [];
+        main.querySelectorAll("nav, script, style").forEach(n => n.remove());
+        const texte = main.textContent.replace(/\s+/g, " ").trim();
+        if (texte && texte !== titre) fields.push({ label: "Page", text: texte });
+        for (const o of main.querySelectorAll('object[data*=".svg"], img[src*=".svg"]')) {
+          try {
+            const svg = analyseur.parseFromString(await chargerTexte(new URL(o.getAttribute("data") || o.getAttribute("src"), url).href), "image/svg+xml");
+            const t = [...svg.querySelectorAll("text, title, desc")].map(n => n.textContent.replace(/\s+/g, " ").trim()).filter(Boolean).join(" · ");
+            if (t) fields.push({ label: "Illustration", text: t });
+          } catch (e) { /* illustration absente */ }
+        }
+        add("pages", { label: titre, tag: label, tagClass: "tag-page", path: `${label} › ${titre}`, fields, url: url.pathname.split("/").pop() });
+      }
+    }
+    return idx;
+
+    // Ajoute une entrée par partie (élément avec un id et un titre h2) ; renvoie le nombre d'entrées.
+    function indexerParties(doc, label, path, url) {
+      let n = 0;
       doc.querySelectorAll("main [id]").forEach(partie => {
         const h2 = partie.querySelector(":scope > h2, :scope > header h2");
         if (!h2) return;
@@ -271,13 +329,13 @@
           fields.push({ label: el.classList.contains("question") ? "Question" : rubrique, text: texte });
         });
         add("pages", {
-          label: h2.textContent.replace(/\s+/g, " ").trim(), tag: lien.label, tagClass: "tag-page",
-          path: titrePage.trim() === lien.label ? lien.label : `${lien.label} › ${titrePage.trim()}`,
-          fields, url: lien.url.pathname.split("/").pop() + "#" + partie.id
+          label: h2.textContent.replace(/\s+/g, " ").trim(), tag: label, tagClass: "tag-page",
+          path, fields, url: url.pathname.split("/").pop() + "#" + partie.id
         });
+        n++;
       });
+      return n;
     }
-    return idx;
   }
 
   function obtenirIndex() {
