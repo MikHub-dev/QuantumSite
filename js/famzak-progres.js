@@ -1,4 +1,4 @@
-/* famzak-progres.js — progression des jeux liée au code élève, commune aux sites FamZakSites (v1.0).
+/* famzak-progres.js — progression des jeux liée au code ZF, commune aux sites FamZakSites (v1.0).
    RoutineSite n'en a pas besoin : ses jours faits sont déjà sur le serveur (commun.js).
    Le même fichier est copié dans chaque site. On le charge avec l'attribut data-site :
      <script src="famzak-progres.js" data-site="iasite"></script>
@@ -128,8 +128,8 @@
     if (e) etat = e;
     if (!bouton) return;
     var s = lireSession();
-    bouton.textContent = !s ? "👤 Mon code élève" : "👤 " + s.code + (etat === "envoi" ? " · envoi…" : etat === "hors-ligne" ? " · hors ligne" : " · ✓");
-    bouton.title = !s ? "Entrer mon code pour garder mes progrès sur tous les appareils"
+    bouton.textContent = !s ? "👤 Mon code ZF" : "👤 " + s.code + (etat === "envoi" ? " · envoi…" : etat === "hors-ligne" ? " · hors ligne" : " · ✓");
+    bouton.title = !s ? "Entrer mon code ZF pour garder mes progrès sur tous les appareils"
       : etat === "hors-ligne" ? "Le serveur ne répond pas : les progrès sont gardés sur l'appareil et seront envoyés plus tard."
       : "Progrès enregistrés sous ce code, sur tous les appareils et les six sites.";
   }
@@ -139,7 +139,7 @@
     fenetre.className = "fzp-fen";
     fenetre.innerHTML = s
       ? '<div class="fzp-boite" role="dialog" aria-modal="true" aria-labelledby="fzp-t"><h2 id="fzp-t">Code ' + s.code + '</h2><p>Tes quiz, badges et défis sont enregistrés sous ce code : tu les retrouves sur les six sites et sur n\'importe quel appareil.</p><button type="button" data-a="sortir" class="alt">Changer d\'élève</button><button type="button" data-a="fermer">Fermer</button></div>'
-      : '<div class="fzp-boite" role="dialog" aria-modal="true" aria-labelledby="fzp-t"><h2 id="fzp-t">Mon code élève</h2><p>Le code remis par ton enseignant (le même que sur MathSite et RoutineSite). Tes quiz, badges et défis seront gardés sous ce code, sur tous les appareils.</p><input type="text" autocomplete="off" spellcheck="false" placeholder="TON CODE" aria-label="Code élève"><div class="fzp-err" role="alert"></div><button type="button" data-a="entrer">Entrer</button><button type="button" data-a="fermer" class="alt">Annuler</button></div>';
+      : '<div class="fzp-boite" role="dialog" aria-modal="true" aria-labelledby="fzp-t"><h2 id="fzp-t">Mon code ZF</h2><p>Le code ZF remis par ton enseignant (le même que sur MathSite et RoutineSite). Tes quiz, badges et défis seront gardés sous ce code, sur tous les appareils.</p><input type="text" autocomplete="off" spellcheck="false" placeholder="TON CODE" aria-label="Code ZF"><div class="fzp-err" role="alert"></div><button type="button" data-a="entrer">Entrer</button><button type="button" data-a="fermer" class="alt">Annuler</button></div>';
     document.body.appendChild(fenetre);
     var champ = fenetre.querySelector("input");
     if (champ) { champ.focus(); champ.addEventListener("keydown", function (e) { if (e.key === "Enter") entrer(); }); }
