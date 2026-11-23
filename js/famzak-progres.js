@@ -138,8 +138,8 @@
     fenetre = document.createElement("div");
     fenetre.className = "fzp-fen";
     fenetre.innerHTML = s
-      ? '<div class="fzp-boite" role="dialog" aria-modal="true" aria-labelledby="fzp-t"><h2 id="fzp-t">Code ' + s.code + '</h2><p>Tes quiz, badges et défis sont enregistrés sous ce code : tu les retrouves sur les six sites et sur n\'importe quel appareil.</p><button type="button" data-a="sortir" class="alt">Changer d\'élève</button><button type="button" data-a="fermer">Fermer</button></div>'
-      : '<div class="fzp-boite" role="dialog" aria-modal="true" aria-labelledby="fzp-t"><h2 id="fzp-t">Mon code ZF</h2><p>Le code ZF remis par ton enseignant (le même que sur MathSite et RoutineSite). Tes quiz, badges et défis seront gardés sous ce code, sur tous les appareils.</p><input type="text" autocomplete="off" spellcheck="false" placeholder="TON CODE" aria-label="Code ZF"><div class="fzp-err" role="alert"></div><button type="button" data-a="entrer">Entrer</button><button type="button" data-a="fermer" class="alt">Annuler</button></div>';
+      ? '<div class="fzp-boite" role="dialog" aria-modal="true" aria-labelledby="fzp-t"><h2 id="fzp-t">Code ' + s.code + '</h2><p>Tes quiz, badges et défis sont enregistrés sous ce code : tu les retrouves sur les six sites et sur n\'importe quel appareil.</p><button type="button" data-a="sortir" class="alt">Changer de code ZF</button><button type="button" data-a="fermer">Fermer</button></div>'
+      : '<div class="fzp-boite" role="dialog" aria-modal="true" aria-labelledby="fzp-t"><h2 id="fzp-t">Mon code ZF</h2><p>Le code ZF remis par ton enseignant (le même que sur MathSite et RoutineSite). Tes quiz, badges et défis seront gardés sous ce code, sur tous les appareils.</p><input type="text" autocomplete="off" spellcheck="false" placeholder="CODE ZF" aria-label="Code ZF"><div class="fzp-err" role="alert"></div><button type="button" data-a="entrer">Entrer</button><button type="button" data-a="fermer" class="alt">Annuler</button></div>';
     document.body.appendChild(fenetre);
     var champ = fenetre.querySelector("input");
     if (champ) { champ.focus(); champ.addEventListener("keydown", function (e) { if (e.key === "Enter") entrer(); }); }
@@ -156,7 +156,7 @@
     var champ = fenetre.querySelector("input"), err = fenetre.querySelector(".fzp-err"), code = normaliser(champ.value);
     if (code.length < 6) { err.textContent = "Le code a au moins 6 caractères."; return; }
     err.textContent = "Vérification…";
-    var essais = ["5e", "seconde"], i = 0;
+    var essais = ["5e", "seconde", "famille"], i = 0;
     (function essai() {
       var s = { classe: essais[i], code: code };
       appeler("/progres/lire", s).then(function () {
@@ -176,6 +176,8 @@
       silence = false;
       ecrireSession(null);
       try { ss.removeItem("routinesite:code"); } catch (e) {}
+      // Changer de code = se déconnecter de tous les sites et du portail (verrou code ZF)
+      if (window.FamZakVerrou && FamZakVerrou.deconnecter) return FamZakVerrou.deconnecter();
       location.reload();
     });
   }
