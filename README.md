@@ -73,3 +73,5 @@ bash scripts/synch_agent.sh run
 - **Mini-quiz des fiches** : sur les quatre pages de flashcards, « 🎯 Mini-quiz » (ou « Quiz du thème » dans un paquet, adresse `#quiz/<thème>`) affiche 10 définitions au hasard, à relier à la bonne notion parmi 4. Une erreur met la fiche « À revoir ». Meilleur score gardé sur l'appareil.
 - **Défi du confinement** : la planche 6 du parcours du confinement a un bouton « 🎯 Relever le défi » (6 questions, une par étape ; badge « Gardien des quarks » sans faute).
 - Moteur commun : `js/quiz-famzak.js`, le même fichier que sur les autres sites FamZakSites.
+
+Progression liée au code élève : `famzak-progres.js` (même fichier sur les sites FamZakSites) envoie les progrès des jeux au serveur de suivi de RoutineSite (routes `/progres/…`, Worker 1.6) sous le code de l'élève, saisi une fois (bouton 👤 en bas à droite). Sans code, tout reste sur l'appareil.
