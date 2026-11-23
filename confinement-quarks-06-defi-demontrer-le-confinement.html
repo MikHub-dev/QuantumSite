@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2.13">
+  <link rel="stylesheet" href="css/style.css?v=2.14">
   <link rel="stylesheet" href="css/recherche.css?v=1.3">
 </head>
 <body class="page-frise page-planche">
@@ -54,12 +54,39 @@
     <object class="frise-svg" type="image/svg+xml" data="images/confinement-quarks/06-defi-demontrer-le-confinement.svg?v=1.2" aria-label="Étape 6 : Le défi : démontrer le confinement"></object>
     <nav class="planche-nav" aria-label="Étapes du parcours">
     <a class="pn-lien" href="confinement-quarks-05-plasma-quarks-gluons.html" rel="prev">&larr; Étape 5</a>
-    <span class="pn-milieu"><a class="pn-lien" href="confinement-quarks.html">Parcours</a> <a class="pn-lien pn-fiche" href="confinement-quarks-fiche.html#etape-6">Explication et fiche vidéo</a></span>
+    <span class="pn-milieu"><a class="pn-lien" href="confinement-quarks.html">Parcours</a> <a class="pn-lien pn-fiche" href="confinement-quarks-fiche.html#etape-6">Explication et fiche vidéo</a> <button class="pn-lien pn-defi" type="button" id="ouvrir-defi">🎯 Relever le défi</button></span>
     <a class="pn-lien" href="confinement-quarks.html" rel="next">Parcours &rarr;</a>
     </nav>
   </main>
 
   <script src="js/recherche.js?v=1.3"></script>
+  <dialog class="defi-dialog" id="defi" aria-labelledby="defi-titre">
+    <button class="defi-fermer" type="button" aria-label="Fermer" onclick="this.closest('dialog').close()">✕</button>
+    <h2 id="defi-titre">Le défi du confinement</h2>
+    <p class="defi-intro">Personne n'a encore démontré le confinement. Toi, montre au moins que tu as compris pourquoi on y croit : 6 questions, une par étape du parcours. Sans faute, tu gagnes le badge 🔒 « Gardien des quarks ».</p>
+    <div id="defi-quiz"></div>
+    <p class="defi-badge" id="defi-badge" hidden>🔒 Badge « Gardien des quarks » gagné sur cet appareil.</p>
+  </dialog>
+  <script src="js/quiz-famzak.js?v=1.0"></script>
+  <script>
+  (function () {
+    var Q = [
+      { q: "Étape 1 · Qu'est-ce qui tient les quarks ensemble dans un proton ?", o: ["L'interaction forte, portée par les gluons", "La gravité", "L'électricité, portée par les photons"], a: 0, e: "L'interaction forte est l'une des quatre forces fondamentales ; ses messagers sont les gluons." },
+      { q: "Étape 2 · Que fait la force forte quand on écarte deux quarks ?", o: ["Elle diminue, comme la gravité", "Elle augmente, comme un élastique : V(r) ≈ σ·r", "Elle disparaît d'un coup"], a: 1, e: "C'est le contraire de la gravité et de l'électricité ; de près, la force est faible (liberté asymptotique)." },
+      { q: "Étape 3 · Que se passe-t-il quand « l'élastique » casse ?", o: ["Un quark s'échappe seul", "L'énergie crée une nouvelle paire quark–antiquark (E = mc²)", "Le proton explose en photons"], a: 1, e: "On obtient de nouveaux hadrons (hadronisation), vus comme des jets dans les collisionneurs, jamais un quark isolé." },
+      { q: "Étape 4 · Laquelle de ces associations est « blanche » (neutre en couleur) ?", o: ["Rouge + vert", "Rouge + antirouge", "Bleu seul"], a: 1, e: "Un quark et un antiquark d'anticouleur forment un méson ; trois couleurs différentes forment un baryon." },
+      { q: "Étape 5 · Dans quel cas les quarks ne sont-ils plus enfermés ?", o: ["Dans le plasma de quarks et de gluons, à température et densité extrêmes", "Dans un aimant très puissant", "Dans le vide, à basse température"], a: 0, e: "Juste après le Big Bang ou dans des collisions d'ions lourds : un état « déconfiné », très transitoire." },
+      { q: "Étape 6 · Où en est la démonstration du confinement ?", o: ["Démontré en 1973", "Observé partout, mais pas encore démontré à partir des équations de la QCD", "Réfuté par le CERN"], a: 1, e: "C'est l'un des problèmes du millénaire de l'Institut Clay, avec un million de dollars à la clé." }
+    ];
+    var dlg = document.getElementById("defi"), cle = "quantum:defi-confinement", monte = false;
+    function badge() { var m = window.FamZakQuiz && FamZakQuiz.meilleur(cle); document.getElementById("defi-badge").hidden = !(m && m.score === m.total); }
+    document.getElementById("ouvrir-defi").addEventListener("click", function () {
+      if (!monte && window.FamZakQuiz) { FamZakQuiz.monter(document.getElementById("defi-quiz"), { cle: cle, questions: Q, melanger: false, surFin: badge }); monte = true; }
+      badge(); dlg.showModal();
+    });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+  })();
+  </script>
 
   <script>
   document.addEventListener('keydown', function (ev) {

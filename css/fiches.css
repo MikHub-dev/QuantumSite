@@ -535,3 +535,13 @@
 @media (prefers-reduced-motion: reduce) {
   .carte-interieur, .paquet-progression span, .vignette, .bouton { transition: none; }
 }
+
+/* Mini-quiz (v1.4) */
+.quiz-bandeau { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin: 0 0 12px; }
+.quiz-bandeau span { font-size: .9em; opacity: .8; }
+.bouton-quiz { margin-left: auto; }
+.vue-quiz .paquet { max-width: 760px; margin: 0 auto; }
+.vue-quiz .quiz-zone { font-size: 1.02em; }
+.quiz-def .carte-formule { display: block; margin-bottom: 6px; }
+.vue-quiz .fzq-q small { font-weight: 400; opacity: .7; }
+.vue-quiz .fzq-retour a { color: inherit; text-decoration: underline; }

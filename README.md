@@ -67,3 +67,9 @@ bash scripts/synch_agent.sh run
 ```
 
 `plan` affiche les ajouts et modifications sans les appliquer. `run` applique les changements, sauvegarde les versions remplacées dans `_inbox/.sauvegardes/`, crée un commit et le pousse sur la branche courante. Les sources traitées sont conservées dans `_inbox/.traites/`. Pour annuler le dernier commit de synchronisation, lancez `bash scripts/synch_agent.sh annuler`.
+
+## Jeu
+
+- **Mini-quiz des fiches** : sur les quatre pages de flashcards, « 🎯 Mini-quiz » (ou « Quiz du thème » dans un paquet, adresse `#quiz/<thème>`) affiche 10 définitions au hasard, à relier à la bonne notion parmi 4. Une erreur met la fiche « À revoir ». Meilleur score gardé sur l'appareil.
+- **Défi du confinement** : la planche 6 du parcours du confinement a un bouton « 🎯 Relever le défi » (6 questions, une par étape ; badge « Gardien des quarks » sans faute).
+- Moteur commun : `js/quiz-famzak.js`, le même fichier que sur les autres sites FamZakSites.

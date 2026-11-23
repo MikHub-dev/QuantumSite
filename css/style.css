@@ -304,3 +304,12 @@ html:has(.frise), body.page-frise { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .menu a, .menu a::after, .menu-lateral a { transition: none; }
 }
+
+/* Défi interactif (planche 6 du confinement) */
+.pn-defi { font: inherit; cursor: pointer; background: rgba(243,207,122,.12); border: 1px solid rgba(243,207,122,.6); color: inherit; border-radius: 999px; padding: 2px 12px; }
+.defi-dialog { max-width: 640px; width: calc(100% - 32px); max-height: calc(100vh - 40px); overflow: auto; border: 1px solid rgba(255,255,255,.18); border-radius: 16px; background: #0e1726; color: #e8eef8; padding: 22px 24px; }
+.defi-dialog::backdrop { background: rgba(3,8,18,.72); }
+.defi-dialog h2 { margin: 0 0 6px; }
+.defi-intro { opacity: .85; margin: 0 0 6px; }
+.defi-fermer { position: absolute; top: 10px; right: 12px; background: none; border: 0; color: inherit; font-size: 20px; cursor: pointer; }
+.defi-badge { margin: 8px 0 0; padding: 8px 12px; border-radius: 10px; background: rgba(243,207,122,.14); border: 1px solid rgba(243,207,122,.6); }

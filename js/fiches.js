@@ -1,4 +1,4 @@
-// Version : 1.3
+// Version : 1.4
 /* =====================================================================
    QuantumSite — moteur des pages de fiches
    ---------------------------------------------------------------------
@@ -9,6 +9,8 @@
    Le thème ouvert est noté dans l'adresse (#mesure), ce qui fait marcher
    le bouton Précédent du navigateur et les liens directs.
    Les marques « Je la connais » / « À revoir » restent dans le navigateur.
+   - la vue « quiz » (#quiz ou #quiz/<thème>) : 10 définitions, trouver la notion parmi 4
+     (moteur js/quiz-famzak.js) ; une erreur met la fiche « À revoir ».
    ===================================================================== */
 (function () {
   "use strict";
@@ -109,6 +111,7 @@
           </p>
         </div>
         ${jeu.preambule ? `<p class="themes-preambule">${jeu.preambule}</p>` : ""}
+        ${quizBandeau()}
         <ul class="grille-vignettes">${vignettes}</ul>
       </div>`;
     disposerVignettes();
@@ -197,6 +200,7 @@
           <a class="bouton-retour" href="#">Retour aux thèmes</a>
           <h1 class="paquet-titre"><span class="paquet-symbole" aria-hidden="true">${jeu.symboles[theme] || ""}</span>${theme}</h1>
           <span class="paquet-compteur" aria-live="polite"></span>
+          ${window.FamZakQuiz && theme !== A_REVOIR ? `<a class="bouton bouton-quiz" href="#quiz/${slug(theme)}">🎯 Quiz du thème</a>` : ""}
         </div>
         <div class="paquet-progression" aria-hidden="true"><span></span></div>
         <div class="paquet-scene"></div>
@@ -379,6 +383,59 @@
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.3) aller(dx < 0 ? 1 : -1);
   }, { passive: true });
 
+  /* ================= Vue « quiz » ================= */
+  // 10 fiches au hasard (ou toutes si le thème en a moins) : la définition s'affiche,
+  // il faut retrouver la notion parmi 4. Le nom de la notion est masqué dans la définition.
+  const cleQuiz = theme => "quantum:" + jeu.cle + ":" + slug(theme);
+  const tirer = (l, k) => { l = l.slice(); for (let i = l.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [l[i], l[j]] = [l[j], l[i]]; } return l.slice(0, k); };
+  const sansAcc = t => String(t).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  function masquer(def, terme) {
+    const brut = String(terme).replace(/<[^>]+>/g, "").replace(/\s*\(.*?\)\s*/g, " ").trim();
+    if (brut.length < 4) return def;
+    const mots = sansAcc(brut).split(/\s+/).filter(m => m.length > 3);
+    let out = def;
+    mots.forEach(m => {
+      out = out.replace(/(<[^>]*>)|([\p{L}][\p{L}’'-]*)/gu, (x, tag, mot) => tag ? tag : (sansAcc(mot).startsWith(m.slice(0, Math.max(4, m.length - 2))) ? "……" : mot));
+    });
+    return out;
+  }
+  function questionsQuiz(theme) {
+    const pool = cartesDuTheme(theme === A_REVOIR ? TOUTES : theme);
+    return tirer(pool, Math.min(10, pool.length)).map(c => {
+      const voisins = cartes.filter(x => x.theme === c.theme && x !== c);
+      const autres = tirer(voisins.length >= 3 ? voisins : cartes.filter(x => x !== c), 3);
+      return {
+        q: `<span class="quiz-def">${c.fx ? `<span class="carte-formule">${c.fx}</span> ` : ""}${masquer(c.def, c.term)}</span><br><small>Quelle est cette notion ?</small>`,
+        o: [c.term].concat(autres.map(x => x.term)), a: 0,
+        e: ` Fiche n° ${c.n} (${c.theme}) : <a href="#${slug(c.theme)}/${c.n}">la revoir</a>.`, carte: c
+      };
+    });
+  }
+  function quizBandeau() {
+    if (!window.FamZakQuiz) return "";
+    const m = FamZakQuiz.meilleur(cleQuiz(TOUTES));
+    return `<p class="quiz-bandeau"><a class="bouton bouton-principal" href="#quiz">🎯 Mini-quiz : 10 définitions au hasard</a>
+      <span>${m ? "Meilleur score : " + m.score + " / " + m.total : "Retrouve la notion à partir de sa définition. Une erreur met la fiche « À revoir »."}</span></p>`;
+  }
+  function ouvrirQuiz(theme) {
+    document.title = "QuantumSite — Quiz " + theme;
+    racine.className = "fiches vue-quiz";
+    racine.innerHTML = `
+      <div class="paquet">
+        <div class="paquet-barre">
+          <a class="bouton-retour" href="#">Retour aux thèmes</a>
+          <h1 class="paquet-titre"><span class="paquet-symbole" aria-hidden="true">🎯</span>Quiz · ${theme}</h1>
+          ${theme !== TOUTES ? `<a class="bouton" href="#${slug(theme)}">Réviser les fiches</a>` : ""}
+        </div>
+        <div class="quiz-zone"></div>
+      </div>`;
+    window.scrollTo(0, 0);
+    FamZakQuiz.monter(racine.querySelector(".quiz-zone"), {
+      cle: cleQuiz(theme), questions: questionsQuiz(theme), melanger: false,
+      surReponse: (q, ok) => { if (!ok && q.carte) { marques[q.carte.n] = "rev"; ecrireMarques(); } }
+    });
+  }
+
   /* ---------- Navigation par l'adresse ---------- */
 
   function router() {
@@ -386,6 +443,7 @@
     // #theme ouvre le paquet du thème ; #theme/12 l'ouvre directement sur la fiche n° 12
     // (liens produits par la recherche du site).
     const [cle, numero] = decodeURIComponent(location.hash.replace(/^#/, "")).split("/");
+    if (cle === "quiz" && window.FamZakQuiz) { ouvrirQuiz(themeParSlug[numero] || TOUTES); return; }
     const theme = themeParSlug[cle];
     if (theme) ouvrirPaquet(theme, numero); else afficherThemes();
   }
