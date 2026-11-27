@@ -1,4 +1,4 @@
-/* Version : 2.9 */
+/* Version : 2.10 */
 /* ===== QuantumSite — feuille de style commune ===== */
 
 :root {
@@ -191,6 +191,24 @@ body { padding-left: var(--largeur-lateral); }
   width: 100%;
   height: 100%;
   min-height: 0;
+}
+
+/* Bandeau « Dernière réussite de la famille » (mur des réussites) : il prend sa propre
+   place sous l'en-tête et l'illustration descend d'autant, sans rétrécir. La page gagne
+   alors un ascenseur vertical ; sans bandeau (rien à montrer), rien ne change. */
+.scene { flex-direction: column; }
+.scene #famzak-mur-bandeau { flex: none; }
+.scene:has(#famzak-mur-bandeau:not([hidden])) {
+  height: auto;
+  min-height: 100%;
+  overflow: visible;
+}
+.scene:has(#famzak-mur-bandeau:not([hidden])) .scene-svg {
+  flex: none;
+  height: calc(100vh - var(--hauteur-entete));
+}
+@supports (height: 100dvh) {
+  .scene:has(#famzak-mur-bandeau:not([hidden])) .scene-svg { height: calc(100dvh - var(--hauteur-entete)); }
 }
 
 /* ---------- Page Frise et planches : le SVG remplit toute la largeur ---------- */
